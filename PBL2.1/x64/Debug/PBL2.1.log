@@ -1,0 +1,21 @@
+﻿  CinemaRoom.cpp
+  CinemaRoomManager.cpp
+  Director.cpp
+  DirectorManager.cpp
+  Film.cpp
+  FilmManager.cpp
+  Infor.cpp
+  Inforrl.cpp
+  main.cpp
+  Manager.cpp
+  Menu.cpp
+  Salary.cpp
+  Schedule.cpp
+  ScheduleManager.cpp
+  Staff.cpp
+  StaffManager.cpp
+  Ticket.cpp
+  TicketManager.cpp
+  Time.cpp
+  Generating Code...
+  PBL2.1.vcxproj -> D:\visual\PBL2.1\x64\Debug\PBL2.1.exe
