@@ -10,6 +10,7 @@ class FilmManager : public Manager<Film>
 public:
 	void findByName(string&);
 	Film setFilmInfor();
+	bool checkName(string&);
 	void update();
 	void readFile(fstream&);
 	void writeFile(fstream&);

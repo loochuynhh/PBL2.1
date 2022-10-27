@@ -48,6 +48,12 @@ Schedule ScheduleManager::setScheduleInfor() {
 			cout << "\n\t\t2. Thoat\n";
 			cin >> check;
 		}
+		else if (this->cinemaRoomManager->findById(cinemaRoomId)->getStatus() == "bad") {
+			cout << "Phong chieu dang co van de!. Lua chon" << endl;
+			cout << "\n\t\t1. Nhap lai";
+			cout << "\n\t\t2. Thoat\n";
+			cin >> check;
+		}
 		else check = 3;
 		cin.ignore();
 	} while (check == 1 || check == 0);
@@ -55,14 +61,14 @@ Schedule ScheduleManager::setScheduleInfor() {
 		schedule.setId("null");
 		return schedule;
 	}
-	cout << "Nhap ca so: " << endl;
 	getShow();
+	cout << "Nhap ca so: " << endl;
 	cin >> show;
 	while (show < 1 || show > 5)
 	{
 		cout << "So ca khong hop le!" << endl;
-		cout << "Nhap ca so: ";
 		getShow();
+		cout << "Nhap ca so: " << endl;
 		cin >> show;
 	}	
 	cout << "Nhap ngay chieu: ";
@@ -115,7 +121,10 @@ void ScheduleManager::update() {
 					if(this->filmManager->findById(up) == nullptr) {
 						check = 1;
 					}
-				} while(this->filmManager->findById(up) == nullptr);	
+					else {
+						check = 0;
+					}
+				} while(check != 0);	
 				schedule->setFilmId(up);
 				break;
 			}
@@ -125,12 +134,21 @@ void ScheduleManager::update() {
 					if(check == 1) {
 						cout << "Khong tim thay phong!" << endl;
 					}
+					else if(check == 2) {
+						cout << "Phong chieu dang co van de, vui long chon phong khac!" << endl;
+					}
 					cout << "Nhap ma phong: ";
 					getline(cin, up);
 					if(this->cinemaRoomManager->findById(up) == nullptr) {
 						check = 1;
 					}
-				} while(this->cinemaRoomManager->findById(up) == nullptr);
+					else if(this->cinemaRoomManager->findById(up)->getStatus() == "bad") {
+						check = 2;
+					}
+					else  {
+						check = 0;
+					}
+				} while(check != 0);
 				schedule->setCinemaRoomId(up);
 				this->cinemaRoomManager->write();
 				break;
@@ -142,7 +160,7 @@ void ScheduleManager::update() {
 				while (upn < 1 || upn > 5)
 				{
 					cout << "So ca khong hop le!" << endl;
-					cout << "Nhap so ca: ";
+					cout << "Nhap so ca: " << endl;
 					getShow();
 					cin >> upn;
 				}	

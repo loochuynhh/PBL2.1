@@ -1,6 +1,10 @@
 #include "FilmManager.h"
 
 void FilmManager::findByName(string& name) {
+	if(checkName(name) == false) {
+		cout << "Khong tim thay phim!" << endl;
+		return;
+	}
 	for (int x = 0; x < 156; x++) cout << "-"; cout << endl;
 	cout << "|" << left << setw(13) << "    Ma phim" << "|" << left << setw(31) << "\t   Ten phim" << "|" << left << setw(20) << "   Dao dien" << "|" << left << setw(20) << "\tDien vien chinh" << "|" << left << setw(17) << "\tQuoc gia" << "|" << left << setw(20) << "\tThe loai" << "|" << left << setw(15) << "  Thoi gian" << "|" << endl;
 	for (int x = 0; x < 156; x++) cout << "-"; cout << endl;
@@ -10,6 +14,15 @@ void FilmManager::findByName(string& name) {
 	}
 	for (int x = 0; x < 156; x++) cout << "-"; cout << endl;
 }
+
+bool FilmManager::checkName(string& name) {
+	for (int i = 0; i < this->length; i++) {
+		string namecmp = (this->typeList + i)->getName();
+		if (name.compare(namecmp) == 0) return true;
+	}
+	return false;
+}
+
 
 Film FilmManager::setFilmInfor() {
 	string id;

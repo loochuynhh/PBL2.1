@@ -144,7 +144,6 @@ void Menu::stMenu() {
 					cin.ignore();
 					getline(cin, id);
 					if (filmMng.findById(id) == nullptr) {
-						filmMng.del(id);
 						cout << "\n\t\tKhong tim thay phim phu hop.\n";
 					}
 					else {
@@ -162,7 +161,6 @@ void Menu::stMenu() {
 					cin.ignore();
 					getline(cin, id);
 					if (filmMng.findById(id) != nullptr) {
-						filmMng.del(id);
 						cout << "\t\tPhim co ma " << id << " da duoc xoa.\n";
 					}
 					else cout << "\n\t\tKhong tim thay phim phu hop.\n";
@@ -283,6 +281,7 @@ void Menu::stMenu() {
 				else if (tmp == 3) {
 					string id;
 					cout << "\t\tNhap ma lich chieu: ";
+					cin.ignore();
 					getline(cin, id);
 					if (scdMng.findById(id) == nullptr) {
 						cout << "\n\t\tKhong tim thay lich chieu phu hop.\n";
@@ -372,23 +371,27 @@ void Menu::stMenu() {
 					cin >> year;
 					Time t2(date, month, year);
 					tkMng.getRevenue(t1, t2);
+					system("pause");
 				}
 				else if (tmp == 4) {
 					int opt4 = 0;
 					string id;
 					do {
-						cout << "\t\tNhap ma nhan vien: ";
+						cout << "\t\tNhap ma nhan vien: ";fflush(stdin);
 						getline(cin, id);
-						if (tkMng.findById(id) == nullptr) {
+						if (stMng.findById(id) == nullptr) {
 							cout << "\t\tMa nhan vien khong hop le. Moi nhap lai.\n";
-							system("pause");
 							opt4 = 1;
+						} else {
+							opt4 = 0;
 						}
-					} while (opt4 == 0);
+					} while (opt4 == 1);
 					tkMng.getRevenue(id);
+					system("pause");
 				}
 				else if (tmp == 5) {
 					tkMng.getRevenue();
+					system("pause");
 				}
 				else if (tmp == 6) {
 					string id;
