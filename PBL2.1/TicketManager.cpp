@@ -17,6 +17,7 @@ Ticket TicketManager::setTicketInfor() {
 	getline(cin, id);
 	int check = 0;
 	do {
+		this->scheduleList->write();
 		if(check == 1) {
 			cout << "Khong tim thay lich chieu" << endl;
 		}
@@ -30,6 +31,7 @@ Ticket TicketManager::setTicketInfor() {
 	getline(cin, customerPhone);
 	check = 0;
 	do {
+		this->staffManager->write();
 		if(check == 1) {
 			cout << "Khong tim thay nhan vien" << endl;
 		}
