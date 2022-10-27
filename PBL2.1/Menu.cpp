@@ -1,6 +1,6 @@
 #include "Menu.h"
 
-fstream fsst, fsdrt, fsfilm, fscr;
+fstream fsst, fsdrt, fsfilm, fscr, fsscd, fstk;
 StaffManager stMng;
 DirectorManager drtMng;
 FilmManager filmMng;
@@ -17,13 +17,19 @@ void Menu::login() {
 	filmMng.readFile(fsfilm);
 	fscr.open("CinemaRoom.txt", ios::in);
 	cnmMng.readFile(fscr);
+	fsscd.open("Schedule.txt", ios::in);
+	scdMng.readFile(fsscd);
+	fstk.open("Ticket.txt", ios::in);
+	tkMng.readFile(fstk);
 	fsst.close();
 	fsdrt.close();
 	fsfilm.close();
 	fscr.close();
+	fsscd.close();
+	fstk.close();
 	int cnt = 0;
 	do {
-		system("cls"); fflush(stdin);
+		system("cls"); 
 		cout << left << setw(70) << " ";
 		for (int i = 0; i < 35; i++) cout << "-";
 		cout << "\n" << left << setw(70) << " " << "|";
@@ -331,6 +337,10 @@ void Menu::stMenu() {
 			} while (tmp != 0);
 			break;
 		}
+		default: {
+			cout << "Lua chon khong hop le.";
+			break;
+		}
 		}
 	} while (opt != 0);
 }
@@ -431,8 +441,10 @@ void Menu::drtMenu() {
 			} while (opt2 != 0);
 			break;
 		}
-				cout << "Lua chon khong hop le.";
-				break;
+		default: {
+			cout << "Lua chon khong hop le.";
+			break; 
+		}
 		}
 	} while (opt != 0);
 }
