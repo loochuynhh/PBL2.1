@@ -431,7 +431,7 @@ void Menu::drtMenu() {
 			} while (opt2 != 0);
 			break;
 		}
-				cout << "lua chon khong hop le.";
+				cout << "Lua chon khong hop le.";
 				break;
 		}
 	} while (opt != 0);
