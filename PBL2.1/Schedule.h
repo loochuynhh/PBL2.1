@@ -2,6 +2,7 @@
 #define SCHEDULE_H
 #include <iostream>
 #include "Time.h"
+#include <string>
 
 using namespace std;
 
@@ -18,6 +19,9 @@ public:
 	void setShow(const int&);
 	void setTime(const Time&);
 	void setCinemaRoomId(const string&);
+	void readDataFile(fstream&);
+	void writeDataFile(fstream&);
+	void writeData();
 private:
 	string id;
 	string filmId;

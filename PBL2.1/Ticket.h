@@ -1,6 +1,9 @@
 #ifndef TICKET_H
 #define TICKET_H
 #include <iostream>
+#include <string>
+#include <fstream>
+#include <iomanip>
 
 using namespace std;
 
@@ -19,6 +22,9 @@ public:
 	void setCustomerPhone(const string&);
 	void setStaffId(const string&);
 	void setCost(int);
+	void readDataFile(fstream&);
+	void writeDataFile(fstream&);
+	void writeData();
 private:
 	string id;
 	string scheduleId;

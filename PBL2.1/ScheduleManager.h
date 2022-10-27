@@ -11,6 +11,9 @@ public:
 	void getShow();
 	Schedule setScheduleInfor();
 	void update();
+	void readFile(fstream&);
+	void writeFile(fstream&);
+	void write();
 private:
 	FilmManager* filmManager;
 	CinemaRoomManager* cinemaRoomManager;

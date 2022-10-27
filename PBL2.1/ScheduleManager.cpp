@@ -168,3 +168,28 @@ void ScheduleManager::getShow() {
 	cout << "Ca 4: " << "17:00 - 20:00" << endl;
 	cout << "Ca 5: " << "21:00 - 0:00" << endl;
 }
+
+void ScheduleManager::readFile(fstream& filein) {
+	filein >> length;
+	Schedule* schedule = new Schedule[100];
+	for (int i = 0; i < length; i++) {
+		(schedule + i)->readDataFile(filein);
+	}
+	delete[] typeList;
+	typeList = schedule;
+}
+void ScheduleManager::writeFile(fstream& fileout) {
+	fileout << length << "\n";
+	for (int i = 0; i < length; i++) {
+		(typeList + i)->writeDataFile(fileout);
+	}
+}
+void ScheduleManager::write() {
+	for (int x = 0; x < 80; x++) cout << "-"; cout << endl;
+	cout << "|  Ma lich chieu  |   Ma phim   |  Ma phong chieu  |  Ca  |     Ngay chieu     |" << endl;
+	for (int x = 0; x < 80; x++) cout << "-"; cout << endl;
+	for (int i = 0; i < length; i++) {
+		(typeList + i)->writeData();
+	}
+	for (int x = 0; x < 80; x++) cout << "-"; cout << endl;
+}

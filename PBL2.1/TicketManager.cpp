@@ -75,3 +75,28 @@ void TicketManager::getRevenue(string staffId) {
 	}
 	cout << "All in staff: " << revenue << endl;*/
 }
+
+void TicketManager::readFile(fstream& filein) {
+	filein >> length;
+	Ticket* ticket = new Ticket[100];
+	for (int i = 0; i < length; i++) {
+		(ticket + i)->readDataFile(filein);
+	}
+	delete[] typeList;
+	typeList = ticket;
+}
+void TicketManager::writeFile(fstream& fileout) {
+	fileout << length << "\n";
+	for (int i = 0; i < length; i++) {
+		(typeList + i)->writeDataFile(fileout);
+	}
+}
+void TicketManager::write() {
+	for (int x = 0; x < 109; x++) cout << "-"; cout << endl;
+	cout << "|   Ma ve   |  Ma lich chieu  | Ma nhan vien |  SDT khach hang  |          Ten khach hang          | Gia ve |" << endl;
+	for (int x = 0; x < 109; x++) cout << "-"; cout << endl;
+	for (int i = 0; i < length; i++) {
+		(typeList + i)->writeData();
+	}
+	for (int x = 0; x < 109; x++) cout << "-"; cout << endl;
+}

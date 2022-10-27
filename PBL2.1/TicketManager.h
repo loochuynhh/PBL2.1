@@ -12,6 +12,9 @@ public:
 	int getRevenue(Time&, Time&, string);
 	TicketManager(ScheduleManager&, StaffManager&);
 	Ticket setTicketInfor();
+	void readFile(fstream&);
+	void writeFile(fstream&);
+	void write();
 private:
 	ScheduleManager* scheduleList;
 	StaffManager* staffManager;
