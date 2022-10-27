@@ -45,12 +45,13 @@ void FilmManager::update() {
 	getline(cin, id);
 	if (findById(id) == nullptr) {
 		cout << "Khong tim thay!\n";
+		system("pause");
 	}
 	else {
 		int opttmp = 0;
 		Film* film = findById(id);
 		do {
-			cout << "\tCap nhap phim" << endl;
+			cout << "\t\tCap nhap phim" << endl;
 			cout << "1.Sua ten phim" << endl;
 			cout << "2.Sua dao dien" << endl;
 			cout << "3.Sua dien vien" << endl;

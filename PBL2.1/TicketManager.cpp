@@ -12,38 +12,61 @@ Ticket TicketManager::setTicketInfor() {
 	string customerName;
 	string customerPhone;
 	string staffId;
+	int cost;
 	cout << "Nhap id: ";
 	cin.ignore();
 	getline(cin, id);
 	int check = 0;
 	do {
+		system("cls");
 		this->scheduleList->write();
-		if(check == 1) {
-			cout << "Khong tim thay lich chieu" << endl;
-		}
 		cout << "Nhap ma lich chieu: ";
 		getline(cin, scheduleId);
-		if(this->scheduleList->findById(scheduleId) == nullptr) check = 1;
-	} while (this->scheduleList->findById(scheduleId) == nullptr);
+		if (this->scheduleList->findById(scheduleId) == nullptr) {
+			cout << "Khong tim thay lich chieu phu hop!. Lua chon" << endl;
+			cout << "\n\t\t1. Nhap lai";
+			cout << "\n\t\t2. Thoat\n";
+			cin >> check;
+		}
+		else check = 3;
+		cin.ignore();
+	} while (check == 1 || check == 0);
+	if (check == 2) {
+		ticket.setId("null");
+		return ticket;
+	}
 	cout << "Nhap ten khach hang: ";
 	getline(cin, customerName);
 	cout << "Nhap so dien thoai khach hang: ";
 	getline(cin, customerPhone);
 	check = 0;
 	do {
+		system("cls");
 		this->staffManager->write();
-		if(check == 1) {
-			cout << "Khong tim thay nhan vien" << endl;
-		}
 		cout << "Nhap ma nhan vien: ";
 		getline(cin, staffId);
-		if(this->staffManager->findById(staffId) == nullptr) check = 1;
-	} while (this->staffManager->findById(staffId) == nullptr);
+		cout << staffId;
+		if (this->staffManager->findById(staffId) == nullptr) {
+			cout << "Khong tim thay nhan vien!. Lua chon" << endl;
+			cout << "\n\t\t1. Nhap lai";
+			cout << "\n\t\t2. Thoat\n";
+			cin >> check;
+		}
+		else check = 3;
+		cin.ignore();
+	} while (check == 1 || check == 0);
+	if (check == 2) {
+		ticket.setId("null");
+		return ticket;
+	}
+	cout << "Nhap gia ve: ";
+	cin >> cost;
 	ticket.setId(id);
 	ticket.setScheduleId(scheduleId);
 	ticket.setCustomerName(customerName);
 	ticket.setCustomerPhone(customerPhone);
 	ticket.setStaffId(staffId);
+	ticket.setCost(cost);
 	return ticket;
 }
 
@@ -52,30 +75,28 @@ int TicketManager::getRevenue() {
 	for (int i = 0; i < this->length; i++) {
 		revenue += (this->typeList + i)->getCost();
 	}
-	cout << "All: " << revenue << endl;
+	cout << "\t\t***Tong doanh thu la: " << revenue << endl;
 	return revenue;
 }
 
-int TicketManager::getRevenue(Time& t1, Time& t2, string staffId) {
+int TicketManager::getRevenue(Time& t1, Time& t2) {
 	int revenue = 0;
 	for (int i = 0; i < this->length; i++) {
 		Time t = (this->scheduleList)->findById((this->typeList + i)->getScheduleId())->getTime();
-		if (t >= t1 && t <= t2 && (this->typeList + i)->getStaffId() == staffId) {
+		if (t >= t1 && t <= t2 ) {
 			revenue += (this->typeList + i)->getCost();
 		}
 	}
-	cout << "All in time: " << revenue << endl;
+	cout << "Tong doanh thu trong thoi gian tren la: " << revenue << endl;
 	return revenue;
 }
 
 void TicketManager::getRevenue(string staffId) {
-	/*int revenue = 0;
+	int revenue = 0;
 	for (int i = 0; i < this->length; i++) {
-		if ((this->typeList + i)->getStaffId() == staffId) {
-			revenue += (this->scheduleList)->findById((this->typeList + i)->getScheduleId())->getCost();
-		}
+		if ((this->typeList + i)->getStaffId() == staffId) revenue += (this->typeList + i)->getCost();
 	}
-	cout << "All in staff: " << revenue << endl;*/
+	cout << "Doanh thu do nhan vien tren ban duoc la: " << revenue << endl;
 }
 
 void TicketManager::readFile(fstream& filein) {

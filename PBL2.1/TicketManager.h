@@ -9,7 +9,7 @@ class TicketManager : public Manager<Ticket>
 public:
 	int getRevenue();
 	void getRevenue(string);
-	int getRevenue(Time&, Time&, string);
+	int getRevenue(Time&, Time&);
 	TicketManager(ScheduleManager&, StaffManager&);
 	Ticket setTicketInfor();
 	void readFile(fstream&);

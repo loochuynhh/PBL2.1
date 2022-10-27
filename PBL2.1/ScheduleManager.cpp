@@ -21,35 +21,47 @@ Schedule ScheduleManager::setScheduleInfor() {
 	do {
 		system("cls");
 		this->filmManager->write();
-		if(check == 1) {
-			cout << "Khong tim thay phim!" << endl;
-		}
 		cout << "Nhap ma phim: ";
 		getline(cin, filmId);
-		if(this->filmManager->findById(filmId) == nullptr) {
-			check = 1;
+		if (this->filmManager->findById(filmId) == nullptr) {
+			cout << "Khong tim thay phim!. Lua chon" << endl;
+			cout << "\n\t\t1. Nhap lai";
+			cout << "\n\t\t2. Thoat\n";
+			cin >> check;
 		}
-	} while(this->filmManager->findById(filmId) == nullptr);	
+		else check = 3;
+		cin.ignore();
+	} while (check == 1 || check == 0);	
+	if (check == 2) {
+		schedule.setId("null");
+		return schedule;
+	}
 	check = 0;
 	do {
 		system("cls");
 		this->cinemaRoomManager->write();
-		if(check == 1) {
-			cout << "Khong tim thay phong chieu!" << endl;
-		}
-		cout << "Nhap phong chieu: ";
+		cout << "Nhap ma phong chieu: ";
 		getline(cin, cinemaRoomId);
-		if(this->cinemaRoomManager->findById(cinemaRoomId) == nullptr) {
-			check = 1;
+		if (this->cinemaRoomManager->findById(cinemaRoomId) == nullptr) {
+			cout << "Khong tim thay phong chieu!. Lua chon" << endl;
+			cout << "\n\t\t1. Nhap lai";
+			cout << "\n\t\t2. Thoat\n";
+			cin >> check;
 		}
-	} while(this->cinemaRoomManager->findById(cinemaRoomId) == nullptr);
-	cout << "Nhap so ca: " << endl;
+		else check = 3;
+		cin.ignore();
+	} while (check == 1 || check == 0);
+	if (check == 2) {
+		schedule.setId("null");
+		return schedule;
+	}
+	cout << "Nhap ca so: " << endl;
 	getShow();
 	cin >> show;
 	while (show < 1 || show > 5)
 	{
 		cout << "So ca khong hop le!" << endl;
-		cout << "Nhap so ca: ";
+		cout << "Nhap ca so: ";
 		getShow();
 		cin >> show;
 	}	
