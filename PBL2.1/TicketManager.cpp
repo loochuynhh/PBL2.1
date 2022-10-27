@@ -1,7 +1,8 @@
 #include "TicketManager.h"
 
-TicketManager::TicketManager(ScheduleManager& scheduleList) {
+TicketManager::TicketManager(ScheduleManager& scheduleList, StaffManager& staffManager) {
 	this->scheduleList = &scheduleList;
+	this->staffManager = &staffManager;
 }
 
 Ticket TicketManager::setTicketInfor() {
@@ -14,14 +15,28 @@ Ticket TicketManager::setTicketInfor() {
 	cout << "Nhap id: ";
 	cin.ignore();
 	getline(cin, id);
-	cout << "Nhap ma lich chieu: ";
-	getline(cin, scheduleId);
+	int check = 0;
+	do {
+		if(check == 1) {
+			cout << "Khong tim thay lich chieu" << endl;
+		}
+		cout << "Nhap ma lich chieu: ";
+		getline(cin, scheduleId);
+		if(this->scheduleList->findById(scheduleId) == nullptr) check = 1;
+	} while (this->scheduleList->findById(scheduleId) == nullptr);
 	cout << "Nhap ten khach hang: ";
 	getline(cin, customerName);
 	cout << "Nhap so dien thoai khach hang: ";
 	getline(cin, customerPhone);
-	cout << "Nhap ma nhan vien: ";
-	getline(cin, staffId);
+	check = 0;
+	do {
+		if(check == 1) {
+			cout << "Khong tim thay nhan vien" << endl;
+		}
+		cout << "Nhap ma nhan vien: ";
+		getline(cin, staffId);
+		if(this->staffManager->findById(scheduleId) == nullptr) check = 1;
+	} while (this->staffManager->findById(scheduleId) == nullptr);
 	ticket.setId(id);
 	ticket.setScheduleId(scheduleId);
 	ticket.setCustomerName(customerName);
