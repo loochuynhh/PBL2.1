@@ -6,7 +6,7 @@ DirectorManager drtMng;
 FilmManager filmMng;
 CinemaRoomManager cnmMng;
 ScheduleManager scdMng(filmMng, cnmMng);
-TicketManager tkMng(scdMng);
+TicketManager tkMng(scdMng, stMng);
 
 void Menu::login() {
 	fsst.open("Staff.txt", ios::in);
