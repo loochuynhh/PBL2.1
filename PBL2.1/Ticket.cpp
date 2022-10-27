@@ -67,7 +67,7 @@ void Ticket::readDataFile(fstream& filein) {
 	getline(filein, staffid, ',');
 	this->setStaffId(staffid);
 	filein.ignore(1);
-	cin >> cost;
+	filein >> cost;
 	this->setCost(cost);
 }
 void Ticket::writeDataFile(fstream& fileout) {
@@ -83,8 +83,8 @@ void Ticket::writeData() {
 	cout << "|";
 	cout << "  " << left << setw(9) << this->getId() << "|";
 	cout << "   " << left << setw(14) << this->getScheduleId() << "|";
-	cout << "  " << left << setw(16) << this->getStaffId() << "|";
-	cout << "   " << left << setw(13) << this->getCustomerPhone() << "|";
-	cout << "   " << left << setw(28) << this->getCustomerName() << "|";
+	cout << "   " << left << setw(11) << this->getStaffId() << "|";
+	cout << "   " << left << setw(15) << this->getCustomerPhone() << "|";
+	cout << "   " << left << setw(31) << this->getCustomerName() << "|";
 	cout << "  " << left << setw(6) << this->getCost() << "|\n";
 }
