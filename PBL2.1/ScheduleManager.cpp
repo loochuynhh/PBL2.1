@@ -17,12 +17,42 @@ Schedule ScheduleManager::setScheduleInfor() {
 	cout << "Nhap id: ";
 	cin.ignore();
 	getline(cin, id);
-	cout << "Nhap ma phim: ";
-	getline(cin, filmId);
-	cout << "Nhap phong chieu: ";
-	getline(cin, cinemaRoomId);
-	cout << "Nhap so ca: ";
+	int check = 0;
+	do {
+		system("cls");
+		this->filmManager->write();
+		if(check == 1) {
+			cout << "Khong tim thay phim!" << endl;
+		}
+		cout << "Nhap ma phim: ";
+		getline(cin, filmId);
+		if(this->filmManager->findById(filmId) == nullptr) {
+			check = 1;
+		}
+	} while(this->filmManager->findById(filmId) == nullptr);	
+	check = 0;
+	do {
+		system("cls");
+		this->cinemaRoomManager->write();
+		if(check == 1) {
+			cout << "Khong tim thay phong chieu!" << endl;
+		}
+		cout << "Nhap phong chieu: ";
+		getline(cin, cinemaRoomId);
+		if(this->cinemaRoomManager->findById(cinemaRoomId) == nullptr) {
+			check = 1;
+		}
+	} while(this->cinemaRoomManager->findById(cinemaRoomId) == nullptr);
+	cout << "Nhap so ca: " << endl;
+	getShow();
 	cin >> show;
+	while (show < 1 || show > 5)
+	{
+		cout << "So ca khong hop le!" << endl;
+		cout << "Nhap so ca: ";
+		getShow();
+		cin >> show;
+	}	
 	cout << "Nhap ngay chieu: ";
 	cin >> date;
 	cout << "Nhap thang chieu: ";
@@ -63,21 +93,47 @@ void ScheduleManager::update() {
 			cin.ignore();
 			switch (opttmp) {
 			case(1): {
-				cout << "Nhap ma phim: ";
-				getline(cin, up);
+				int check = 0;
+				do {
+					if(check == 1) {
+						cout << "Khong tim thay phim!" << endl;
+					}
+					cout << "Nhap ma phim: ";
+					getline(cin, up);
+					if(this->filmManager->findById(up) == nullptr) {
+						check = 1;
+					}
+				} while(this->filmManager->findById(up) == nullptr);	
 				schedule->setFilmId(up);
 				break;
 			}
 			case(2): {
-				cout << "Nhap ma phong: ";
-				getline(cin, up);
+				int check = 0;
+				do {
+					if(check == 1) {
+						cout << "Khong tim thay phong!" << endl;
+					}
+					cout << "Nhap ma phong: ";
+					getline(cin, up);
+					if(this->cinemaRoomManager->findById(up) == nullptr) {
+						check = 1;
+					}
+				} while(this->cinemaRoomManager->findById(up) == nullptr);
 				schedule->setCinemaRoomId(up);
 				this->cinemaRoomManager->write();
 				break;
 			}
 			case(3): {
-				cout << "Nhap ca chieu: ";
+				cout << "Nhap ca chieu: " << endl;
+				getShow();
 				cin >> upn;
+				while (upn < 1 || upn > 5)
+				{
+					cout << "So ca khong hop le!" << endl;
+					cout << "Nhap so ca: ";
+					getShow();
+					cin >> upn;
+				}	
 				schedule->setShow(upn);
 				break;
 			}
@@ -98,9 +154,17 @@ void ScheduleManager::update() {
 				schedule->setTime(t);
 				break;
 			}
-				   cout << "Luc chon khong hop le.";
-				   break;
+				cout << "Luc chon khong hop le.";
+				break;
 			}
 		} while (opttmp != 0);
 	}
+}
+
+void ScheduleManager::getShow() {
+	cout << "Ca 1: " << "7:00 - 9:00" << endl;
+	cout << "Ca 2: " << "10:00 - 12:00" << endl;
+	cout << "Ca 3: " << "13:00 - 16:00" << endl;
+	cout << "Ca 4: " << "17:00 - 20:00" << endl;
+	cout << "Ca 5: " << "21:00 - 0:00" << endl;
 }

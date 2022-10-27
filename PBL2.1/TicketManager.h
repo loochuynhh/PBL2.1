@@ -1,5 +1,6 @@
 #pragma once
 #include "ScheduleManager.h"
+#include "StaffManager.h"
 #include "Ticket.h"
 #include "Time.h"
 
@@ -9,9 +10,10 @@ public:
 	void getRevenue();
 	void getRevenue(string);
 	void getRevenue(Time&, Time&);
-	TicketManager(ScheduleManager&);
+	TicketManager(ScheduleManager&, StaffManager&);
 	Ticket setTicketInfor();
 private:
 	ScheduleManager* scheduleList;
+	StaffManager* staffManager;
 };
 

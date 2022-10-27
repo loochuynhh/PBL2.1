@@ -8,6 +8,7 @@ class ScheduleManager : public Manager<Schedule>
 {
 public:
 	ScheduleManager(FilmManager& FilmManager, CinemaRoomManager& room);
+	void getShow();
 	Schedule setScheduleInfor();
 	void update();
 private:
