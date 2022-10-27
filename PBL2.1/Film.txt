@@ -1,4 +1,5 @@
-3
-f0001, ironman, kevinfegi, rbdjr, america, action, 190.
-f0002, batman, dcmovie, ad, america, action, 180.
-f0003, hoavangtrencoxanh, adaa, dgas, vietnam, med, 129.
+4
+f0001, ironman, kevinfegi, rbdjr, america, action, 190. 
+f0002, batman, dcmovie, ad, america, action, 180. 
+f0003, hoavangtrencoxanh, adaa, dgas, vietnam, med, 129. 
+f0005, skytour, st, st, vietnam, ky su, 128. 

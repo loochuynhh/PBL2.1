@@ -55,7 +55,7 @@ void Time::writefilet(fstream& fileout) {
 void Time::writet() {
 	cout << right << setw(2) << this->getDate() << "/";
 	cout << right << setw(2) << this->getMonth() << "/";
-	cout << this->getYear();
+	cout << right << setw(4) << this->getYear();
 }
 
 bool Time::operator==(const Time& time2) {

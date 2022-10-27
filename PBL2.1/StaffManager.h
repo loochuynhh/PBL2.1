@@ -8,6 +8,9 @@ public:
 	void readFile(fstream&);
 	void writeFile(fstream&);
 	void write();
+	void writerl();
+	void update();
+	Staff setStaff();
 protected:
 };
 

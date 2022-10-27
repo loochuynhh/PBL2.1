@@ -31,31 +31,31 @@ Ticket TicketManager::setTicketInfor() {
 }
 
 void TicketManager::getRevenue() {
-	int revenue = 0;
+	/*int revenue = 0;
 	for (int i = 0; i < this->length; i++) {
 		int tmp = (this->scheduleList)->findById((this->typeList + i)->getScheduleId())->getCost();
 		revenue += tmp;
 	}
-	cout << "All: " << revenue << endl;
+	cout << "All: " << revenue << endl;*/
 }
 
 void TicketManager::getRevenue(Time& t1, Time& t2) {
-	int revenue = 0;
+	/*int revenue = 0;
 	for (int i = 0; i < this->length; i++) {
 		Time t = (this->scheduleList)->findById((this->typeList + i)->getScheduleId())->getTime();
 		if (t >= t1 && t <= t2) {
 			revenue += (this->scheduleList)->findById((this->typeList + i)->getScheduleId())->getCost();
 		}
 	}
-	cout << "All in time: " << revenue << endl;
+	cout << "All in time: " << revenue << endl;*/
 }
 
 void TicketManager::getRevenue(string staffId) {
-	int revenue = 0;
+	/*int revenue = 0;
 	for (int i = 0; i < this->length; i++) {
 		if ((this->typeList + i)->getStaffId() == staffId) {
 			revenue += (this->scheduleList)->findById((this->typeList + i)->getScheduleId())->getCost();
 		}
 	}
-	cout << "All in staff: " << revenue << endl;
+	cout << "All in staff: " << revenue << endl;*/
 }

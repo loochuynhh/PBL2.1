@@ -42,6 +42,7 @@ public:
 	void readDataFile(fstream&);
 	void writeDataFile(fstream&);
 	void writeData();
+	void writeDatarl();
 };
 
 #endif

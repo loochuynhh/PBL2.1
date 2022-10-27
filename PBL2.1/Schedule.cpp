@@ -20,10 +20,6 @@ Time Schedule::getTime() const {
 	return this->time;
 }
 
-int Schedule::getCost() const {
-	return this->cost;
-}
-
 void Schedule::setId(const string& id) {
 	this->id = id;
 }
@@ -41,8 +37,4 @@ void Schedule::setCinemaRoomId(const string& id) {
 
 void Schedule::setTime(const Time& Day) {
 	this->time = Day;
-}
-
-void Schedule::setCost(int cost) {
-	this->cost = cost;
 }

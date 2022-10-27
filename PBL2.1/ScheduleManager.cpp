@@ -11,7 +11,6 @@ Schedule ScheduleManager::setScheduleInfor() {
 	string filmId;
 	string cinemaRoomId;
 	int show;
-	int cost;
 	int date;
 	int month;
 	int year;
@@ -24,8 +23,6 @@ Schedule ScheduleManager::setScheduleInfor() {
 	getline(cin, cinemaRoomId);
 	cout << "Nhap so ca: ";
 	cin >> show;
-	cout << "Nhap gia ve: ";
-	cin >> cost;
 	cout << "Nhap ngay chieu: ";
 	cin >> date;
 	cout << "Nhap thang chieu: ";
@@ -58,7 +55,6 @@ void ScheduleManager::update() {
 			cout << "2.Sua ma phong chieu" << endl;
 			cout << "3.Sua ca chieu" << endl;
 			cout << "4.Sua thoi gian" << endl;
-			cout << "5.Sua gia ve" << endl;
 			cout << "0.Xac nhan" << endl;
 			cout << "Nhap lua chon: ";
 			cin >> opttmp;
@@ -102,12 +98,8 @@ void ScheduleManager::update() {
 				schedule->setTime(t);
 				break;
 			}
-			case(5): {
-				cout << "Nhap gia ve: ";
-				cin >> upn;
-				schedule->setCost(upn);
-				break;
-			}
+				   cout << "Luc chon khong hop le.";
+				   break;
 			}
 		} while (opttmp != 0);
 	}
