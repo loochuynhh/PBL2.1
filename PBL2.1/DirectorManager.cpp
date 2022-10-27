@@ -24,3 +24,37 @@ void DirectorManager::write() {
 	}
 	for (int x = 0; x < 107; x++) cout << "-"; cout << endl;
 }
+void DirectorManager::updateAc() {
+	string id;
+	cout << "Nhap id: ";
+	cin.ignore();
+	getline(cin, id);
+	if (findById(id) == nullptr) {
+		cout << "Khong tim thay!\n";
+	}
+	else {
+		Director* director = findById(id);
+		string account;
+		cout << "Nhap tai khoan moi: ";
+		getline(cin, account);
+		director->setAccount(account);
+		cout << "Tai khoan da duoc cap nhat.\n";
+	}
+}
+void DirectorManager::updatePq() {
+	string id;
+	cout << "Nhap id: ";
+	cin.ignore();
+	getline(cin, id);
+	if (findById(id) == nullptr) {
+		cout << "Khong tim thay!\n";
+	}
+	else {
+		Director* director = findById(id);
+		string password;
+		cout << "Nhap mat khau moi: ";
+		getline(cin, password);
+		director->setPassword(password);
+		cout << "Mat khau da duoc cap nhat.\n";
+	}
+}
