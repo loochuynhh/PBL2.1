@@ -356,6 +356,7 @@ void Menu::drtMenu() {
 		case (1): {
 			int opt1 = 0;
 			do {
+				system("cls");
 				cout << "\n\t\t\t\t1.Xem thong tin nhan vien";
 				cout << "\n\t\t\t\t2.Xem thong tin nhan than";
 				cout << "\n\t\t\t\t3.Them nhan vien";
@@ -363,6 +364,7 @@ void Menu::drtMenu() {
 				cout << "\n\t\t\t\t5.Cap nhat thong tin nhan vien";
 				//cout << "\n\t\t\t6.Xem luong nhan vien";
 				//cout << "\n\t\t\t7.Cap nhat luong nhan vien";
+				cout << "\n\t\t\t\t6.Xac nhan thay doi";
 				cout << "\n\t\t\t\t0.Thoat";
 				cout << "\n\t\t\t\tNhap lua chon: ";
 				cin >> opt1;
@@ -393,6 +395,13 @@ void Menu::drtMenu() {
 				else if (opt1 == 5) {
 					stMng.update();
 				}
+				else if (opt1 == 6) {
+					fsst.open("Staff.txt", ios::out | ios::trunc);
+					stMng.writeFile(fsst);
+					fsst.close();
+					cout << "Thay doi da duoc luu vao file.\n";
+					system("pause");
+				}
 				else if (opt1 != 0) cout << "Lua chon khong hop le. Moi nhap lai.";
 			} while (opt1 != 0);
 			break;
@@ -400,16 +409,30 @@ void Menu::drtMenu() {
 		case (2): {
 			int opt2;
 			do {
+				system("cls");
 				cout << "\n\t\t\t\t1.Xem thong tin quan li";
-				cout << "\n\t\t\t\t2.Doi mat khau";
+				cout << "\n\t\t\t\t2.Doi tai khoan";
+				cout << "\n\t\t\t\t3.Doi mat khau";
+				cout << "\n\t\t\t\t4.Xac nhan thay doi";
 				cout << "\n\t\t\t\t0.Thoat";
 				cout << "\n\t\t\t\tNhap lua chon: ";
 				cin >> opt2;
 				if (opt2 == 1) { drtMng.write(); system("pause"); }
-				
+				else if (opt2 == 2) { drtMng.updateAc(); system("pause"); }
+				else if (opt2 == 3) { drtMng.updatePq(); system("pause"); }
+				else if (opt2 == 4) {
+					fsdrt.open("Director.txt", ios::out | ios::trunc);
+					drtMng.writeFile(fsdrt);
+					fsdrt.close();
+					cout << "Thay doi da duoc luu vao file.\n";
+					system("pause");
+				}
+				else if (opt != 0) cout << "Lua chon khong hop le.\n";
 			} while (opt2 != 0);
 			break;
 		}
+				cout << "lua chon khong hop le.";
+				break;
 		}
 	} while (opt != 0);
 }
