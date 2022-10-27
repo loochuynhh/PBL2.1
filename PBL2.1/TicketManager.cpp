@@ -35,8 +35,8 @@ Ticket TicketManager::setTicketInfor() {
 		}
 		cout << "Nhap ma nhan vien: ";
 		getline(cin, staffId);
-		if(this->staffManager->findById(scheduleId) == nullptr) check = 1;
-	} while (this->staffManager->findById(scheduleId) == nullptr);
+		if(this->staffManager->findById(staffId) == nullptr) check = 1;
+	} while (this->staffManager->findById(staffId) == nullptr);
 	ticket.setId(id);
 	ticket.setScheduleId(scheduleId);
 	ticket.setCustomerName(customerName);
@@ -45,24 +45,25 @@ Ticket TicketManager::setTicketInfor() {
 	return ticket;
 }
 
-void TicketManager::getRevenue() {
-	/*int revenue = 0;
+int TicketManager::getRevenue() {
+	int revenue = 0;
 	for (int i = 0; i < this->length; i++) {
-		int tmp = (this->scheduleList)->findById((this->typeList + i)->getScheduleId())->getCost();
-		revenue += tmp;
+		revenue += (this->typeList + i)->getCost();
 	}
-	cout << "All: " << revenue << endl;*/
+	cout << "All: " << revenue << endl;
+	return revenue;
 }
 
-void TicketManager::getRevenue(Time& t1, Time& t2) {
-	/*int revenue = 0;
+int TicketManager::getRevenue(Time& t1, Time& t2, string staffId) {
+	int revenue = 0;
 	for (int i = 0; i < this->length; i++) {
 		Time t = (this->scheduleList)->findById((this->typeList + i)->getScheduleId())->getTime();
-		if (t >= t1 && t <= t2) {
-			revenue += (this->scheduleList)->findById((this->typeList + i)->getScheduleId())->getCost();
+		if (t >= t1 && t <= t2 && (this->typeList + i)->getStaffId() == staffId) {
+			revenue += (this->typeList + i)->getCost();
 		}
 	}
-	cout << "All in time: " << revenue << endl;*/
+	cout << "All in time: " << revenue << endl;
+	return revenue;
 }
 
 void TicketManager::getRevenue(string staffId) {

@@ -20,6 +20,10 @@ string Ticket::getStaffId() const {
 	return this->staffId;
 }
 
+int Ticket::getCost() const {
+	return this->cost;
+}
+
 void Ticket::setId(const string& id) {
 	this->id = id;
 }
@@ -38,4 +42,8 @@ void Ticket::setCustomerPhone(const string& phone) {
 
 void Ticket::setStaffId(const string& id) {
 	this->staffId = id;
+}
+
+void Ticket::setCost(int cost) {
+	this->cost = cost;
 }
