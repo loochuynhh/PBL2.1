@@ -311,7 +311,7 @@ void Menu::stMenu() {
 					cout << "Nhap nam ket thuc: ";
 					cin >> year;
 					Time t2(date, month, year);
-					tkMng.getRevenue(t1, t2);
+					//tkMng.getRevenue(t1, t2);
 				}
 				else if (tmp == 4) {
 					string id;
