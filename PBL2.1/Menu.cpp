@@ -125,6 +125,7 @@ void Menu::stMenu() {
 				cin >> tmp;
 				if (tmp == 1) {
 					filmMng.add(filmMng.setFilmInfor());
+					cout << "\t\tPhim da duoc them.\n"; system("pause");
 				}
 				else if (tmp == 2) {
 					filmMng.write();
@@ -168,6 +169,7 @@ void Menu::stMenu() {
 				}
 				else if (tmp == 6) {
 					filmMng.update();
+					system("pause");
 				}
 				else if (tmp == 7) {
 					fsfilm.open("Film.txt", ios::out | ios::trunc);
@@ -199,6 +201,7 @@ void Menu::stMenu() {
 				cin >> tmp;
 				if (tmp == 1) {
 					cnmMng.add(cnmMng.setCinemaRoomInfor());
+					cout << "\t\tPhong chieu da duoc them.\n"; system("pause");
 				}
 				else if (tmp == 2) {
 					cnmMng.write();
@@ -236,6 +239,7 @@ void Menu::stMenu() {
 				}
 				else if (tmp == 5) {
 					cnmMng.update();
+					system("pause");
 				}
 				else if (tmp == 6) {
 					fscr.open("CinemaRoom.txt", ios::out | ios:: trunc);
@@ -309,6 +313,7 @@ void Menu::stMenu() {
 				}
 				else if (tmp == 5) {
 					scdMng.update();
+					system("pause");
 				}
 				else if (tmp == 6) {
 					fsscd.open("Schedule.txt", ios::out | ios::trunc);
@@ -335,7 +340,8 @@ void Menu::stMenu() {
 				cout << "\n\t\t4.Xuat doanh thu theo nhan vien";
 				cout << "\n\t\t5.Xuat tong doanh thu";
 				cout << "\n\t\t6.Xoa ve";
-				cout << "\n\t\t7.Xac nhan cac thay doi";
+				cout << "\n\t\t7.Xuat doanh thu theo nam tung nhan vien";
+				cout << "\n\t\t8.Xac nhan cac thay doi";
 				cout << "\n\t\t0.Quay lai mainmenu";
 				cout << "\n\t\t**Nhap lua chon: ";
 				cin >> tmp;
@@ -377,16 +383,20 @@ void Menu::stMenu() {
 					int opt4 = 0;
 					string id;
 					do {
-						cout << "\t\tNhap ma nhan vien: ";fflush(stdin);
+						system("cls");
+						cout << "Nhap ma nhan vien: ";
+						cin.ignore();
 						getline(cin, id);
 						if (stMng.findById(id) == nullptr) {
-							cout << "\t\tMa nhan vien khong hop le. Moi nhap lai.\n";
-							opt4 = 1;
-						} else {
-							opt4 = 0;
+							cout << "Khong tim thay nhan vien phu hop!. Lua chon" << endl;
+							cout << "\n\t\t1. Nhap lai";
+							cout << "\n\t\t2. Thoat\n";
+							cin >> opt4;
 						}
-					} while (opt4 == 1);
-					tkMng.getRevenue(id);
+						else opt4 = 3;
+					} while (opt4 == 1 || opt4 == 0);
+					if (opt4 != 3) {}
+					else tkMng.getRevenue(id);
 					system("pause");
 				}
 				else if (tmp == 5) {
@@ -406,6 +416,13 @@ void Menu::stMenu() {
 					system("pause");
 				}
 				else if (tmp == 7) {
+					int year;
+					cout << "\t\tNhap nam can thong ke doanh thu: ";
+					cin >> year;
+					tkMng.getRevenueY(year);
+					system("pause");
+				}
+				else if (tmp == 8) {
 					fstk.open("Ticket.txt", ios::out | ios::trunc);
 					tkMng.writeFile(fstk);
 					fstk.close();

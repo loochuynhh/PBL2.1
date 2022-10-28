@@ -1,21 +1,21 @@
 20
 tk0001, scd001, adasfas asd, 012350115, st001, 90.
-tk0002, scd001, adasfas asd, 012350115, st001, 90.
-tk0003, scd004, asfas asd, 012350115, st001, 90.
-tk0004, scd001, adasfas asd, 012350115, st001, 120.
-tk0005, scd001, adasasdgfas gasd, 012350115, st001, 90.
+tk0002, scd002, adasfas asd, 012350115, st003, 90.
+tk0003, scd003, asfas asd, 012350115, st001, 90.
+tk0004, scd005, adasfas asd, 012350115, st001, 120.
+tk0005, scd006, adasasdgfas gasd, 012350115, st002, 90.
 tk0006, scd004, adfas asd, 012350115, st001, 90.
-tk0007, scd001, adasfas asd, 012350115, st001, 90.
-tk0008, scd004, adasf as asd, 012350115, st001, 120.
-tk0009, scd004, adasfass asd, 012350115, st001, 90.
-tk0010, scd001, adasfas asd, 012350115, st001, 90.
-tk0011, scd001, adaa sfs asd, 012350115, st001, 90.
-tk0012, scd004, adasfas asd, 012350115, st001, 90.
+tk0007, scd009, adasfas asd, 012350115, st003, 90.
+tk0008, scd007, adasf as asd, 012350115, st002, 120.
+tk0009, scd008, adasfass asd, 012350115, st001, 90.
+tk0010, scd011, adasfas asd, 012350115, st001, 90.
+tk0011, scd012, adaa sfs asd, 012350115, st002, 90.
+tk0012, scd011, adasfas asd, 012350115, st004, 90.
 tk0013, scd004, adasfas asd, 012350115, st001, 120.
-tk0014, scd001, adasfas asd, 012350115, st001, 90.
-tk0015, scd001, ad asfas asd, 012350115, st001, 90.
-tk0016, scd004, adasfas asd, 012350115, st001, 120.
-tk0017, scd001, adasfas asd, 012350115, st001, 90.
-tk0018, scd004, adasfas asd, 012350115, st001, 90.
-tk0019, scd001, adaas asas asd, 012350115, st001, 90.
-tk0020, scd004, adasfas asd, 012350115, st001, 120.
+tk0014, scd010, adasfas asd, 012350115, st004, 90.
+tk0015, scd002, ad asfas asd, 012350115, st001, 90.
+tk0016, scd007, adasfas asd, 012350115, st002, 120.
+tk0017, scd001, adasfas asd, 012350115, st004, 90.
+tk0018, scd009, adasfas asd, 012350115, st003, 90.
+tk0019, scd012, adaas asas asd, 012350115, st001, 90.
+tk0020, scd003, adasfas asd, 012350115, st003, 120.

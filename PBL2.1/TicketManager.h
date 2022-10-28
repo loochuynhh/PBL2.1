@@ -10,6 +10,7 @@ public:
 	int getRevenue();
 	void getRevenue(string);
 	int getRevenue(Time&, Time&);
+	void getRevenueY(int);
 	TicketManager(ScheduleManager&, StaffManager&);
 	Ticket setTicketInfor();
 	void readFile(fstream&);

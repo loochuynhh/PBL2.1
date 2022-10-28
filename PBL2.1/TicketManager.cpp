@@ -45,7 +45,6 @@ Ticket TicketManager::setTicketInfor() {
 		this->staffManager->write();
 		cout << "Nhap ma nhan vien: ";
 		getline(cin, staffId);
-		cout << staffId;
 		if (this->staffManager->findById(staffId) == nullptr) {
 			cout << "Khong tim thay nhan vien!. Lua chon" << endl;
 			cout << "\n\t\t1. Nhap lai";
@@ -99,9 +98,33 @@ void TicketManager::getRevenue(string staffId) {
 	cout << "Doanh thu do nhan vien tren ban duoc la: " << revenue << endl;
 }
 
+void TicketManager::getRevenueY(int year) {
+	int revenue[20][12];
+	for (int i = 0; i < 20; i++) {
+		for (int j = 0; j < 12; j++) revenue[i][j] = 0;
+	}
+	for (int i = 0; i < this->staffManager->getLength(); i++) {
+		for (int j = 0; j < this->length; j++) {
+			if (this->scheduleList->findById((this->typeList + j)->getScheduleId())->getTime().getYear() == year && ((this->staffManager->getTypeList() + i)->getId()).compare((this->typeList + j)->getStaffId()) == 0) {
+				revenue[i][this->scheduleList->findById((this->typeList + j)->getScheduleId())->getTime().getMonth() - 1] += (this->typeList + j)->getCost();
+			}
+		}
+	}
+	for (int i = 0; i < 100; i++) cout << "-"; cout << endl;
+	cout << "|  MaNV/Thang  |  01  |  02  |  03  |  04  |  05  |  06  |  07  |  08  |  09  |  10  |  11  |  12  |\n";
+	for (int i = 0; i < 100; i++) cout << "-"; cout << endl;
+	for (int i = 0; i < this->staffManager->getLength(); i++) {
+		cout << "|    " << left << setw(10) << (this->staffManager->getTypeList() + i)->getId() << "|";
+		for (int j = 0; j < 12; j++) {
+			cout << " " << left << setw(5) << revenue[i][j] << "|";
+		}
+		cout << endl;
+	}
+	for (int i = 0; i < 100; i++) cout << "-"; cout << endl;
+}
 void TicketManager::readFile(fstream& filein) {
 	filein >> length;
-	Ticket* ticket = new Ticket[100];
+	Ticket* ticket = new Ticket[200];
 	for (int i = 0; i < length; i++) {
 		(ticket + i)->readDataFile(filein);
 	}
