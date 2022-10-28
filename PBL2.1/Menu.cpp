@@ -170,7 +170,6 @@ void Menu::stMenu() {
 				}
 				else if (tmp == 6) {
 					filmMng.update();
-					system("pause");
 				}
 				else if (tmp == 7) {
 					fsfilm.open("Film.txt", ios::out | ios::trunc);
@@ -240,7 +239,6 @@ void Menu::stMenu() {
 				}
 				else if (tmp == 5) {
 					cnmMng.update();
-					system("pause");
 				}
 				else if (tmp == 6) {
 					fscr.open("CinemaRoom.txt", ios::out | ios:: trunc);
@@ -314,7 +312,6 @@ void Menu::stMenu() {
 				}
 				else if (tmp == 5) {
 					scdMng.update();
-					system("pause");
 				}
 				else if (tmp == 6) {
 					fsscd.open("Schedule.txt", ios::out | ios::trunc);
@@ -498,10 +495,11 @@ void Menu::drtMenu() {
 					cout << "\t\tNhap ma nhan vien can xoa: ";
 					cin.ignore();
 					getline(cin, id);
-					int tmp4 = stMng.getLength();
-					stMng.del(id);
-					if (tmp4 == stMng.getLength()) cout << "\t\tKhong tim thay nhan vien phu hop.\n";
-					else cout << "\t\tNhan vien co ma " << id << " da duoc xoa.\n";
+					if (stMng.findById(id) != nullptr) {
+						stMng.del(id);
+						cout << "\t\tNhan vien co ma " << id << " da duoc xoa.\n";
+					}
+					else cout << "\n\t\tKhong tim thay nhan vien phu hop.\n";
 					system("pause");
 				}
 				else if (opt1 == 5) {

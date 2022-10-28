@@ -93,6 +93,7 @@ void StaffManager::update(){
 	getline(cin, id);
 	if (findById(id) == nullptr) {
 		cout << "Khong tim thay!\n";
+		system("pause");
 	}
 	else {
 		int opttmp = 0;
@@ -125,7 +126,7 @@ void StaffManager::update(){
 				break;
 			}
 			case(2): {
-				cout << "Nhap dao dien: ";
+				cout << "Nhap cong viec: ";
 				getline(cin, up);
 				staff->setJob(up);
 				break;
@@ -191,7 +192,7 @@ void StaffManager::update(){
 				staff->getRelative().setMail(up);
 				break;
 			}
-			cout << "Lua chon khong hop le.";
+			//cout << "Lua chon khong hop le.";
 			break;
 			}
 		} while (opttmp != 0);

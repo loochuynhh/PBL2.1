@@ -22,6 +22,7 @@ Schedule ScheduleManager::setScheduleInfor() {
 		system("cls");
 		this->filmManager->write();
 		cout << "Nhap ma phim: ";
+		if (check != 0) cin.ignore();
 		getline(cin, filmId);
 		if (this->filmManager->findById(filmId) == nullptr) {
 			cout << "Khong tim thay phim!. Lua chon" << endl;
@@ -40,6 +41,7 @@ Schedule ScheduleManager::setScheduleInfor() {
 		system("cls");
 		this->cinemaRoomManager->write();
 		cout << "Nhap ma phong chieu: ";
+		if (check != 0) cin.ignore();
 		getline(cin, cinemaRoomId);
 		if (this->cinemaRoomManager->findById(cinemaRoomId) == nullptr) {
 			cout << "Khong tim thay phong chieu!. Lua chon" << endl;
@@ -91,6 +93,7 @@ void ScheduleManager::update() {
 	getline(cin, id);
 	if (findById(id) == nullptr) {
 		cout << "Khong tim thay!\n";
+		system("pause");
 	}
 	else {
 		int opttmp = 0;

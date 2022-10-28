@@ -26,6 +26,7 @@ void CinemaRoomManager::update() {
 	getline(cin, id);
 	if (findById(id) == nullptr) {
 		cout << "Khong tim thay!\n";
+		system("pause");
 	}
 	else {
 		int opttmp = 0;
