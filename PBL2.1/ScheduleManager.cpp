@@ -30,7 +30,6 @@ Schedule ScheduleManager::setScheduleInfor() {
 			cin >> check;
 		}
 		else check = 3;
-		cin.ignore();
 	} while (check == 1 || check == 0);	
 	if (check == 2) {
 		schedule.setId("null");
@@ -55,7 +54,6 @@ Schedule ScheduleManager::setScheduleInfor() {
 			cin >> check;
 		}
 		else check = 3;
-		cin.ignore();
 	} while (check == 1 || check == 0);
 	if (check == 2) {
 		schedule.setId("null");
@@ -98,7 +96,7 @@ void ScheduleManager::update() {
 		int opttmp = 0;
 		Schedule* schedule = findById(id);
 		do {
-			cout << "\tCap nhap phim" << endl;
+			cout << "\tCap nhap lich chieu" << endl;
 			cout << "1.Sua ma phim" << endl;
 			cout << "2.Sua ma phong chieu" << endl;
 			cout << "3.Sua ca chieu" << endl;
@@ -116,6 +114,7 @@ void ScheduleManager::update() {
 					if(check == 1) {
 						cout << "Khong tim thay phim!" << endl;
 					}
+					this->filmManager->write();
 					cout << "Nhap ma phim: ";
 					getline(cin, up);
 					if(this->filmManager->findById(up) == nullptr) {
@@ -137,6 +136,7 @@ void ScheduleManager::update() {
 					else if(check == 2) {
 						cout << "Phong chieu dang co van de, vui long chon phong khac!" << endl;
 					}
+					this->cinemaRoomManager->write();
 					cout << "Nhap ma phong: ";
 					getline(cin, up);
 					if(this->cinemaRoomManager->findById(up) == nullptr) {

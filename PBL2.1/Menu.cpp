@@ -162,6 +162,7 @@ void Menu::stMenu() {
 					cin.ignore();
 					getline(cin, id);
 					if (filmMng.findById(id) != nullptr) {
+						filmMng.del(id);
 						cout << "\t\tPhim co ma " << id << " da duoc xoa.\n";
 					}
 					else cout << "\n\t\tKhong tim thay phim phu hop.\n";

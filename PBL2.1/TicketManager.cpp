@@ -27,9 +27,9 @@ Ticket TicketManager::setTicketInfor() {
 			cout << "\n\t\t1. Nhap lai";
 			cout << "\n\t\t2. Thoat\n";
 			cin >> check;
+			cin.ignore();
 		}
 		else check = 3;
-		cin.ignore();
 	} while (check == 1 || check == 0);
 	if (check == 2) {
 		ticket.setId("null");
@@ -50,9 +50,9 @@ Ticket TicketManager::setTicketInfor() {
 			cout << "\n\t\t1. Nhap lai";
 			cout << "\n\t\t2. Thoat\n";
 			cin >> check;
+			cin.ignore();
 		}
-		else check = 3;
-		cin.ignore();
+		else check = 3;	
 	} while (check == 1 || check == 0);
 	if (check == 2) {
 		ticket.setId("null");
