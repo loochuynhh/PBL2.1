@@ -20,7 +20,7 @@ Ticket TicketManager::setTicketInfor() {
 	do {
 		system("cls");
 		this->scheduleList->write();
-		cout << "Nhap ma lich chieu: ";
+		cout << "Nhap ma lich chieu: ";fflush(stdin);
 		if (check != 0) cin.ignore();
 		getline(cin, scheduleId);
 		if (this->scheduleList->findById(scheduleId) == nullptr) {
@@ -44,7 +44,7 @@ Ticket TicketManager::setTicketInfor() {
 	do {
 		system("cls");
 		this->staffManager->write();
-		cout << "Nhap ma nhan vien: ";
+		cout << "Nhap ma nhan vien: ";fflush(stdin);
 		if (check != 0) cin.ignore();
 		getline(cin, staffId);
 		if (this->staffManager->findById(staffId) == nullptr) {
