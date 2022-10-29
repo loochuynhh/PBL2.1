@@ -124,8 +124,11 @@ void Menu::stMenu() {
 				cout << "\n\t\t**Nhap lua chon: ";
 				cin >> tmp;
 				if (tmp == 1) {
-					filmMng.add(filmMng.setFilmInfor());
-					cout << "\t\tPhim da duoc them.\n"; system("pause");
+					Film film = filmMng.setFilmInfor();
+					if(film.getId() != "null") {
+						filmMng.add(film);
+						cout << "\t\tPhim da duoc them.\n"; system("pause");
+					}
 				}
 				else if (tmp == 2) {
 					filmMng.write();
@@ -200,8 +203,11 @@ void Menu::stMenu() {
 				cout << "\n\t\t**Nhap lua chon: ";
 				cin >> tmp;
 				if (tmp == 1) {
-					cnmMng.add(cnmMng.setCinemaRoomInfor());
-					cout << "\t\tPhong chieu da duoc them.\n"; system("pause");
+					CinemaRoom cM = cnmMng.setCinemaRoomInfor();
+					if(cM.getId() != "null") {
+						cnmMng.add(cM);
+						cout << "\t\tPhong chieu da duoc them.\n"; system("pause");
+					}
 				}
 				else if (tmp == 2) {
 					cnmMng.write();
@@ -488,7 +494,11 @@ void Menu::drtMenu() {
 					system("pause");
 				}
 				else if (opt1 == 3) {
-					stMng.add(stMng.setStaff());
+					Staff staff = stMng.setStaff();
+					if(staff.getId() != "null") {
+						stMng.add(staff);
+						cout << "\t\tNhan vien moi da duoc them.\n";system("pause");
+					}
 				}
 				else if (opt1 == 4) {
 					string id;

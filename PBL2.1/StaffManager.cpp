@@ -40,9 +40,24 @@ Staff StaffManager::setStaff() {
 	int age, agerl, date, month, year;
 	Infor infor;
 	Inforrl inforrl;
-	cout << "Nhap ID nhan vien: ";
-	cin.ignore();
-	getline(cin, id);
+	int check = 0;
+	do {
+		cout << "Nhap ID nhan vien: ";fflush(stdin);
+		getline(cin, id);
+		if(this->findById(id) != nullptr) {
+			cout << "Ma bi trung!. Lua chon" << endl;
+			cout << "\n\t\t1. Nhap lai";
+			cout << "\n\t\t2. Thoat\n";
+			cin >> check;
+			cin.ignore();
+		}
+		else check = 3;
+	} while(check == 1 || check == 0);
+	if (check == 2) {
+		staff.setId("null");
+		return staff;
+	}
+	check = 0;
 	cout << "Nhap ten nhan vien: ";
 	getline(cin, name);
 	cout << "Nhap cong viec: ";

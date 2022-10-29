@@ -32,9 +32,25 @@ Film FilmManager::setFilmInfor() {
 	string country;
 	string type;
 	int length;
-	cout << "Nhap id: ";
-	cin.ignore();
-	getline(cin, id);
+	int check = 0;
+	do {
+		cout << "Nhap id: ";fflush(stdin);
+		getline(cin, id);
+		if(this->findById(id) != nullptr) {
+			cout << "Ma bi trung!. Lua chon" << endl;
+			cout << "\n\t\t1. Nhap lai";
+			cout << "\n\t\t2. Thoat\n";
+			cin >> check;
+			cin.ignore();
+		}
+		else check = 3;
+	} while(check == 1 || check == 0);
+	if (check == 2) {
+		Film film;
+		film.setId("null");
+		return film;
+	}
+	check = 0;
 	cout << "Nhap ten phim: ";
 	getline(cin, name);
 	cout << "Nhap dao dien: ";
