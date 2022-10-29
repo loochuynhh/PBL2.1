@@ -21,14 +21,15 @@ Schedule ScheduleManager::setScheduleInfor() {
 	do {
 		system("cls");
 		this->filmManager->write();
-		cout << "Nhap ma phim: ";
-		if (check != 0) cin.ignore();
+		cout << "Nhap ma phim: "; fflush(stdin);
+		//if (check != 0) cin.ignore();
 		getline(cin, filmId);
 		if (this->filmManager->findById(filmId) == nullptr) {
 			cout << "Khong tim thay phim!. Lua chon" << endl;
 			cout << "\n\t\t1. Nhap lai";
 			cout << "\n\t\t2. Thoat\n";
 			cin >> check;
+			cin.ignore();
 		}
 		else check = 3;
 	} while (check == 1 || check == 0);	
@@ -40,14 +41,15 @@ Schedule ScheduleManager::setScheduleInfor() {
 	do {
 		system("cls");
 		this->cinemaRoomManager->write();
-		cout << "Nhap ma phong chieu: ";
-		if (check != 0) cin.ignore();
+		cout << "Nhap ma phong chieu: "; fflush(stdin);
+		//if (check != 0) cin.ignore();
 		getline(cin, cinemaRoomId);
 		if (this->cinemaRoomManager->findById(cinemaRoomId) == nullptr) {
 			cout << "Khong tim thay phong chieu!. Lua chon" << endl;
 			cout << "\n\t\t1. Nhap lai";
 			cout << "\n\t\t2. Thoat\n";
 			cin >> check;
+			cin.ignore();
 		}
 		else if (this->cinemaRoomManager->findById(cinemaRoomId)->getStatus() == "bad") {
 			cout << "Phong chieu dang co van de!. Lua chon" << endl;
