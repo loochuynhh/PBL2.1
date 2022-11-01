@@ -1,6 +1,18 @@
 #include "Staff.h"
 #include <string>
 
+Staff::Staff(){
+    this->id = "";
+    this->name = "";
+    this->job = "";
+    this->account = "";
+    this->password = "";
+    this->timest;
+    this->inforst;
+    this->relative;
+    this->stsalary = nullptr;
+}
+Staff::~Staff(){}
 void Staff::setId(string ID) {
     this->id = ID;
 }
@@ -40,8 +52,8 @@ Time Staff::getTimeSt() {
 void Staff::setStSalary(Salary* Stsalary) {
     this->stsalary = Stsalary;
 }
-Salary Staff::getStSalary() {
-    return *this->stsalary;
+Salary* Staff::getStSalary() {
+    return this->stsalary;
 }
 void Staff::setInforSt(Infor Inforst) {
     this->inforst = Inforst;
@@ -55,7 +67,12 @@ void Staff::setRelative(Inforrl Relative) {
 Inforrl Staff::getRelative() {
     return this->relative;
 }
-
+void Staff::setSlength(int slength) {
+    this->slength = slength;
+}
+int Staff::getSlength() {
+    return this->slength;
+}
 void Staff::readDataFile(fstream& filein) {
     filein.ignore(20, 10);
     string ID, Name, Job, Account, Password;
@@ -120,4 +137,14 @@ void Staff::writeDatarl() {
     cout << left << setw(13) << this->getRelative().getPhone() << "|";
     cout << "   ";
     cout << left << setw(29) << this->getRelative().getMail() << "|\n";
+}
+void Staff::addslr(Salary& tmp) {
+    Salary* listtmp = new Salary[50];
+    for (int i = 0; i < this->slength; i++) {
+        *(listtmp + i) = *(this->getStSalary() + i);
+    }
+    *(listtmp + this->slength) = tmp;
+    delete[] this->getStSalary();
+    this->setStSalary(listtmp);
+    this->slength++;
 }

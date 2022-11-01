@@ -11,6 +11,10 @@ public:
 	void writerl();
 	void update();
 	Staff setStaff();
+	void readSalaryFile(fstream&);
+	void writeSalaryFile(fstream&);
+	void writeSalaryY(int);
+	void addSalary();
 protected:
 };
 

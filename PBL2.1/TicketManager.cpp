@@ -15,17 +15,21 @@ Ticket TicketManager::setTicketInfor() {
 	int cost;
 	int check = 0;
 	do {
-		cout << "Nhap id: ";fflush(stdin);
+		cin.ignore();
+		cout << "Nhap id: ";
 		getline(cin, id);
 		if(this->findById(id) != nullptr) {
 			cout << "Ma bi trung!. Lua chon" << endl;
 			cout << "\n\t\t1. Nhap lai";
 			cout << "\n\t\t2. Thoat\n";
 			cin >> check;
-			cin.ignore();
 		}
 		else check = 3;
 	} while(check == 1 || check == 0);
+	if (check == 2) {
+		ticket.setId("null");
+		return ticket;
+	}
 	check = 0;
 	do {
 		system("cls");

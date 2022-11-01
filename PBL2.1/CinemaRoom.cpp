@@ -44,7 +44,7 @@ void CinemaRoom::writeDataFile(fstream& fileout) {
 }
 void CinemaRoom::writeData() {
 	cout << "|";
-	cout << left << setw(10) << " " << this->getId() << left << setw(10) << " " << "|";
+	cout << left << setw(10) << " " << left << setw(6) << this->getId() << left << setw(10) << " " << "|";
 	cout << left << setw(5) << " " << left << setw(8) << this->chairs << "|";
 	cout << left << setw(15) << " " << left << setw(20) << this->getStatus() << "|";
 	cout << "\n";

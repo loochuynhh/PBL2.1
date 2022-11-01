@@ -5,6 +5,7 @@
 #include "Salary.h"
 #include "Time.h"
 #include <iomanip>
+#include "Manager.h"
 
 using namespace std;
 
@@ -20,7 +21,10 @@ private:
 	Infor inforst;
 	Inforrl relative;
 	Salary* stsalary;
+	int slength;
 public:
+	Staff();
+	~Staff();
 	void setId(string);
 	string getId();
 	void setName(string);
@@ -38,11 +42,14 @@ public:
 	void setRelative(Inforrl);
 	Inforrl getRelative();
 	void setStSalary(Salary*);
-	Salary getStSalary();
+	Salary* getStSalary();
+	void setSlength(int);
+	int getSlength();
 	void readDataFile(fstream&);
 	void writeDataFile(fstream&);
 	void writeData();
 	void writeDatarl();
+	void addslr(Salary&);
 };
 
 #endif

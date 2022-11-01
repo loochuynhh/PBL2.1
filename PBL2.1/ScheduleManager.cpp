@@ -27,6 +27,10 @@ Schedule ScheduleManager::setScheduleInfor() {
 		}
 		else check = 3;
 	} while(check == 1 || check == 0);
+	if (check == 2) {
+		schedule.setId("null");
+		return schedule;
+	}
 	check = 0;
 	do {
 		system("cls");

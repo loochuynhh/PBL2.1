@@ -213,3 +213,114 @@ void StaffManager::update(){
 		} while (opttmp != 0);
 	}
 }
+
+void StaffManager::readSalaryFile(fstream& filein) {
+	for (int i = 0; i < this->length; i++) {
+		int slength;
+		filein >> slength;
+		(this->getTypeList() + i)->setSlength(slength);
+		Salary* salary = new Salary[slength];
+		for (int j = 0; j < slength; j++) {
+			(salary + j)->readFile(filein);
+		}
+		delete[] (this->getTypeList() + i)->getStSalary();
+		(this->getTypeList() + i)->setStSalary(salary);
+	}
+}
+
+void StaffManager::writeSalaryFile(fstream& fileout) {
+	for (int i = 0; i < this->length; i++) {
+		fileout << (this->getTypeList() + i)->getSlength() << endl;
+		for (int j = 0; j < (this->getTypeList() + i)->getSlength(); j++) {
+			((this->getTypeList() + i)->getStSalary() + j)->writeFile(fileout);
+		}
+	}
+}
+void StaffManager::writeSalaryY(int year) {
+	int salaryTable[20][12][2];
+	for (int i = 0; i < 20; i++) {
+		for (int j = 0; j < 12; j++) {
+			for (int k = 0; k < 2; k++) salaryTable[i][j][k] = 0;
+		}
+	}
+	cout << "\t\t\t\t\t\t\t\tTIEN LUONG DA TRA TRONG NAM " << year << " LA: " << endl;
+	for (int i = 0; i < this->length; i++) {
+		for (int j = 0; j < this->typeList->getSlength(); j++) {
+			if (((this->getTypeList() + i)->getStSalary() + j)->getTimeslr().getYear() == year) {
+				salaryTable[i][((this->getTypeList() + i)->getStSalary() + j)->getTimeslr().getMonth() - 1][0] = ((this->getTypeList() + i)->getStSalary() + j)->getSalaryBase();
+				salaryTable[i][((this->getTypeList() + i)->getStSalary() + j)->getTimeslr().getMonth() - 1][1] = ((this->getTypeList() + i)->getStSalary() + j)->getBonus();
+			}
+		}
+	}
+	cout << "\t";
+	for (int i = 0; i < 161; i++) cout << "-"; cout << endl;
+	cout << "\t";
+	cout << "| MaNV/Thang |  Loai Luong  |    01    |    02    |    03    |    04    |    05    |    06    |    07    |    08    |    09    |    10    |    11    |    12    |\n";
+	cout << "\t";
+	for (int i = 0; i < 161; i++) cout << "-"; cout << endl; 
+	for (int i = 0; i < length; i++) {
+		for (int cnt = 0; cnt < 3; cnt++) {
+			if (cnt == 1) {
+				cout << "\t";
+				cout << "|   " << left << setw(9) << (this->getTypeList() + i)->getId();
+				cout << "|    Thuong    |";
+				for (int j = 0; j < 12; j++) {
+					cout << left << setw(10) << salaryTable[i][j][1] << "|";
+				}
+			}
+			else if (cnt == 0) {
+				cout << "\t";
+				cout << "|            |    Co ban    |";
+				for (int j = 0; j < 12; j++) {
+					cout << left << setw(10) << salaryTable[i][j][0] << "|";
+				}
+			}
+			else {
+				cout << "\t";
+				cout << "|            |  Tong cong   |";
+				for (int j = 0; j < 12; j++) {
+					cout << left << setw(10) << salaryTable[i][j][0] + salaryTable[i][j][1] << "|";
+				}
+			}
+			cout << endl;
+		}
+		cout << "\t";
+		for (int i = 0; i < 161; i++) cout << "-"; cout << endl;
+	}
+}
+void StaffManager::addSalary() {
+	string id;
+	Salary tmp;
+	int check = 1;
+	do {
+		cout << "\t\tNhap ma nhan vien muon them luong: ";
+		cin.ignore();
+		getline(cin, id);
+		if (this->findById(id) != nullptr) {
+			check = 2;
+			int date, month, year, salarybase, bonus;
+			cout << "\t\tNhap ngay tra luong: ";
+			cin >> date;
+			cout << "\t\tNhap thang tra luong: ";
+			cin >> month;
+			cout << "\t\tNhap nam tra luong: ";
+			cin >> year;
+			Time timeslr(date, month, year);
+			tmp.setTimeslr(timeslr);
+			cout << "\t\tNhap luong co ban: ";
+			cin >> salarybase;
+			tmp.setSalaryBase(salarybase);
+			cout << "\t\tNhap luong thuong them: ";
+			cin >> bonus;
+			tmp.setBonus(bonus);
+			this->typeList->addslr(tmp);
+			cout << "\t\tLuong da duoc them.\n";
+		}
+		else {
+			cout << "\t\t\tMa nhan vien khong hop le. Lua chon:";
+			cout << "\n\t\t1. Nhap lai.";
+			cout << "\n\t\t2. Thoat.\n";
+			cin >> check;
+		}
+	} while (check == 1);
+}

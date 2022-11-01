@@ -1,6 +1,6 @@
 #include "Menu.h"
 
-fstream fsst, fsdrt, fsfilm, fscr, fsscd, fstk;
+fstream fsst, fsdrt, fsfilm, fscr, fsscd, fstk, fsslr;
 StaffManager stMng;
 DirectorManager drtMng;
 FilmManager filmMng;
@@ -8,6 +8,42 @@ CinemaRoomManager cnmMng;
 ScheduleManager scdMng(filmMng, cnmMng);
 TicketManager tkMng(scdMng, stMng);
 
+void Menu::cinema1() {
+	cout << "\n";
+	cout << "\t\t\t .----------------.  .----------------.  .-----------------. .----------------.  .----------------.  .----------------. " << endl;
+	cout << "\t\t\t| .--------------. || .--------------. || .--------------. || .--------------. || .--------------. || .--------------. |" << endl;
+	cout << "\t\t\t| |     ______   | || |     _____    | || | ____  _____  | || |  _________   | || | ____    ____ | || |      __      | |" << endl;
+	cout << "\t\t\t| |   .' ___  |  | || |    |_   _|   | || ||_   \\|_   _| | || | |_   ___  |  | || ||_   \\  /   _|| || |     /  \\     | |" << endl;
+	cout << "\t\t\t| |  / .'   \\_|  | || |      | |     | || |  |   \\ | |   | || |   | |_  \\_|  | || |  |   \\/   |  | || |    / /\\ \\    | |" << endl;
+	cout << "\t\t\t| |  | |         | || |      | |     | || |  | |\\ \\| |   | || |   |  _|  _   | || |  | |\\  /| |  | || |   / ____ \\   | |" << endl;
+	cout << "\t\t\t| |  \\ `.___.'\\  | || |     _| |_    | || | _| |_\\   |_  | || |  _| |___/ |  | || | _| |_\\/_| |_ | || | _/ /    \\ \\_ | |" << endl;
+	cout << "\t\t\t| |   `._____.'  | || |    |_____|   | || ||_____|\\____| | || | |_________|  | || ||_____||_____|| || ||____|  |____|| |" << endl;
+	cout << "\t\t\t| |              | || |              | || |              | || |              | || |              | || |              | |" << endl;
+	cout << "\t\t\t| '--------------' || '--------------' || '--------------' || '--------------' || '--------------' || '--------------' |" << endl;
+	cout << "\t\t\t '----------------'  '----------------'  '----------------'  '----------------'  '----------------'  '----------------' " << endl;
+	cout << "\n";
+}
+
+void Menu::cinema2() {
+	cout << endl;
+	cout << "\t\t\t\t\t\t\t ______     __     __   __     ______     __    __     ______    " << endl;
+	cout << "\t\t\t\t\t\t\t/\\  ___\\   /\\ \\   /\\ \"-.\\ \\   /\\  ___\\   /\\ \"-./  \\   /\\  __ \\   " << endl;
+	cout << "\t\t\t\t\t\t\t\\ \\ \\____  \\ \\ \\  \\ \\ \\-.  \\  \\ \\  __\\   \\ \\ \\-./\\ \\  \\ \\  __ \\  " << endl;
+	cout << "\t\t\t\t\t\t\t \\ \\_____\\  \\ \\_\\  \\ \\_\\\\\"\\_\\  \\ \\_____\\  \\ \\_\\ \\ \\_\\  \\ \\_\\ \\_\\ " << endl;
+	cout << "\t\t\t\t\t\t\t  \\/_____/   \\/_/   \\/_/ \\/_/   \\/_____/   \\/_/  \\/_/   \\/_/\\/_/ " << endl;
+	cout << "\n";
+}
+void Menu::cinema3() {
+	cout << endl;
+	cout << "\t\t\t\t\t\t\t ______    ________  ___   __    ______   ___ __ __   ________      " << endl;
+	cout << "\t\t\t\t\t\t\t/_____/\\  /_______/\\/__/\\ /__/\\ /_____/\\ /__//_//_/\\ /_______/\\     " << endl;
+	cout << "\t\t\t\t\t\t\t\\:::__\\/  \\__.::._\\/\\::\\_\\\\  \\ \\\\::::_\\/_\\::\\| \\| \\ \\\\::: _  \\ \\    " << endl;
+	cout << "\t\t\t\t\t\t\t \\:\\ \\  __   \\::\\ \\  \\:. `-\\  \\ \\\\:\\/___/\\\\:.      \\ \\\\::(_)  \\ \\   " << endl;
+	cout << "\t\t\t\t\t\t\t  \\:\\ \\/_/\\  _\\::\\ \\__\\:. _    \\ \\\\::___\\/_\\:.\\-/\\  \\ \\\\:: __  \\ \\  " << endl;
+	cout << "\t\t\t\t\t\t\t   \\:\\_\\ \\ \\/__\\::\\__/\\\\. \\`-\\  \\ \\\\:\\____/\\\\. \\  \\  \\ \\\\:.\\ \\  \\ \\ " << endl;
+	cout << "\t\t\t\t\t\t\t    \\_____\\/\\________\\/ \\__\\/ \\__\\/ \\_____\\/ \\__\\/ \\__\\/ \\__\\/\\__\\/ " << endl;
+	cout << endl;
+}
 void Menu::login() {
 	fsst.open("Staff.txt", ios::in);
 	stMng.readFile(fsst);
@@ -21,15 +57,22 @@ void Menu::login() {
 	scdMng.readFile(fsscd);
 	fstk.open("Ticket.txt", ios::in);
 	tkMng.readFile(fstk);
+	fsslr.open("Salary.txt", ios::in);
+	stMng.readSalaryFile(fsslr);
 	fsst.close();
 	fsdrt.close();
 	fsfilm.close();
 	fscr.close();
 	fsscd.close();
 	fstk.close();
+	fsslr.close();
 	int cnt = 0;
 	do {
-		system("cls"); 
+		system("cls");
+		//cinema1();
+		//cinema2();
+		cinema3();
+		cout << endl;
 		cout << left << setw(70) << " ";
 		for (int i = 0; i < 35; i++) cout << "-";
 		cout << "\n" << left << setw(70) << " " << "|";
@@ -37,12 +80,13 @@ void Menu::login() {
 		cout << setw(12) << " " << "|";
 		cout << "\n" << left << setw(70) << " ";
 		for (int i = 0; i < 35; i++) cout << "-";
+		cout << endl;
 		string account, password;
 		char pas, pass; int c = 0;
-		cout << "\n\t\t\t\t" << left << setw(16) << "TEN DANG NHAP" << ":   ";
+		cout << "\n\t\t\t\t\t\t\t\t" << left << setw(16) << "TEN DANG NHAP" << ":   ";
 		getline(cin, account);
-		cout << "\t\t\t\t--------------------------------------------" << endl;
-		cout << "\t\t\t\t" << left << setw(16) << "MAT KHAU" << ":   ";
+		cout << "\t\t\t\t\t\t\t\t----------------------------------------------" << endl;
+		cout << "\t\t\t\t\t\t\t\t" << left << setw(16) << "MAT KHAU" << ":   ";
 		while (true) {
 			pas = _getch();
 			if (pas == 13) break;
@@ -72,10 +116,10 @@ void Menu::login() {
 			}
 		}
 		if (cnt == 0) {
-			cout << "\n\n\n\t\t\t\tTAI KHOAN KHONG HOP LE.";
-			cout << "\n\t\t\t\t1. Dang Nhap Lai.";
-			cout << "\n\t\t\t\t2. Thoat";
-			cout << "\n\t\t\t\t";
+			cout << "\n\n\n\t\t\t\t\t\t\t\t\tTAI KHOAN KHONG HOP LE.";
+			cout << "\n\n\t\t\t\t\t\t\t\t1. Dang Nhap Lai.";
+			cout << "\t\t  2. Thoat";
+			cout << "\n\t\t\t\t\t\t\t\t\t\t";
 			int x; cin >> x;
 			if (x == 2) break;
 			cin.ignore();
@@ -92,6 +136,7 @@ void Menu::stMenu() {
 	int opt = 0;
 	do {
 		system("cls");
+		cinema3();
 		cout << endl;
 		cout << left << setw(70) << " ";
 		for (int i = 0; i < 35; i++) cout << "-";
@@ -100,12 +145,26 @@ void Menu::stMenu() {
 		cout << setw(15) << " " << "|";
 		cout << "\n" << left << setw(70) << " ";
 		for (int i = 0; i < 35; i++) cout << "-";
-		cout << "\n\t\t\t\t1.Quan li phim";
-		cout << "\n\t\t\t\t2.Quan li phong chieu";
-		cout << "\n\t\t\t\t3.Quan li lich chieu";
-		cout << "\n\t\t\t\t4.Quan li ve";
-		cout << "\n\t\t\t\t0.Thoat";
-		cout << "\n\t\t\t\t**Nhap lua chon: ";;
+		cout << "\n\n\t\t\t\t\t\t\t\t";
+		for (int i = 0; i < 42; i++) cout << "-"; cout << "\n";
+		cout << "\t\t\t\t\t\t\t\t";
+		cout << "|" << left << setw(40) << " " << "|";
+		cout << "\n\t\t\t\t\t\t\t\t|" << left << setw(40) << " 1. Quan li phim" << "|";
+		cout << "\n\t\t\t\t\t\t\t\t";
+		cout << "|" << left << setw(40) << " " << "|";
+		cout << "\n\t\t\t\t\t\t\t\t|" << left << setw(40) << " 2. Quan li phong chieu" << "|";
+		cout << "\n\t\t\t\t\t\t\t\t";
+		cout << "|" << left << setw(40) << " " << "|";
+		cout << "\n\t\t\t\t\t\t\t\t|" << left << setw(40) << " 3. Quan li lich chieu" << "|";
+		cout << "\n\t\t\t\t\t\t\t\t";
+		cout << "|" << left << setw(40) << " " << "|";
+		cout << "\n\t\t\t\t\t\t\t\t|" << left << setw(40) << " 4. Quan li ve" << "|"; 
+		cout << "\n\t\t\t\t\t\t\t\t";
+		cout << "|" << left << setw(40) << " " << "|";
+		cout << "\n\t\t\t\t\t\t\t\t|" << left << setw(40) << " 0. Thoat" << "|";
+		cout << "\n\t\t\t\t\t\t\t\t";
+		for (int i = 0; i < 42; i++) cout << "-";
+		cout << "\n\n\t\t\t\t\t\t\t\t\t**Nhap lua chon: ";
 		cin >> opt;
 		switch (opt) {
 		case (1): {
@@ -477,9 +536,9 @@ void Menu::drtMenu() {
 				cout << "\n\t\t3.Them nhan vien";
 				cout << "\n\t\t4.Xoa nhan vien";
 				cout << "\n\t\t5.Cap nhat thong tin nhan vien";
-				//cout << "\n\t\t6.Xem luong nhan vien";
-				//cout << "\n\t\t7.Cap nhat luong nhan vien";
-				cout << "\n\t\t6.Xac nhan thay doi";
+				cout << "\n\t\t6.Xem luong nhan vien theo nam";
+				cout << "\n\t\t7.Them (cap nhat) luong nhan vien";
+				cout << "\n\t\t8.Xac nhan thay doi";
 				cout << "\n\t\t0.Thoat";
 				cout << "\n\t\t**Nhap lua chon: ";
 				cin >> opt1;
@@ -494,6 +553,7 @@ void Menu::drtMenu() {
 					system("pause");
 				}
 				else if (opt1 == 3) {
+					system("cls");
 					Staff staff = stMng.setStaff();
 					if(staff.getId() != "null") {
 						stMng.add(staff);
@@ -501,6 +561,7 @@ void Menu::drtMenu() {
 					}
 				}
 				else if (opt1 == 4) {
+					system("cls");
 					string id;
 					cout << "\t\tNhap ma nhan vien can xoa: ";
 					cin.ignore();
@@ -513,12 +574,30 @@ void Menu::drtMenu() {
 					system("pause");
 				}
 				else if (opt1 == 5) {
+					system("cls");
 					stMng.update();
 				}
 				else if (opt1 == 6) {
+					system("cls");
+					int year;
+					cout << "\t\tNhap nam muon xem luong: ";
+					cin >> year;
+					stMng.writeSalaryY(year);
+					system("pause");
+				}
+				else if (opt1 == 7) {
+					system("cls");
+					stMng.addSalary();
+					system("pause");
+				}
+				else if (opt1 == 8) {
+					system("cls");
 					fsst.open("Staff.txt", ios::out | ios::trunc);
 					stMng.writeFile(fsst);
 					fsst.close();
+					fsslr.open("Salary.txt", ios::out | ios::trunc);
+					stMng.writeSalaryFile(fsslr);
+					fsslr.close();
 					cout << "\t\tThay doi da duoc luu vao file.\n";
 					system("pause");
 				}

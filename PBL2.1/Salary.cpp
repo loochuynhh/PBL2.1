@@ -24,3 +24,24 @@ void Salary::setSalaryBase(int salaryBase) {
 int Salary::getSalaryBase() {
     return this->salaryBase;
 }
+void Salary::readFile(fstream& filein) {
+    filein.ignore(20, 10);
+    int salaryBase, bonus;
+    Time timeslr;
+    filein >> salaryBase;
+    this->setSalaryBase(salaryBase);
+    filein.ignore(1);
+    filein >> bonus;
+    this->setBonus(bonus);
+    filein.ignore(1);
+    this->timeslr.readfilet(filein);
+}
+void Salary::writeFile(fstream& fileout) {
+    fileout << this->getSalaryBase() << ", ";
+    fileout << this->getBonus() << ", ";
+    this->timeslr.writefilet(fileout);
+    fileout << "\n";
+}
+void Salary::write() {
+
+}

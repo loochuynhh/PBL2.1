@@ -8,6 +8,7 @@
 #include "Director.h"
 #include "Staff.h"
 #include <fstream>
+#include "Salary.h"
 
 using namespace std;
 
