@@ -163,35 +163,24 @@ void Menu::stMenu() {
 		cout << "|" << left << setw(40) << " " << "|";
 		cout << "\n\t\t\t\t\t\t\t\t|" << left << setw(40) << " 0. Thoat" << "|";
 		cout << "\n\t\t\t\t\t\t\t\t";
-		cout << "|" << left << setw(40) << " " << "|";
-		cout << "\n\t\t\t\t\t\t\t\t";
 		for (int i = 0; i < 42; i++) cout << "-";
-		cout << "\n\n\t\t\t\t\t\t\t\t\t>> Nhap lua chon: ";
+		cout << "\n\n\t\t\t\t\t\t\t\t\t**Nhap lua chon: ";
 		cin >> opt;
 		switch (opt) {
 		case (1): {
 			int tmp = 0;
 			do {
 				system("cls");
-				cinema3();
-				cout << left << setw(70) << " ";
-				for (int i = 0; i < 48; i++) cout << "-";
-				cout << "\n" << left << setw(70) << " " << "|";
-				cout << left << setw(14) << " " << "QUAN LI PHIM";
-				cout << setw(20) << " " << "|";
-				cout << "\n" << left << setw(70) << " ";
-				for (int i = 0; i < 48; i++) cout << "-";
-				cout << "\n\n\t\t\t\t\t\t\t1. Them phim";
-				cout << "\n\t\t\t\t\t\t\t2. Xem danh sach phim";
-				cout << "\n\t\t\t\t\t\t\t3. Tim phim theo ten";
-				cout << "\n\t\t\t\t\t\t\t4. Tim phim theo ma";
-				cout << "\n\t\t\t\t\t\t\t5. Xoa phim";
-				cout << "\n\t\t\t\t\t\t\t6. Cap nhat phim";
-				cout << "\n\t\t\t\t\t\t\t7. Xac nhan thay doi";
-				cout << "\n\t\t\t\t\t\t\t0. Quay lai menu";
-				cout << "\n\n\t\t\t\t\t\t\t\t";
-				for (int i = 0; i < 55; i++) cout << "*";
-				cout << "\n\t\t\t\t\t\t\t>> Nhap lua chon: ";
+				cout << "\t\t\t\t\t\tQUAN LI PHIM";
+				cout << "\n\t\t1.Them phim";
+				cout << "\n\t\t2.Xem danh sach phim";
+				cout << "\n\t\t3.Tim phim theo ten";
+				cout << "\n\t\t4.Tim phim theo ma";
+				cout << "\n\t\t5.Xoa phim";
+				cout << "\n\t\t6.Cap nhap phim";
+				cout << "\n\t\t7.Xac nhan cac thay doi";
+				cout << "\n\t\t0.Quay lai mainmenu";
+				cout << "\n\t\t**Nhap lua chon: ";
 				cin >> tmp;
 				if (tmp == 1) {
 					Film film = filmMng.setFilmInfor();
@@ -250,13 +239,6 @@ void Menu::stMenu() {
 					fsfilm.close();
 					cout << "\t\tThay doi da duoc luu vao file.\n";
 					system("pause");
-					/*for (int iscd = 0; iscd < scdMng.getLength(); iscd++) {
-						for (int ifilm = 0; ifilm < filmMng.getLength(); ifilm++) {
-							if ((filmMng.getTypeList() + ifilm)->getId().compare((scdMng.getTypeList() + iscd)->getFilmId()) == 0) {
-								scdMng.del((scdMng.getTypeList() + iscd)->getId());
-							}
-						}
-					}*/
 				}
 				else if (tmp != 0) {
 					cout << "\t\tLuu chon khong hop le. Moi chon lai.\n";
@@ -269,24 +251,15 @@ void Menu::stMenu() {
 			int tmp = 0;
 			do {
 				system("cls");
-				cinema3();
-				cout << left << setw(70) << " ";
-				for (int i = 0; i < 48; i++) cout << "-";
-				cout << "\n" << left << setw(70) << " " << "|";
-				cout << left << setw(14) << " " << "QUAN LI PHONG CHIEU";
-				cout << setw(13) << " " << "|";
-				cout << "\n" << left << setw(70) << " ";
-				for (int i = 0; i < 48; i++) cout << "-";
-				cout << "\n\n\t\t\t\t\t\t\t1. Them phong chieu";
-				cout << "\n\t\t\t\t\t\t\t2. Xem danh sach phong chieu";
-				cout << "\n\t\t\t\t\t\t\t3. Tim phong chieu theo ma";
-				cout << "\n\t\t\t\t\t\t\t4. Xoa phong chieu";
-				cout << "\n\t\t\t\t\t\t\t5. Cap nhat phong chieu";
-				cout << "\n\t\t\t\t\t\t\t6. Xac nhan thay doi";
-				cout << "\n\t\t\t\t\t\t\t0. Quay lai menu";
-				cout << "\n\n\t\t\t\t\t\t\t\t";
-				for (int i = 0; i < 55; i++) cout << "*";
-				cout << "\n\t\t\t\t\t\t\t>> Nhap lua chon: ";
+				cout << "\t\t\t\t\t\tQUAN LI PHONG CHIEU";
+				cout << "\n\t\t1.Them phong chieu";
+				cout << "\n\t\t2.Xem danh sach phong chieu";
+				cout << "\n\t\t3.Tim phong chieu theo ma";
+				cout << "\n\t\t4.Xoa phong chieu";
+				cout << "\n\t\t5.Cap nhap phong chieu";
+				cout << "\n\t\t6.Xac nhan cac thay doi";
+				cout << "\n\t\t0.Quay lai mainmenu";
+				cout << "\n\t\t**Nhap lua chon: ";
 				cin >> tmp;
 				if (tmp == 1) {
 					CinemaRoom cM = cnmMng.setCinemaRoomInfor();
@@ -350,24 +323,15 @@ void Menu::stMenu() {
 			int tmp = 0;
 			do {
 				system("cls");
-				cinema3();
-				cout << left << setw(70) << " ";
-				for (int i = 0; i < 48; i++) cout << "-";
-				cout << "\n" << left << setw(70) << " " << "|";
-				cout << left << setw(14) << " " << "QUAN LI LICH CHIEU";
-				cout << setw(14) << " " << "|";
-				cout << "\n" << left << setw(70) << " ";
-				for (int i = 0; i < 48; i++) cout << "-";
-				cout << "\n\n\t\t\t\t\t\t\t1. Them lich chieu";
-				cout << "\n\t\t\t\t\t\t\t2. Xem danh sach lich chieu";
-				cout << "\n\t\t\t\t\t\t\t3. Tim lich chieu theo ma";
-				cout << "\n\t\t\t\t\t\t\t4. Xoa lich chieu";
-				cout << "\n\t\t\t\t\t\t\t5. Cap nhat lich chieu";
-				cout << "\n\t\t\t\t\t\t\t6. Xac nhan thay doi";
-				cout << "\n\t\t\t\t\t\t\t0. Quay lai menu";
-				cout << "\n\n\t\t\t\t\t\t\t\t";
-				for (int i = 0; i < 55; i++) cout << "*";
-				cout << "\n\t\t\t\t\t\t\t>> Nhap lua chon: ";
+				cout << "\t\t\t\t\t\tQUAN LI LICH CHIEU";
+				cout << "\n\t\t1.Them lich chieu";
+				cout << "\n\t\t2.Xem danh sach lich chieu";
+				cout << "\n\t\t3.Tim lich chieu theo ma";
+				cout << "\n\t\t4.Xoa lich chieu";
+				cout << "\n\t\t5.Cap nhap lich chieu";
+				cout << "\n\t\t6.Xac nhan cac thay doi";
+				cout << "\n\t\t0.Quay lai mainmenu";
+				cout << "\n\t\t**Nhap lua chon: ";
 				cin >> tmp;
 				if (tmp == 1) {
 					Schedule tmp = scdMng.setScheduleInfor();
@@ -432,26 +396,17 @@ void Menu::stMenu() {
 			int tmp = 0;
 			do {
 				system("cls");
-				cinema3();
-				cout << left << setw(70) << " ";
-				for (int i = 0; i < 48; i++) cout << "-";
-				cout << "\n" << left << setw(70) << " " << "|";
-				cout << left << setw(14) << " " << "QUAN LI VE";
-				cout << setw(22) << " " << "|";
-				cout << "\n" << left << setw(70) << " ";
-				for (int i = 0; i < 48; i++) cout << "-";
-				cout << "\n\n\t\t\t\t\t\t\t1. Xuat ve";
-				cout << "\n\t\t\t\t\t\t\t2. Xem danh sach ve";
-				cout << "\n\t\t\t\t\t\t\t3. Xuat doanh thu theo thoi gian";
-				cout << "\n\t\t\t\t\t\t\t4. Xuat doanh thu theo nhan vien";
-				cout << "\n\t\t\t\t\t\t\t5. Xuat tong doanh thu";
-				cout << "\n\t\t\t\t\t\t\t6. Xoa ve";
-				cout << "\n\t\t\t\t\t\t\t7. Xuat doanh thu theo nam tung nhan vien";
-				cout << "\n\t\t\t\t\t\t\t8. Xac nhan thay doi";
-				cout << "\n\t\t\t\t\t\t\t0. Quay Lai menu";
-				cout << "\n\n\t\t\t\t\t\t\t\t";
-				for (int i = 0; i < 55; i++) cout << "*";
-				cout << "\n\t\t\t\t\t\t\t>> Nhap lua chon: ";
+				cout << "\t\t\t\t\t\tQUAN LI VE";
+				cout << "\n\t\t1.Xuat ve";
+				cout << "\n\t\t2.Xem danh sach ve";
+				cout << "\n\t\t3.Xuat doanh thu theo thoi gian";
+				cout << "\n\t\t4.Xuat doanh thu theo nhan vien";
+				cout << "\n\t\t5.Xuat tong doanh thu";
+				cout << "\n\t\t6.Xoa ve";
+				cout << "\n\t\t7.Xuat doanh thu theo nam tung nhan vien";
+				cout << "\n\t\t8.Xac nhan cac thay doi";
+				cout << "\n\t\t0.Quay lai mainmenu";
+				cout << "\n\t\t**Nhap lua chon: ";
 				cin >> tmp;
 				if (tmp == 1) {
 					Ticket tmp = tkMng.setTicketInfor();
@@ -557,7 +512,6 @@ void Menu::drtMenu() {
 	int opt = 0;
 	do {
 		system("cls");
-		cinema3();
 		cout << endl;
 		cout << left << setw(70) << " ";
 		for (int i = 0; i < 35; i++) cout << "-";
@@ -566,48 +520,27 @@ void Menu::drtMenu() {
 		cout << setw(15) << " " << "|";
 		cout << "\n" << left << setw(70) << " ";
 		for (int i = 0; i < 35; i++) cout << "-";
-		cout << "\n\n\t\t\t\t\t\t\t\t";
-		for (int i = 0; i < 42; i++) cout << "-"; cout << "\n";
-		cout << "\t\t\t\t\t\t\t\t";
-		cout << "|" << left << setw(40) << " " << "|";
-		cout << "\n\t\t\t\t\t\t\t\t|" << left << setw(40) << " 1. Quan li nhan vien" << "|";
-		cout << "\n\t\t\t\t\t\t\t\t";
-		cout << "|" << left << setw(40) << " " << "|";
-		cout << "\n\t\t\t\t\t\t\t\t|" << left << setw(40) << " 2. Thong tin quan li" << "|";
-		cout << "\n\t\t\t\t\t\t\t\t";
-		cout << "|" << left << setw(40) << " " << "|";
-		cout << "\n\t\t\t\t\t\t\t\t|" << left << setw(40) << " 0. Thoat" << "|";
-		cout << "\n\t\t\t\t\t\t\t\t";
-		cout << "|" << left << setw(40) << " " << "|";
-		cout << "\n\t\t\t\t\t\t\t\t";
-		for (int i = 0; i < 42; i++) cout << "-";
-		cout << "\n\n\t\t\t\t\t\t\t\t\t>> Nhap lua chon: ";
+		cout << "\n\t\t\t\t1.Quan li nhan vien";
+		cout << "\n\t\t\t\t2.Thong tin quan li";
+		cout << "\n\t\t\t\t0.Thoat";
+		cout << "\n\t\t\t\t**Nhap lua chon: ";
 		cin >> opt;
 		switch (opt) {
 		case (1): {
 			int opt1 = 0;
 			do {
 				system("cls");
-				cinema3();
-				cout << left << setw(70) << " ";
-				for (int i = 0; i < 48; i++) cout << "-";
-				cout << "\n" << left << setw(70) << " " << "|";
-				cout << left << setw(14) << " " << "QUAN LI NHAN VIEN";
-				cout << setw(15) << " " << "|";
-				cout << "\n" << left << setw(70) << " ";
-				for (int i = 0; i < 48; i++) cout << "-";
-				cout << "\n\n\t\t\t\t\t\t\t1. Xem thong tin nhan vien";
-				cout << "\n\t\t\t\t\t\t\t2. Xem thong tin nhan than";
-				cout << "\n\t\t\t\t\t\t\t3. Them nhan vien";
-				cout << "\n\t\t\t\t\t\t\t4. Xoa nhan vien";
-				cout << "\n\t\t\t\t\t\t\t5. Cap nhat thong tin nhan vien";
-				cout << "\n\t\t\t\t\t\t\t6. Xem luong nhan vien theo nam";
-				cout << "\n\t\t\t\t\t\t\t7. Them (cap nhat) luong nhan vien";
-				cout << "\n\t\t\t\t\t\t\t8. Xac nhan thay doi";
-				cout << "\n\t\t\t\t\t\t\t0. Thoat";
-				cout << "\n\n\t\t\t\t\t\t\t\t";
-				for (int i = 0; i < 55; i++) cout << "*"; 
-				cout << "\n\t\t\t\t\t\t\t>> Nhap lua chon: ";
+				cout << "\t\t\t\t\tQUAN LI NHAN VIEN";
+				cout << "\n\t\t1.Xem thong tin nhan vien";
+				cout << "\n\t\t2.Xem thong tin nhan than";
+				cout << "\n\t\t3.Them nhan vien";
+				cout << "\n\t\t4.Xoa nhan vien";
+				cout << "\n\t\t5.Cap nhat thong tin nhan vien";
+				cout << "\n\t\t6.Xem luong nhan vien theo nam";
+				cout << "\n\t\t7.Them (cap nhat) luong nhan vien";
+				cout << "\n\t\t8.Xac nhan thay doi";
+				cout << "\n\t\t0.Thoat";
+				cout << "\n\t\t**Nhap lua chon: ";
 				cin >> opt1;
 				if (opt1 == 1) {
 					system("cls");
@@ -676,22 +609,13 @@ void Menu::drtMenu() {
 			int opt2;
 			do {
 				system("cls");
-				cinema3();
-				cout << left << setw(70) << " ";
-				for (int i = 0; i < 48; i++) cout << "-";
-				cout << "\n" << left << setw(70) << " " << "|";
-				cout << left << setw(14) << " " << "THONG TIN QUAN LI";
-				cout << setw(15) << " " << "|";
-				cout << "\n" << left << setw(70) << " ";
-				for (int i = 0; i < 48; i++) cout << "-";
-				cout << "\n\n\t\t\t\t\t\t\t1. Xem thong tin quan li";
-				cout << "\n\t\t\t\t\t\t\t2. Doi tai khoan";
-				cout << "\n\t\t\t\t\t\t\t3. Doi mat khau";
-				cout << "\n\t\t\t\t\t\t\t4. Xac nhan thay doi";
-				cout << "\n\t\t\t\t\t\t\t0. Thoat";
-				cout << "\n\n\t\t\t\t\t\t\t\t";
-				for (int i = 0; i < 55; i++) cout << "*";
-				cout << "\n\t\t\t\t\t\t\t>> Nhap lua chon: ";
+				cout << "\t\t\t\t\tTHONG TIN QUAN LI";
+				cout << "\n\t\t1.Xem thong tin quan li";
+				cout << "\n\t\t2.Doi tai khoan";
+				cout << "\n\t\t3.Doi mat khau";
+				cout << "\n\t\t4.Xac nhan thay doi";
+				cout << "\n\t\t0.Thoat";
+				cout << "\n\t\t**Nhap lua chon: ";
 				cin >> opt2;
 				if (opt2 == 1) { drtMng.write(); system("pause"); }
 				else if (opt2 == 2) { drtMng.updateAc(); system("pause"); }
