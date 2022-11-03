@@ -219,7 +219,17 @@ void Menu::stMenu() {
 					fsfilm.open("Film.txt", ios::out | ios::trunc);
 					filmMng.writeFile(fsfilm);
 					fsfilm.close();
-					cout << "\t\tThay doi da duoc luu vao file.\n";
+					cout << "\t\tThay doi da duoc luu vao file. Cac lich chieu co phim bi xoa cung duoc xoa.\n";
+					int test;
+					for (int iscd = 0; iscd < scdMng.getLength(); iscd++) {
+						test = 0;
+						for (int ifilm = 0; ifilm < filmMng.getLength(); ifilm++) {
+							if ((scdMng.getTypeList() + iscd)->getFilmId().compare((filmMng.getTypeList() + ifilm)->getId()) == 0) {
+								test = 1;
+						    }
+						}
+						if (test == 0) scdMng.del((scdMng.getTypeList() + iscd)->getId());
+					}
 					system("pause");
 				}
 				else if (tmp != 0) {
@@ -300,7 +310,17 @@ void Menu::stMenu() {
 					fscr.open("CinemaRoom.txt", ios::out | ios:: trunc);
 					cnmMng.writeFile(fscr);
 					fscr.close();
-					cout << "\t\tThay doi da duoc luu vao file.\n";
+					cout << "\t\tThay doi da duoc luu vao file. Cac lich chieu co phong chieu bi xoa cung duoc xoa.\n";
+					int test;
+					for (int iscd = 0; iscd < scdMng.getLength(); iscd++) {
+						test = 0;
+						for (int icnm = 0; icnm < cnmMng.getLength(); icnm++) {
+							if ((scdMng.getTypeList() + iscd)->getCinemaRoomId().compare((cnmMng.getTypeList() + icnm)->getId()) == 0) {
+								test = 1;
+							}
+						}
+						if(test == 0) scdMng.del((scdMng.getTypeList() + iscd)->getId());
+					}
 					system("pause");
 				}
 				else if (tmp != 0) {
