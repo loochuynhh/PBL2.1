@@ -8,32 +8,7 @@ CinemaRoomManager cnmMng;
 ScheduleManager scdMng(filmMng, cnmMng);
 TicketManager tkMng(scdMng, stMng);
 
-void Menu::cinema1() {
-	cout << "\n";
-	cout << "\t\t\t .----------------.  .----------------.  .-----------------. .----------------.  .----------------.  .----------------. " << endl;
-	cout << "\t\t\t| .--------------. || .--------------. || .--------------. || .--------------. || .--------------. || .--------------. |" << endl;
-	cout << "\t\t\t| |     ______   | || |     _____    | || | ____  _____  | || |  _________   | || | ____    ____ | || |      __      | |" << endl;
-	cout << "\t\t\t| |   .' ___  |  | || |    |_   _|   | || ||_   \\|_   _| | || | |_   ___  |  | || ||_   \\  /   _|| || |     /  \\     | |" << endl;
-	cout << "\t\t\t| |  / .'   \\_|  | || |      | |     | || |  |   \\ | |   | || |   | |_  \\_|  | || |  |   \\/   |  | || |    / /\\ \\    | |" << endl;
-	cout << "\t\t\t| |  | |         | || |      | |     | || |  | |\\ \\| |   | || |   |  _|  _   | || |  | |\\  /| |  | || |   / ____ \\   | |" << endl;
-	cout << "\t\t\t| |  \\ `.___.'\\  | || |     _| |_    | || | _| |_\\   |_  | || |  _| |___/ |  | || | _| |_\\/_| |_ | || | _/ /    \\ \\_ | |" << endl;
-	cout << "\t\t\t| |   `._____.'  | || |    |_____|   | || ||_____|\\____| | || | |_________|  | || ||_____||_____|| || ||____|  |____|| |" << endl;
-	cout << "\t\t\t| |              | || |              | || |              | || |              | || |              | || |              | |" << endl;
-	cout << "\t\t\t| '--------------' || '--------------' || '--------------' || '--------------' || '--------------' || '--------------' |" << endl;
-	cout << "\t\t\t '----------------'  '----------------'  '----------------'  '----------------'  '----------------'  '----------------' " << endl;
-	cout << "\n";
-}
-
-void Menu::cinema2() {
-	cout << endl;
-	cout << "\t\t\t\t\t\t\t ______     __     __   __     ______     __    __     ______    " << endl;
-	cout << "\t\t\t\t\t\t\t/\\  ___\\   /\\ \\   /\\ \"-.\\ \\   /\\  ___\\   /\\ \"-./  \\   /\\  __ \\   " << endl;
-	cout << "\t\t\t\t\t\t\t\\ \\ \\____  \\ \\ \\  \\ \\ \\-.  \\  \\ \\  __\\   \\ \\ \\-./\\ \\  \\ \\  __ \\  " << endl;
-	cout << "\t\t\t\t\t\t\t \\ \\_____\\  \\ \\_\\  \\ \\_\\\\\"\\_\\  \\ \\_____\\  \\ \\_\\ \\ \\_\\  \\ \\_\\ \\_\\ " << endl;
-	cout << "\t\t\t\t\t\t\t  \\/_____/   \\/_/   \\/_/ \\/_/   \\/_____/   \\/_/  \\/_/   \\/_/\\/_/ " << endl;
-	cout << "\n";
-}
-void Menu::cinema3() {
+void Menu::cinema() {
 	cout << endl;
 	cout << "\t\t\t\t\t\t\t ______    ________  ___   __    ______   ___ __ __   ________      " << endl;
 	cout << "\t\t\t\t\t\t\t/_____/\\  /_______/\\/__/\\ /__/\\ /_____/\\ /__//_//_/\\ /_______/\\     " << endl;
@@ -69,9 +44,7 @@ void Menu::login() {
 	int cnt = 0;
 	do {
 		system("cls");
-		//cinema1();
-		//cinema2();
-		cinema3();
+		cinema();
 		cout << endl;
 		cout << left << setw(70) << " ";
 		for (int i = 0; i < 35; i++) cout << "-";
@@ -136,7 +109,7 @@ void Menu::stMenu() {
 	int opt = 0;
 	do {
 		system("cls");
-		cinema3();
+		cinema();
 		cout << endl;
 		cout << left << setw(70) << " ";
 		for (int i = 0; i < 35; i++) cout << "-";
@@ -173,7 +146,7 @@ void Menu::stMenu() {
 			int tmp = 0;
 			do {
 				system("cls");
-				cinema3();
+				cinema();
 				cout << left << setw(70) << " ";
 				for (int i = 0; i < 48; i++) cout << "-";
 				cout << "\n" << left << setw(70) << " " << "|";
@@ -269,7 +242,7 @@ void Menu::stMenu() {
 			int tmp = 0;
 			do {
 				system("cls");
-				cinema3();
+				cinema();
 				cout << left << setw(70) << " ";
 				for (int i = 0; i < 48; i++) cout << "-";
 				cout << "\n" << left << setw(70) << " " << "|";
@@ -350,7 +323,7 @@ void Menu::stMenu() {
 			int tmp = 0;
 			do {
 				system("cls");
-				cinema3();
+				cinema();
 				cout << left << setw(70) << " ";
 				for (int i = 0; i < 48; i++) cout << "-";
 				cout << "\n" << left << setw(70) << " " << "|";
@@ -432,7 +405,7 @@ void Menu::stMenu() {
 			int tmp = 0;
 			do {
 				system("cls");
-				cinema3();
+				cinema();
 				cout << left << setw(70) << " ";
 				for (int i = 0; i < 48; i++) cout << "-";
 				cout << "\n" << left << setw(70) << " " << "|";
@@ -557,7 +530,7 @@ void Menu::drtMenu() {
 	int opt = 0;
 	do {
 		system("cls");
-		cinema3();
+		cinema();
 		cout << endl;
 		cout << left << setw(70) << " ";
 		for (int i = 0; i < 35; i++) cout << "-";
@@ -588,7 +561,7 @@ void Menu::drtMenu() {
 			int opt1 = 0;
 			do {
 				system("cls");
-				cinema3();
+				cinema();
 				cout << left << setw(70) << " ";
 				for (int i = 0; i < 48; i++) cout << "-";
 				cout << "\n" << left << setw(70) << " " << "|";
@@ -676,7 +649,7 @@ void Menu::drtMenu() {
 			int opt2;
 			do {
 				system("cls");
-				cinema3();
+				cinema();
 				cout << left << setw(70) << " ";
 				for (int i = 0; i < 48; i++) cout << "-";
 				cout << "\n" << left << setw(70) << " " << "|";
