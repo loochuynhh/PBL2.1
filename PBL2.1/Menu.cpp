@@ -144,7 +144,7 @@ void Menu::stMenu() {
 			int tmp = 0;
 			do {
 				system("cls");
-				cinema3();
+				cinema();
 				cout << left << setw(70) << " ";
 				for (int i = 0; i < 48; i++) cout << "-";
 				cout << "\n" << left << setw(70) << " " << "|";
@@ -233,7 +233,7 @@ void Menu::stMenu() {
 			int tmp = 0;
 			do {
 				system("cls");
-				cinema3();
+				cinema();
 				cout << left << setw(70) << " ";
 				for (int i = 0; i < 48; i++) cout << "-";
 				cout << "\n" << left << setw(70) << " " << "|";
@@ -314,7 +314,7 @@ void Menu::stMenu() {
 			int tmp = 0;
 			do {
 				system("cls");
-				cinema3();
+				cinema();
 				cout << left << setw(70) << " ";
 				for (int i = 0; i < 48; i++) cout << "-";
 				cout << "\n" << left << setw(70) << " " << "|";
@@ -396,7 +396,7 @@ void Menu::stMenu() {
 			int tmp = 0;
 			do {
 				system("cls");
-				cinema3();
+				cinema();
 				cout << left << setw(70) << " ";
 				for (int i = 0; i < 48; i++) cout << "-";
 				cout << "\n" << left << setw(70) << " " << "|";
@@ -521,7 +521,7 @@ void Menu::drtMenu() {
 	int opt = 0;
 	do {
 		system("cls");
-		cinema3();
+		cinema();
 		cout << endl;
 		cout << left << setw(70) << " ";
 		for (int i = 0; i < 35; i++) cout << "-";
@@ -540,7 +540,7 @@ void Menu::drtMenu() {
 			int opt1 = 0;
 			do {
 				system("cls");
-				cinema3();
+				cinema();
 				cout << left << setw(70) << " ";
 				for (int i = 0; i < 48; i++) cout << "-";
 				cout << "\n" << left << setw(70) << " " << "|";
@@ -628,7 +628,7 @@ void Menu::drtMenu() {
 			int opt2;
 			do {
 				system("cls");
-				cinema3();
+				cinema();
 				cout << left << setw(70) << " ";
 				for (int i = 0; i < 48; i++) cout << "-";
 				cout << "\n" << left << setw(70) << " " << "|";
