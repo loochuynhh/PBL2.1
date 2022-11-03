@@ -1,5 +1,5 @@
 4
-f0001, ironman, Jon Favreau, Robert Downey, America, action, 190. 
-f0002, batman, Matt Reeves, Ben Affleck, America, action, 180. 
-f0003, hoavangtrencoxanh, Victor Vu, Thanh Vinh, Vietnam, drama, 129. 
-f0004, skytour, Son Tung, Son Tung, Vietnam, ky su, 128. 
+f0001, ironman, Jon Favreau, Robert Downey, America, Hanh dong, 190. 
+f0002, batman, Matt Reeves, Ben Affleck, America, Hanh dong, 180. 
+f0003, hoavangtrencoxanh, Victor Vu, Thanh Vinh, Vietnam, Tinh cam, 129. 
+f0004, skytour, Son Tung, Son Tung, Vietnam, Ky su, 128. 

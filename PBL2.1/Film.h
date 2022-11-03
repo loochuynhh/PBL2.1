@@ -16,6 +16,7 @@ public:
 	string getCountry() const;
 	string getType() const;
 	string getActor() const;
+	string* getTypeof();
 	int getLength() const;
 	void setName(const string&);
 	void setId(const string&);
@@ -30,6 +31,7 @@ public:
 	void writeDataFile(fstream&);
 	void writeData();
 private:
+	string typeof[20];
 	string id;
 	string name;
 	string director;

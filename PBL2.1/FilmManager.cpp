@@ -32,16 +32,17 @@ Film FilmManager::setFilmInfor() {
 	string country;
 	string type;
 	int length;
-	int check = 0;
+	int check = 0, checkf = 0;
+	Film filmtmp;
 	do {
-		cout << "Nhap id: ";fflush(stdin);
+		cout << "Nhap id: ";
+		cin.ignore();
 		getline(cin, id);
 		if(this->findById(id) != nullptr) {
 			cout << "Ma bi trung!. Lua chon" << endl;
 			cout << "\n\t\t1. Nhap lai";
 			cout << "\n\t\t2. Thoat\n";
 			cin >> check;
-			cin.ignore();
 		}
 		else check = 3;
 	} while(check == 1 || check == 0);
@@ -59,8 +60,19 @@ Film FilmManager::setFilmInfor() {
 	getline(cin, actor);
 	cout << "Nhap noi san xuat: ";
 	getline(cin, country);
-	cout << "Nhap the loai: ";
-	getline(cin, type);
+	do {
+		cout << "Nhap the loai: ";
+		getline(cin, type);
+		for (int i = 0; i < 20; i++) {
+			if (type.compare(*(filmtmp.getTypeof() + i)) == 0) {
+				checkf = 1;
+			}
+		}
+		if (checkf == 0) {
+			cout << "The loai khong hop le moi nhap lai.";
+			system("pause");
+		}
+	} while (checkf == 0);
 	cout << "Nhap do dai phim: ";
 	cin >> length;
 	Film film(id, name, director, actor, country, type, length);

@@ -1,6 +1,26 @@
 #include "Film.h"
 
 Film::Film() {
+	this->typeof[0] = "Hanh dong";
+	this->typeof[1] = "Tinh cam";
+	this->typeof[2] = "Phieu Luu";
+	this->typeof[3] = "Hoat hinh";
+	this->typeof[4] = "Lang man";
+	this->typeof[5] = "Phim 18+";
+	this->typeof[6] = "Hai huoc";
+	this->typeof[7] = "Co trang";
+	this->typeof[8] = "Tam Ly";
+	this->typeof[9] = "Anime";
+	this->typeof[10] = "Chien tranh";
+	this->typeof[11] = "The thao";
+	this->typeof[12] = "Ky su";
+	this->typeof[13] = "Chinh kich";
+	this->typeof[14] = "Ma - Kinh di";
+	this->typeof[15] = "Vo thuat";
+	this->typeof[16] = "Vien Tuong";
+	this->typeof[17] = "Khoa hoc";
+	this->typeof[18] = "Than Loai";
+	this->typeof[19] = "Am nhac";
 }
 
 Film::Film(string& id, string& name, string& director, string& actor, string& country, string& type, int length) {
@@ -11,6 +31,26 @@ Film::Film(string& id, string& name, string& director, string& actor, string& co
 	this->country = country;
 	this->type = type;
 	this->length = length;
+	this->typeof[0] = "Hanh dong";
+	this->typeof[1] = "Tinh cam";
+	this->typeof[2] = "Phieu Luu";
+	this->typeof[3] = "Hoat hinh";
+	this->typeof[4] = "Lang man";
+	this->typeof[5] = "Phim 18+";
+	this->typeof[6] = "Hai huoc";
+	this->typeof[7] = "Co trang";
+	this->typeof[8] = "Tam Ly";
+	this->typeof[9] = "Anime";
+	this->typeof[10] = "Chien tranh";
+	this->typeof[11] = "The thao";
+	this->typeof[12] = "Ky su";
+	this->typeof[13] = "Chinh kich";
+	this->typeof[14] = "Ma - Kinh di";
+	this->typeof[15] = "Vo thuat";
+	this->typeof[16] = "Vien Tuong";
+	this->typeof[17] = "Khoa hoc";
+	this->typeof[18] = "Than Loai";
+	this->typeof[19] = "Am nhac";
 }
 string Film::getId() const {
 	return this->id;
@@ -66,6 +106,10 @@ void Film::setType(const string& type) {
 
 void Film::setLength(int length) {
 	this->length = length;
+}
+
+string* Film::getTypeof() {
+	return this->typeof;
 }
 void Film::readDataFile(fstream& filein) {
     filein.ignore(20, 10);
