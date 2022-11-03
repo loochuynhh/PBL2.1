@@ -1,28 +1,46 @@
 #include "FilmManager.h"
 
 void FilmManager::findByName(string& name) {
-	if(checkName(name) == false) {
+	char* nametmp2 = const_cast <char*>(name.c_str());
+	strlwr(nametmp2);
+	nametmp2 = const_cast <char*>(nametmp2);
+	int check = 0;
+	int i = 0;
+	while(i < this->length) {
+		string nametmp = (this->typeList + i)->getName();
+		char* nametmp1 = const_cast <char*>(nametmp.c_str());
+		strlwr(nametmp1);	
+		nametmp1 = const_cast<char*>(nametmp1);
+		if (strstr(nametmp1, nametmp2) != nullptr)
+		{
+			check = 1;
+			for (int x = 0; x < 156; x++) cout << "-"; cout << endl;
+			cout << "|" << left << setw(13) << "    Ma phim" << "|" << left << setw(31) << "\t   Ten phim" << "|" << left << setw(20) << "   Dao dien" << "|" << left << setw(20) << "\tDien vien chinh" << "|" << left << setw(17) << "\tQuoc gia" << "|" << left << setw(20) << "\tThe loai" << "|" << left << setw(15) << "  Thoi gian" << "|" << endl;
+			for (int x = 0; x < 156; x++) cout << "-"; cout << endl;
+			break;
+		}
+		else {
+			i++;
+		}
+	}
+	while(i < this->length) {
+		string nametmp = (this->typeList + i)->getName();
+		char* nametmp1 = const_cast <char*>(nametmp.c_str());
+		strlwr(nametmp1);
+		nametmp1 = const_cast <char*>(nametmp1);
+		string namecmp = string(nametmp1);
+		if (strstr(nametmp1, nametmp2) != nullptr)
+		{
+			(this->typeList + i)->writeData();
+		}
+		i++;
+	}
+	if(check == 0) {
 		cout << "Khong tim thay phim!" << endl;
 		return;
 	}
 	for (int x = 0; x < 156; x++) cout << "-"; cout << endl;
-	cout << "|" << left << setw(13) << "    Ma phim" << "|" << left << setw(31) << "\t   Ten phim" << "|" << left << setw(20) << "   Dao dien" << "|" << left << setw(20) << "\tDien vien chinh" << "|" << left << setw(17) << "\tQuoc gia" << "|" << left << setw(20) << "\tThe loai" << "|" << left << setw(15) << "  Thoi gian" << "|" << endl;
-	for (int x = 0; x < 156; x++) cout << "-"; cout << endl;
-	for (int i = 0; i < this->length; i++) {
-		string namecmp = (this->typeList + i)->getName();
-		if (name.compare(namecmp) == 0) (this->typeList + i)->writeData();
-	}
-	for (int x = 0; x < 156; x++) cout << "-"; cout << endl;
-}
-
-bool FilmManager::checkName(string& name) {
-	for (int i = 0; i < this->length; i++) {
-		string namecmp = (this->typeList + i)->getName();
-		if (name.compare(namecmp) == 0) return true;
-	}
-	return false;
-}
-
+}		
 
 Film FilmManager::setFilmInfor() {
 	string id;

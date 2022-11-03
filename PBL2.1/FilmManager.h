@@ -2,6 +2,7 @@
 #include "Film.h"
 #include "Manager.h"
 #include <string>
+#include <cstring>
 
 using namespace std;
 
@@ -10,7 +11,6 @@ class FilmManager : public Manager<Film>
 public:
 	void findByName(string&);
 	Film setFilmInfor();
-	bool checkName(string&);
 	void update();
 	void readFile(fstream&);
 	void writeFile(fstream&);
