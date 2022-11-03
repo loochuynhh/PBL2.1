@@ -12,9 +12,7 @@
 
 class Menu {
 public:
-	void cinema1();
-	void cinema2();
-	void cinema3();
+	void cinema();
 	void login();
 	void stMenu();
 	void drtMenu();
