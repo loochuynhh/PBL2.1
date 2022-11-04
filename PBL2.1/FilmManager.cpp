@@ -1,45 +1,38 @@
 #include "FilmManager.h"
 
+char asciitolower(char in) {
+	if (in <= 'Z' && in >= 'A')
+		return in - ('Z' - 'z');
+	return in;
+}
+
 void FilmManager::findByName(string& name) {
-	char* nametmp2 = const_cast <char*>(name.c_str());
-	strlwr(nametmp2);
-	nametmp2 = const_cast <char*>(nametmp2);
+	transform(name.begin(), name.end(), name.begin(), asciitolower);
 	int check = 0;
 	int i = 0;
 	while(i < this->length) {
 		string nametmp = (this->typeList + i)->getName();
-		char* nametmp1 = const_cast <char*>(nametmp.c_str());
-		strlwr(nametmp1);	
-		nametmp1 = const_cast<char*>(nametmp1);
-		if (strstr(nametmp1, nametmp2) != nullptr)
+		transform(nametmp.begin(), nametmp.end(), nametmp.begin(), asciitolower);
+		size_t found = nametmp.find(name);
+		if (found != string::npos && check == 0)
 		{
-			check = 1;
 			for (int x = 0; x < 156; x++) cout << "-"; cout << endl;
 			cout << "|" << left << setw(13) << "    Ma phim" << "|" << left << setw(31) << "\t   Ten phim" << "|" << left << setw(20) << "   Dao dien" << "|" << left << setw(20) << "\tDien vien chinh" << "|" << left << setw(17) << "\tQuoc gia" << "|" << left << setw(20) << "\tThe loai" << "|" << left << setw(15) << "  Thoi gian" << "|" << endl;
 			for (int x = 0; x < 156; x++) cout << "-"; cout << endl;
-			break;
-		}
-		else {
-			i++;
-		}
-	}
-	while(i < this->length) {
-		string nametmp = (this->typeList + i)->getName();
-		char* nametmp1 = const_cast <char*>(nametmp.c_str());
-		strlwr(nametmp1);
-		nametmp1 = const_cast <char*>(nametmp1);
-		string namecmp = string(nametmp1);
-		if (strstr(nametmp1, nametmp2) != nullptr)
-		{
 			(this->typeList + i)->writeData();
+			for (int x = 0; x < 156; x++) cout << "-"; cout << endl;
+			check = 1;
+		}
+		else if (found != string::npos) {
+			(this->typeList + i)->writeData();
+			for (int x = 0; x < 156; x++) cout << "-"; cout << endl;
 		}
 		i++;
 	}
 	if(check == 0) {
-		cout << "Khong tim thay phim!" << endl;
+		cout << "\t\t\t\tKhong tim thay phim!" << endl;
 		return;
 	}
-	for (int x = 0; x < 156; x++) cout << "-"; cout << endl;
 }		
 
 Film FilmManager::setFilmInfor() {

@@ -3,9 +3,11 @@
 #include "Manager.h"
 #include <string>
 #include <cstring>
+#include <algorithm>
 
 using namespace std;
 
+char asciitolower(char in);
 class FilmManager : public Manager<Film>
 {
 public:

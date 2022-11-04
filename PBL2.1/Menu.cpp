@@ -1,4 +1,5 @@
 #include "Menu.h"
+#include <Windows.h>
 
 fstream fsst, fsdrt, fsfilm, fscr, fsscd, fstk, fsslr;
 StaffManager stMng;
@@ -206,11 +207,21 @@ void Menu::stMenu() {
 					cin.ignore();
 					getline(cin, id);
 					if (filmMng.findById(id) != nullptr) {
-						filmMng.del(id);
-						cout << "\t\tPhim co ma " << id << " da duoc xoa.\n";
+						cout << "\t\t\t\tBan co chac chan muon xoa.";
+						cout << "\n\t\t\t\t1. Xoa.";
+						cout << "\n\t\t\t\t0. Thoat.";
+						int idel; cin >> idel;
+						if (idel == 1) {
+							filmMng.del(id);
+							cout << "\t\tPhim co ma " << id << " da duoc xoa.\n";
+							system("pause");
+						}
+						else {}
 					}
-					else cout << "\n\t\tKhong tim thay phim phu hop.\n";
-					system("pause");
+					else {
+						cout << "\n\t\tKhong tim thay phim phu hop.\n";
+						system("pause");
+					}
 				}
 				else if (tmp == 6) {
 					filmMng.update();
@@ -297,11 +308,21 @@ void Menu::stMenu() {
 					cin.ignore();
 					getline(cin, id);
 					if (cnmMng.findById(id) != nullptr) {
-						cnmMng.del(id);
-						cout << "\t\tPhong chieu co ma " << id << " da duoc xoa.\n";
+						cout << "\t\t\t\tBan co chac chan muon xoa.";
+						cout << "\n\t\t\t\t1. Xoa.";
+						cout << "\n\t\t\t\t0. Thoat.";
+						int idel; cin >> idel;
+						if(idel == 1){
+							cnmMng.del(id);
+							cout << "\t\tPhong chieu co ma " << id << " da duoc xoa.\n";
+							system("pause");
+						}
+						else {}
 					}
-					else cout << "\n\t\tKhong tim thay phong chieu phu hop.\n";
-					system("pause");
+					else {
+						cout << "\n\t\tKhong tim thay phong chieu phu hop.\n";
+						system("pause");
+					}
 				}
 				else if (tmp == 5) {
 					cnmMng.update();
@@ -389,11 +410,21 @@ void Menu::stMenu() {
 					cin.ignore();
 					getline(cin, id);
 					if (scdMng.findById(id) != nullptr) {
-						scdMng.del(id);
-						cout << "\t\tLich chieu co ma " << id << " da duoc xoa.\n";
+						cout << "\t\t\t\tBan co chac chan muon xoa.";
+						cout << "\n\t\t\t\t1. Xoa.";
+						cout << "\n\t\t\t\t0. Thoat.";
+						int idel; cin >> idel;
+						if (idel == 1) {
+							scdMng.del(id);
+							cout << "\t\tLich chieu co ma " << id << " da duoc xoa.\n";
+							system("pause");
+						}
+						else{}
 					}
-					else cout << "\n\t\tKhong tim thay lich chieu phu hop.\n";
-					system("pause");
+					else {
+						cout << "\n\t\tKhong tim thay lich chieu phu hop.\n";
+						system("pause");
+					}
 				}
 				else if (tmp == 5) {
 					scdMng.update();
@@ -501,11 +532,21 @@ void Menu::stMenu() {
 					cin.ignore();
 					getline(cin, id);
 					if (tkMng.findById(id) != nullptr) {
-						tkMng.del(id);
-						cout << "\t\tVe co ma " << id << " da duoc xoa.\n";
+						cout << "\t\t\t\tBan co chac chan muon xoa.";
+						cout << "\n\t\t\t\t1. Xoa.";
+						cout << "\n\t\t\t\t0. Thoat.";
+						int idel; cin >> idel;
+						if (idel == 1) {
+							tkMng.del(id);
+							cout << "\t\tVe co ma " << id << " da duoc xoa.\n";
+							system("pause");
+						}
+						else {}
 					}
-					else cout << "\n\t\tKhong tim thay ve phu hop.\n";
-					system("pause");
+					else {
+						cout << "\n\t\tKhong tim thay ve phu hop.\n";
+						system("pause");
+					}
 				}
 				else if (tmp == 7) {
 					int year;
@@ -606,11 +647,21 @@ void Menu::drtMenu() {
 					cin.ignore();
 					getline(cin, id);
 					if (stMng.findById(id) != nullptr) {
-						stMng.del(id);
-						cout << "\t\tNhan vien co ma " << id << " da duoc xoa.\n";
+						cout << "\t\t\t\tBan co chac chan muon xoa.";
+						cout << "\n\t\t\t\t1. Xoa.";
+						cout << "\n\t\t\t\t0. Thoat.";
+						int idel; cin >> idel;
+						if (idel == 1) {
+							stMng.del(id);
+							cout << "\t\tNhan vien co ma " << id << " da duoc xoa.\n";
+							system("pause");
+						}
+						else {}
 					}
-					else cout << "\n\t\tKhong tim thay nhan vien phu hop.\n";
-					system("pause");
+					else {
+						cout << "\n\t\tKhong tim thay nhan vien phu hop.\n";
+						system("pause");
+					}
 				}
 				else if (opt1 == 5) {
 					system("cls");
