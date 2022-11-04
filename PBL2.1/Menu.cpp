@@ -8,7 +8,90 @@ FilmManager filmMng;
 CinemaRoomManager cnmMng;
 ScheduleManager scdMng(filmMng, cnmMng);
 TicketManager tkMng(scdMng, stMng);
+HANDLE cl = GetStdHandle(STD_OUTPUT_HANDLE);
 
+void Menu::logo() {
+	HANDLE cl = GetStdHandle(STD_OUTPUT_HANDLE);
+	SetConsoleTextAttribute(cl, 6);
+	Sleep(30);
+	cout << "\n\t                                                                                                      ..   .J#@@~@@J# ";
+	Sleep(30);
+	cout << "\n\t                                                                                                  .JB@@@&G!.  ~PP.@@@ ";
+	Sleep(30);
+	cout << "\n\t                                                                                          7G#&@&Y^  .7G@@@@@&Y^ .@@PJ ";
+	Sleep(30);
+	cout << "\n\t                                                                                 ~YB#&B?:  :Y#@@@@@B?.  ^5#BGJ!.^^^   ";
+	Sleep(30);
+	cout << "\n\t                                                                        ^7YG#G!. .~P&@@@@&P~. .!G&&#P?.               ";
+	Sleep(30);
+	cout << "\n\t                                                               .~7YG5^  .7#@@@@@#J:  .?B@@&#Y:                        ";
+	Sleep(30);
+	cout << "\n\t                                                      .:^!J?:  :Y&@@@@@B7.  ^5&@@@&P^                                 ";
+	Sleep(30);
+	cout << "\n\t                                              ..^7!.  :5&@@@@&P~  .!G&@@@@P^   ..                                     ";
+	Sleep(30);
+	cout << "\n\t                                             ^P&@@@@#J:  .?B@@@@@G^   ^^.                                             ";
+	Sleep(30);
+	cout << "\n\t                                             7.  ^Y&@@@@&P^  .~!^..                                                   ";
+	Sleep(30);
+	cout << "\n\t                                             #@&5:  .7J!^:.                                                           ";
+	Sleep(30);
+	cout << "\n\t                                             .Y7~..    .....    .....     ....     ....     .....    .....     ...... ";
+	Sleep(30);
+	cout << "\n\t                                             G@@G:  ?&@@@#~  ~&@@@&7  ^B@@@@Y  .P@@@@G.  J&@@@B^  !&@@@&!  ^B@@@&J    ";
+	Sleep(30);
+	cout << "\n\t                                             .  J@@@@#~  !&@@@&?  ^B@@@@5. .P@@@@G: .Y@@@@#~  7&@@@&?  ~#@@@@Y. :G@@J ";
+	Sleep(30);
+	cout << "\n\t                                               .^^:^:    ^^:::    ^^^:^    :^^:^.   .^^:^.   .^^:::    ^^^:^    :^^^. ";
+	Sleep(30);
+	cout << "\n\t                                             !YJ?????JJJJ?????JJJJ?????JJJJ??????JJJJ?????JJJJ?????JJJJ?????JJJJ????: ";
+	Sleep(30);
+	cout << "\n\t                                             G@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@J ";
+	Sleep(30);
+	cout << "\n\t                                             G@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@J ";
+	Sleep(30);
+	cout << "\n\t                                             G@@@@@@@@@@@@@@@@@@@@@@@@@@BJG@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@J ";
+	Sleep(30);
+	cout << "\n\t                                             G@@@@@@@@@@@@@@@@@@@@@@@@@@.   :J#@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@J ";
+	Sleep(30);
+	cout << "\n\t                                             G@@@@@@@@@@@@@@@@@@@@@@@@@@.      .~5&@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@J ";
+	Sleep(30);
+	cout << "\n\t                                             G@@@@@@@@@@@@@@@@@@@@@@@@@@.          .7G&@@@@@@@@@@@@@@@@@@@@@@@@@@@@@J ";
+	Sleep(30);
+	cout << "\n\t                                             G@@@@@@@@@@@@@@@@@@@@@@@@@@.              :?#@@@@@@@@@@@@@@@@@@@@@@@@@@J ";
+	Sleep(30);
+	cout << "\n\t                                             G@@@@@@@@@@@@@@@@@@@@@@@@@@.                  ~5&@@@@@@@@@@@@@@@@@@@@@@J ";
+	Sleep(30);
+	cout << "\n\t                                             G@@@@@@@@@@@@@@@@@@@@@@@@@@.                    :@@@@@@@@@@@@@@@@@@@@@@J ";
+	Sleep(30);
+	cout << "\n\t                                             G@@@@@@@@@@@@@@@@@@@@@@@@@@.                 ^5&@@@@@@@@@@@@@@@@@@@@@@@J ";
+	Sleep(30);
+	cout << "\n\t                                             G@@@@@@@@@@@@@@@@@@@@@@@@@@.             :?B@@@@@@@@@@@@@@@@@@@@@@@@@@@J ";
+	Sleep(30);
+	cout << "\n\t                                             G@@@@@@@@@@@@@@@@@@@@@@@@@@.         .!G&@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@J ";
+	Sleep(30);
+	cout << "\n\t                                             G@@@@@@@@@@@@@@@@@@@@@@@@@@.     .~5&@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@J ";
+	Sleep(30);
+	cout << "\n\t                                             G@@@@@@@@@@@@@@@@@@@@@@@@@@:  :J#@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@J ";
+	Sleep(30);
+	cout << "\n\t                                             G@@@@@@@@@@@@@@@@@@@@@@@@@@&B&@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@J ";
+	Sleep(30);
+	cout << "\n\t                                             G@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@? ";
+	Sleep(30);
+	cout << "\n\t                                              .P&@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@&J   ";
+	Sleep(30);
+	cout << "\n\t                                                 .::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::.     ";
+	cout << "\n\n\t\t\t\t\t\t\t\t\t\t";
+	SetConsoleTextAttribute(cl, 8);
+	for (int i = 0; i < 21; i++) {
+		cout << i * 5 << "%  LOADING ...";
+		cout.flush();
+		Sleep(100);
+		if (i == 0 || i == 1) cout << "\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b               \b\b\b\b\b\b\b\b\b\b\b\b\b\b\b";
+		else if (i == 20) cout << "\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b                 \b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b";
+		else cout << "\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b                \b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b";
+	}
+}
 void Menu::cinema() {
 	cout << endl;
 	cout << "\t\t\t\t\t\t\t ______    ________  ___   __    ______   ___ __ __   ________      " << endl;
@@ -17,8 +100,7 @@ void Menu::cinema() {
 	cout << "\t\t\t\t\t\t\t \\:\\ \\  __   \\::\\ \\  \\:. `-\\  \\ \\\\:\\/___/\\\\:.      \\ \\\\::(_)  \\ \\   " << endl;
 	cout << "\t\t\t\t\t\t\t  \\:\\ \\/_/\\  _\\::\\ \\__\\:. _    \\ \\\\::___\\/_\\:.\\-/\\  \\ \\\\:: __  \\ \\  " << endl;
 	cout << "\t\t\t\t\t\t\t   \\:\\_\\ \\ \\/__\\::\\__/\\\\. \\`-\\  \\ \\\\:\\____/\\\\. \\  \\  \\ \\\\:.\\ \\  \\ \\ " << endl;
-	cout << "\t\t\t\t\t\t\t    \\_____\\/\\________\\/ \\__\\/ \\__\\/ \\_____\\/ \\__\\/ \\__\\/ \\__\\/\\__\\/ " << endl;
-	cout << endl;
+	cout << "\t\t\t\t\t\t\t    \\_____\\/\\________\\/ \\__\\/ \\__\\/ \\_____\\/ \\__\\/ \\__\\/ \\__\\/\\__\\/ " << endl << endl; 
 }
 void Menu::login() {
 	fsst.open("Staff.txt", ios::in);
@@ -43,9 +125,13 @@ void Menu::login() {
 	fstk.close();
 	fsslr.close();
 	int cnt = 0;
+	logo();
+	system("cls");
 	do {
 		system("cls");
+		SetConsoleTextAttribute(cl, 4);
 		cinema();
+		SetConsoleTextAttribute(cl, 7);
 		cout << endl;
 		cout << left << setw(70) << " ";
 		for (int i = 0; i < 35; i++) cout << "-";
@@ -110,34 +196,48 @@ void Menu::stMenu() {
 	int opt = 0;
 	do {
 		system("cls");
+		SetConsoleTextAttribute(cl, 4);
 		cinema();
-		cout << endl;
+		SetConsoleTextAttribute(cl, 7);
 		cout << left << setw(70) << " ";
+		Sleep(50);
 		for (int i = 0; i < 35; i++) cout << "-";
+		Sleep(50);
 		cout << "\n" << left << setw(70) << " " << "|";
+		Sleep(50);
 		cout << left << setw(14) << " " << "MENU";
+		Sleep(50);
 		cout << setw(15) << " " << "|";
+		Sleep(50);
 		cout << "\n" << left << setw(70) << " ";
+		Sleep(50);
 		for (int i = 0; i < 35; i++) cout << "-";
 		cout << "\n\n\t\t\t\t\t\t\t\t";
+		Sleep(50);
 		for (int i = 0; i < 42; i++) cout << "-"; cout << "\n";
 		cout << "\t\t\t\t\t\t\t\t";
 		cout << "|" << left << setw(40) << " " << "|";
+		Sleep(50);
 		cout << "\n\t\t\t\t\t\t\t\t|" << left << setw(40) << " 1. Quan li phim" << "|";
 		cout << "\n\t\t\t\t\t\t\t\t";
 		cout << "|" << left << setw(40) << " " << "|";
+		Sleep(50);
 		cout << "\n\t\t\t\t\t\t\t\t|" << left << setw(40) << " 2. Quan li phong chieu" << "|";
 		cout << "\n\t\t\t\t\t\t\t\t";
 		cout << "|" << left << setw(40) << " " << "|";
+		Sleep(50);
 		cout << "\n\t\t\t\t\t\t\t\t|" << left << setw(40) << " 3. Quan li lich chieu" << "|";
 		cout << "\n\t\t\t\t\t\t\t\t";
 		cout << "|" << left << setw(40) << " " << "|";
+		Sleep(50);
 		cout << "\n\t\t\t\t\t\t\t\t|" << left << setw(40) << " 4. Quan li ve" << "|"; 
 		cout << "\n\t\t\t\t\t\t\t\t";
 		cout << "|" << left << setw(40) << " " << "|";
+		Sleep(50);
 		cout << "\n\t\t\t\t\t\t\t\t|" << left << setw(40) << " 0. Thoat" << "|";
 		cout << "\n\t\t\t\t\t\t\t\t";
 		for (int i = 0; i < 42; i++) cout << "-";
+		Sleep(50);
 		cout << "\n\n\t\t\t\t\t\t\t\t\t**Nhap lua chon: ";
 		cin >> opt;
 		switch (opt) {
@@ -145,92 +245,151 @@ void Menu::stMenu() {
 			int tmp = 0;
 			do {
 				system("cls");
+				SetConsoleTextAttribute(cl, 4);
 				cinema();
+				SetConsoleTextAttribute(cl, 7);
 				cout << left << setw(70) << " ";
 				for (int i = 0; i < 48; i++) cout << "-";
 				cout << "\n" << left << setw(70) << " " << "|";
+				Sleep(50);
 				cout << left << setw(14) << " " << "QUAN LI PHIM";
 				cout << setw(20) << " " << "|";
 				cout << "\n" << left << setw(70) << " ";
 				for (int i = 0; i < 48; i++) cout << "-";
+				Sleep(50);
 				cout << "\n\n\t\t\t\t\t\t\t1. Them phim";
+				Sleep(50);
 				cout << "\n\t\t\t\t\t\t\t2. Xem danh sach phim";
+				Sleep(50);
 				cout << "\n\t\t\t\t\t\t\t3. Tim phim theo ten";
+				Sleep(50);
 				cout << "\n\t\t\t\t\t\t\t4. Tim phim theo ma";
+				Sleep(50);
 				cout << "\n\t\t\t\t\t\t\t5. Xoa phim";
+				Sleep(50);
 				cout << "\n\t\t\t\t\t\t\t6. Cap nhat phim";
+				Sleep(50);
 				cout << "\n\t\t\t\t\t\t\t7. Xac nhan thay doi";
+				Sleep(50);
 				cout << "\n\t\t\t\t\t\t\t0. Quay lai menu";
+				Sleep(50);
 				cout << "\n\n\t\t\t\t\t\t\t\t";
 				for (int i = 0; i < 55; i++) cout << "*";
+				Sleep(50);
 				cout << "\n\t\t\t\t\t\t\t>> Nhap lua chon: ";
 				cin >> tmp;
 				if (tmp == 1) {
+					system("cls");
+					SetConsoleTextAttribute(cl, 4);
+					cinema();
+					SetConsoleTextAttribute(cl, 3);
+					cout << "\n\t\t\t\t\t\t\t\t\t\t***THEM PHIM MOI***\n\n";
+					SetConsoleTextAttribute(cl, 7);
 					Film film = filmMng.setFilmInfor();
 					if(film.getId() != "null") {
 						filmMng.add(film);
-						cout << "\t\tPhim da duoc them.\n"; system("pause");
+						cout << "\t\t\t\t\t\t\t\t\tPhim da duoc them.\n"; system("pause");
 					}
 				}
 				else if (tmp == 2) {
+					system("cls");
+					SetConsoleTextAttribute(cl, 4);
+					cinema();
+					SetConsoleTextAttribute(cl, 3);
+					cout << "\n\t\t\t\t\t\t\t\t\t***DANH SACH PHIM CHIEU TAI RAP***\n\n";
+					SetConsoleTextAttribute(cl, 7);
 					filmMng.write();
 					system("pause");
 				}
 				else if (tmp == 3) {
+					system("cls");
+					SetConsoleTextAttribute(cl, 4);
+					cinema();
+					SetConsoleTextAttribute(cl, 3);
+					cout << "\n\t\t\t\t\t\t\t\t\t\t***TIM PHIM THEO TEN***\n\n";
+					SetConsoleTextAttribute(cl, 7);
 					string name;
-					cout << "\t\tNhap ten phim: ";
+					cout << "\t\t\t\t\t\t\tNhap ten phim: ";
 					cin.ignore();
 					getline(cin, name);
 					filmMng.findByName(name);
 					system("pause");
 				}
 				else if (tmp == 4) {
+					system("cls");
+					SetConsoleTextAttribute(cl, 4);
+					cinema();
+					SetConsoleTextAttribute(cl, 3);
+					cout << "\n\t\t\t\t\t\t\t\t\t***TIM PHIM THEO MA***\n\n";
+					SetConsoleTextAttribute(cl, 7);
 					string id;
-					cout << "\t\tNhap ma phim: ";
+					cout << "\t\t\t\t\t\t\tNhap ma phim: ";
 					cin.ignore();
 					getline(cin, id);
 					if (filmMng.findById(id) == nullptr) {
-						cout << "\n\t\tKhong tim thay phim phu hop.\n";
+						cout << "\n\t\t\t\t\t\t\tKhong tim thay phim phu hop.\n";
 					}
 					else {
+						cout << "\n\t\t\t\t\t\t\t\t\t<<PHIM CO MA TREN LA>>\n\n";
+						cout << "\t";
 						for (int x = 0; x < 156; x++) cout << "-"; cout << endl;
+						cout << "\t";
 						cout << "|" << left << setw(13) << "    Ma phim" << "|" << left << setw(31) << "\t   Ten phim" << "|" << left << setw(20) << "   Dao dien" << "|" << left << setw(20) << "\tDien vien chinh" << "|" << left << setw(17) << "\tQuoc gia" << "|" << left << setw(20) << "\tThe loai" << "|" << left << setw(15) << "  Thoi gian" << "|" << endl;
+						cout << "\t";
 						for (int x = 0; x < 156; x++) cout << "-"; cout << endl;
+						cout << "\t";
 						filmMng.findById(id)->writeData();
+						cout << "\t";
 						for (int x = 0; x < 156; x++) cout << "-"; cout << endl;
 					}
 					system("pause");
 				}
 				else if (tmp == 5) {
+					system("cls");
+					SetConsoleTextAttribute(cl, 4);
+					cinema();
+					SetConsoleTextAttribute(cl, 3);
+					cout << "\n\t\t\t\t\t\t\t\t\t\t***XOA PHIM***\n\n";
+					SetConsoleTextAttribute(cl, 7);
 					string id;
-					cout << "\t\tNhap ma phim can xoa: ";
+					cout << "\t\t\t\t\t\t\tNhap ma phim can xoa: ";
 					cin.ignore();
 					getline(cin, id);
 					if (filmMng.findById(id) != nullptr) {
-						cout << "\t\t\t\tBan co chac chan muon xoa.";
-						cout << "\n\t\t\t\t1. Xoa.";
-						cout << "\n\t\t\t\t0. Thoat.";
+						SetConsoleTextAttribute(cl, 4);
+						cout << "\n\t\t\t\t\t\tLUU Y:    SAU KHI XAC NHAN THAY DOI CAC PHIM BI XOA CUNG SE DUOC XOA TRONG LICH CHIEU\n";
+						SetConsoleTextAttribute(cl, 7);
+						cout << "\n\t\t\t\t\t\t\tBan co chac chan muon xoa.";
+						cout << "\n\t\t\t\t\t\t\t1. Xoa.";
+						cout << "\n\t\t\t\t\t\t\t0. Thoat.";
+						cout << "\n\t\t\t\t\t\t\t";
 						int idel; cin >> idel;
 						if (idel == 1) {
 							filmMng.del(id);
-							cout << "\t\tPhim co ma " << id << " da duoc xoa.\n";
+							cout << "\t\t\t\t\t\t\tPhim co ma " << id << " da duoc xoa.\n";
 							system("pause");
 						}
 						else {}
 					}
 					else {
-						cout << "\n\t\tKhong tim thay phim phu hop.\n";
+						cout << "\n\t\t\t\t\t\t\tKhong tim thay phim phu hop.\n";
 						system("pause");
 					}
 				}
 				else if (tmp == 6) {
+					system("cls");
+					SetConsoleTextAttribute(cl, 4);
+					cinema();
+					SetConsoleTextAttribute(cl, 3);
+					cout << "\n\t\t\t\t\t\t\t\t\t\t***CAP NHAT PHIM***\n\n";
+					SetConsoleTextAttribute(cl, 7);
 					filmMng.update();
 				}
 				else if (tmp == 7) {
 					fsfilm.open("Film.txt", ios::out | ios::trunc);
 					filmMng.writeFile(fsfilm);
 					fsfilm.close();
-					cout << "\t\tThay doi da duoc luu vao file. Cac lich chieu co phim bi xoa cung duoc xoa.\n";
+					cout << "\t\t\t\t\t\t\tThay doi da duoc luu vao file.\n";
 					int test;
 					for (int iscd = 0; iscd < scdMng.getLength(); iscd++) {
 						test = 0;
@@ -244,7 +403,7 @@ void Menu::stMenu() {
 					system("pause");
 				}
 				else if (tmp != 0) {
-					cout << "\t\tLuu chon khong hop le. Moi chon lai.\n";
+					cout << "\t\t\t\t\t\t\tLuu chon khong hop le. Moi chon lai.\n";
 					system("pause");
 				}
 			} while (tmp != 0);
@@ -254,23 +413,35 @@ void Menu::stMenu() {
 			int tmp = 0;
 			do {
 				system("cls");
+				SetConsoleTextAttribute(cl, 4);
 				cinema();
+				SetConsoleTextAttribute(cl, 7);
 				cout << left << setw(70) << " ";
 				for (int i = 0; i < 48; i++) cout << "-";
 				cout << "\n" << left << setw(70) << " " << "|";
+				Sleep(50);
 				cout << left << setw(14) << " " << "QUAN LI PHONG CHIEU";
 				cout << setw(13) << " " << "|";
 				cout << "\n" << left << setw(70) << " ";
 				for (int i = 0; i < 48; i++) cout << "-";
+				Sleep(50);
 				cout << "\n\n\t\t\t\t\t\t\t1. Them phong chieu";
+				Sleep(50);
 				cout << "\n\t\t\t\t\t\t\t2. Xem danh sach phong chieu";
+				Sleep(50);
 				cout << "\n\t\t\t\t\t\t\t3. Tim phong chieu theo ma";
+				Sleep(50);
 				cout << "\n\t\t\t\t\t\t\t4. Xoa phong chieu";
+				Sleep(50);
 				cout << "\n\t\t\t\t\t\t\t5. Cap nhat phong chieu";
+				Sleep(50);
 				cout << "\n\t\t\t\t\t\t\t6. Xac nhan thay doi";
+				Sleep(50);
 				cout << "\n\t\t\t\t\t\t\t0. Quay lai menu";
+				Sleep(50);
 				cout << "\n\n\t\t\t\t\t\t\t\t";
 				for (int i = 0; i < 55; i++) cout << "*";
+				Sleep(50);
 				cout << "\n\t\t\t\t\t\t\t>> Nhap lua chon: ";
 				cin >> tmp;
 				if (tmp == 1) {
@@ -355,23 +526,35 @@ void Menu::stMenu() {
 			int tmp = 0;
 			do {
 				system("cls");
+				SetConsoleTextAttribute(cl, 4);
 				cinema();
+				SetConsoleTextAttribute(cl, 7);
 				cout << left << setw(70) << " ";
 				for (int i = 0; i < 48; i++) cout << "-";
 				cout << "\n" << left << setw(70) << " " << "|";
+				Sleep(50);
 				cout << left << setw(14) << " " << "QUAN LI LICH CHIEU";
 				cout << setw(14) << " " << "|";
 				cout << "\n" << left << setw(70) << " ";
 				for (int i = 0; i < 48; i++) cout << "-";
+				Sleep(50);
 				cout << "\n\n\t\t\t\t\t\t\t1. Them lich chieu";
+				Sleep(50);
 				cout << "\n\t\t\t\t\t\t\t2. Xem danh sach lich chieu";
+				Sleep(50);
 				cout << "\n\t\t\t\t\t\t\t3. Tim lich chieu theo ma";
+				Sleep(50);
 				cout << "\n\t\t\t\t\t\t\t4. Xoa lich chieu";
+				Sleep(50);
 				cout << "\n\t\t\t\t\t\t\t5. Cap nhat lich chieu";
+				Sleep(50);
 				cout << "\n\t\t\t\t\t\t\t6. Xac nhan thay doi";
+				Sleep(50);
 				cout << "\n\t\t\t\t\t\t\t0. Quay lai menu";
 				cout << "\n\n\t\t\t\t\t\t\t\t";
+				Sleep(50);
 				for (int i = 0; i < 55; i++) cout << "*";
+				Sleep(50);
 				cout << "\n\t\t\t\t\t\t\t>> Nhap lua chon: ";
 				cin >> tmp;
 				if (tmp == 1) {
@@ -447,25 +630,39 @@ void Menu::stMenu() {
 			int tmp = 0;
 			do {
 				system("cls");
+				SetConsoleTextAttribute(cl, 4);
 				cinema();
+				SetConsoleTextAttribute(cl, 7);
 				cout << left << setw(70) << " ";
 				for (int i = 0; i < 48; i++) cout << "-";
 				cout << "\n" << left << setw(70) << " " << "|";
+				Sleep(50);
 				cout << left << setw(14) << " " << "QUAN LI VE";
 				cout << setw(22) << " " << "|";
 				cout << "\n" << left << setw(70) << " ";
 				for (int i = 0; i < 48; i++) cout << "-";
+				Sleep(50);
 				cout << "\n\n\t\t\t\t\t\t\t1. Xuat ve";
+				Sleep(50);
 				cout << "\n\t\t\t\t\t\t\t2. Xem danh sach ve";
+				Sleep(50);
 				cout << "\n\t\t\t\t\t\t\t3. Xuat doanh thu theo thoi gian";
+				Sleep(50);
 				cout << "\n\t\t\t\t\t\t\t4. Xuat doanh thu theo nhan vien";
+				Sleep(50);
 				cout << "\n\t\t\t\t\t\t\t5. Xuat tong doanh thu";
+				Sleep(50);
 				cout << "\n\t\t\t\t\t\t\t6. Xoa ve";
+				Sleep(50);
 				cout << "\n\t\t\t\t\t\t\t7. Xuat doanh thu theo nam tung nhan vien";
+				Sleep(50);
 				cout << "\n\t\t\t\t\t\t\t8. Xac nhan thay doi";
+				Sleep(50);
 				cout << "\n\t\t\t\t\t\t\t0. Quay Lai menu";
 				cout << "\n\n\t\t\t\t\t\t\t\t";
+				Sleep(50);
 				for (int i = 0; i < 55; i++) cout << "*";
+				Sleep(50);
 				cout << "\n\t\t\t\t\t\t\t>> Nhap lua chon: ";
 				cin >> tmp;
 				if (tmp == 1) {
@@ -582,44 +779,72 @@ void Menu::drtMenu() {
 	int opt = 0;
 	do {
 		system("cls");
+		SetConsoleTextAttribute(cl, 4);
 		cinema();
-		cout << endl;
+		SetConsoleTextAttribute(cl, 7);
 		cout << left << setw(70) << " ";
+		Sleep(50);
 		for (int i = 0; i < 35; i++) cout << "-";
+		Sleep(50);
 		cout << "\n" << left << setw(70) << " " << "|";
+		Sleep(50);
 		cout << left << setw(14) << " " << "MENU";
+		Sleep(50);
 		cout << setw(15) << " " << "|";
+		Sleep(50);
 		cout << "\n" << left << setw(70) << " ";
+		Sleep(50);
 		for (int i = 0; i < 35; i++) cout << "-";
-		cout << "\n\t\t\t\t1.Quan li nhan vien";
-		cout << "\n\t\t\t\t2.Thong tin quan li";
-		cout << "\n\t\t\t\t0.Thoat";
-		cout << "\n\t\t\t\t**Nhap lua chon: ";
+		cout << "\n\n\t\t\t\t\t\t\t\t";
+		Sleep(50);
+		for (int i = 0; i < 42; i++) cout << "-"; cout << "\n";
+		cout << "\t\t\t\t\t\t\t\t";
+		cout << "|" << left << setw(40) << " " << "|";
+		Sleep(50);
+		cout << "\n\t\t\t\t\t\t\t\t|" << left << setw(40) << " 1. Quan li nhan vien" << "|";
+		cout << "\n\t\t\t\t\t\t\t\t";
+		cout << "|" << left << setw(40) << " " << "|";
+		Sleep(50);
+		cout << "\n\t\t\t\t\t\t\t\t|" << left << setw(40) << " 2. Thong tin quan li" << "|";
+		cout << "\n\t\t\t\t\t\t\t\t";
+		cout << "|" << left << setw(40) << " " << "|";
+		Sleep(50);
+		cout << "\n\t\t\t\t\t\t\t\t|" << left << setw(40) << " 0. Thoat" << "|";
+		cout << "\n\t\t\t\t\t\t\t\t";
+		cout << "|" << left << setw(40) << " " << "|";
+		cout << "\n\t\t\t\t\t\t\t\t";
+		for (int i = 0; i < 42; i++) cout << "-";
+		Sleep(50);
+		cout << "\n\n\t\t\t\t\t\t\t\t\t**Nhap lua chon: ";
 		cin >> opt;
 		switch (opt) {
 		case (1): {
 			int opt1 = 0;
 			do {
 				system("cls");
+				SetConsoleTextAttribute(cl, 4);
 				cinema();
+				SetConsoleTextAttribute(cl, 7);
 				cout << left << setw(70) << " ";
 				for (int i = 0; i < 48; i++) cout << "-";
 				cout << "\n" << left << setw(70) << " " << "|";
+				Sleep(50);
 				cout << left << setw(14) << " " << "QUAN LI NHAN VIEN";
 				cout << setw(15) << " " << "|";
 				cout << "\n" << left << setw(70) << " ";
 				for (int i = 0; i < 48; i++) cout << "-";
-				cout << "\n\n\t\t\t\t\t\t\t1. Xem thong tin nhan vien";
-				cout << "\n\t\t\t\t\t\t\t2. Xem thong tin nhan than";
-				cout << "\n\t\t\t\t\t\t\t3. Them nhan vien";
-				cout << "\n\t\t\t\t\t\t\t4. Xoa nhan vien";
-				cout << "\n\t\t\t\t\t\t\t5. Cap nhat thong tin nhan vien";
-				cout << "\n\t\t\t\t\t\t\t6. Xem luong nhan vien theo nam";
-				cout << "\n\t\t\t\t\t\t\t7. Them (cap nhat) luong nhan vien";
-				cout << "\n\t\t\t\t\t\t\t8. Xac nhan thay doi";
-				cout << "\n\t\t\t\t\t\t\t0. Thoat";
+				Sleep(50);
+				cout << "\n\n\t\t\t\t\t\t\t1. Xem thong tin nhan vien"; Sleep(50);
+				cout << "\n\t\t\t\t\t\t\t2. Xem thong tin nhan than"; Sleep(50);
+				cout << "\n\t\t\t\t\t\t\t3. Them nhan vien"; Sleep(50);
+				cout << "\n\t\t\t\t\t\t\t4. Xoa nhan vien"; Sleep(50);
+				cout << "\n\t\t\t\t\t\t\t5. Cap nhat thong tin nhan vien"; Sleep(50);
+				cout << "\n\t\t\t\t\t\t\t6. Xem luong nhan vien theo nam"; Sleep(50);
+				cout << "\n\t\t\t\t\t\t\t7. Them (cap nhat) luong nhan vien"; Sleep(50);
+				cout << "\n\t\t\t\t\t\t\t8. Xac nhan thay doi"; Sleep(50);
+				cout << "\n\t\t\t\t\t\t\t0. Thoat"; Sleep(50);
 				cout << "\n\n\t\t\t\t\t\t\t\t";
-				for (int i = 0; i < 55; i++) cout << "*"; 
+				for (int i = 0; i < 55; i++) cout << "*"; Sleep(50);
 				cout << "\n\t\t\t\t\t\t\t>> Nhap lua chon: ";
 				cin >> opt1;
 				if (opt1 == 1) {
@@ -699,21 +924,23 @@ void Menu::drtMenu() {
 			int opt2;
 			do {
 				system("cls");
+				SetConsoleTextAttribute(cl, 4);
 				cinema();
+				SetConsoleTextAttribute(cl, 7);
 				cout << left << setw(70) << " ";
 				for (int i = 0; i < 48; i++) cout << "-";
-				cout << "\n" << left << setw(70) << " " << "|";
+				cout << "\n" << left << setw(70) << " " << "|"; Sleep(50);
 				cout << left << setw(14) << " " << "THONG TIN QUAN LI";
 				cout << setw(15) << " " << "|";
 				cout << "\n" << left << setw(70) << " ";
-				for (int i = 0; i < 48; i++) cout << "-";
-				cout << "\n\n\t\t\t\t\t\t\t1. Xem thong tin quan li";
-				cout << "\n\t\t\t\t\t\t\t2. Doi tai khoan";
-				cout << "\n\t\t\t\t\t\t\t3. Doi mat khau";
-				cout << "\n\t\t\t\t\t\t\t4. Xac nhan thay doi";
-				cout << "\n\t\t\t\t\t\t\t0. Thoat";
+				for (int i = 0; i < 48; i++) cout << "-"; Sleep(50);
+				cout << "\n\n\t\t\t\t\t\t\t1. Xem thong tin quan li"; Sleep(50);
+				cout << "\n\t\t\t\t\t\t\t2. Doi tai khoan"; Sleep(50);
+				cout << "\n\t\t\t\t\t\t\t3. Doi mat khau"; Sleep(50);
+				cout << "\n\t\t\t\t\t\t\t4. Xac nhan thay doi"; Sleep(50);
+				cout << "\n\t\t\t\t\t\t\t0. Thoat"; Sleep(50);
 				cout << "\n\n\t\t\t\t\t\t\t\t";
-				for (int i = 0; i < 55; i++) cout << "*";
+				for (int i = 0; i < 55; i++) cout << "*"; Sleep(50);
 				cout << "\n\t\t\t\t\t\t\t>> Nhap lua chon: ";
 				cin >> opt2;
 				if (opt2 == 1) { drtMng.write(); system("pause"); }

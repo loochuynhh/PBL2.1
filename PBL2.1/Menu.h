@@ -12,6 +12,7 @@
 
 class Menu {
 public:
+	void logo();
 	void cinema();
 	void login();
 	void stMenu();

@@ -16,21 +16,29 @@ void FilmManager::findByName(string& name) {
 		size_t found = nametmp.find(name);
 		if (found != string::npos && check == 0)
 		{
+			cout << "\n\t\t\t\t\t\t\t\t\t\t<<PHIM CHUA TEN TREN LA>>\n\n";
+			cout << "\t";
 			for (int x = 0; x < 156; x++) cout << "-"; cout << endl;
+			cout << "\t";
 			cout << "|" << left << setw(13) << "    Ma phim" << "|" << left << setw(31) << "\t   Ten phim" << "|" << left << setw(20) << "   Dao dien" << "|" << left << setw(20) << "\tDien vien chinh" << "|" << left << setw(17) << "\tQuoc gia" << "|" << left << setw(20) << "\tThe loai" << "|" << left << setw(15) << "  Thoi gian" << "|" << endl;
+			cout << "\t";
 			for (int x = 0; x < 156; x++) cout << "-"; cout << endl;
+			cout << "\t";
 			(this->typeList + i)->writeData();
+			cout << "\t";
 			for (int x = 0; x < 156; x++) cout << "-"; cout << endl;
 			check = 1;
 		}
 		else if (found != string::npos) {
+			cout << "\t";
 			(this->typeList + i)->writeData();
+			cout << "\t";
 			for (int x = 0; x < 156; x++) cout << "-"; cout << endl;
 		}
 		i++;
 	}
 	if(check == 0) {
-		cout << "\t\t\t\tKhong tim thay phim!" << endl;
+		cout << "\n\t\t\t\t\t\t\tKhong tim thay phim!" << endl;
 		return;
 	}
 }		
@@ -46,13 +54,13 @@ Film FilmManager::setFilmInfor() {
 	int check = 0, checkf = 0;
 	Film filmtmp;
 	do {
-		cout << "Nhap id: ";
+		cout << "\n\t\t\t\t\t\t\tNhap id: ";
 		cin.ignore();
 		getline(cin, id);
 		if(this->findById(id) != nullptr) {
-			cout << "Ma bi trung!. Lua chon" << endl;
-			cout << "\n\t\t1. Nhap lai";
-			cout << "\n\t\t2. Thoat\n";
+			cout << "\t\t\t\t\t\t\tMa bi trung!. Lua chon" << endl;
+			cout << "\n\t\t\t\t\t1. Nhap lai";
+			cout << "\n\t\t\t2. Thoat\n";
 			cin >> check;
 		}
 		else check = 3;
@@ -63,16 +71,24 @@ Film FilmManager::setFilmInfor() {
 		return film;
 	}
 	check = 0;
-	cout << "Nhap ten phim: ";
+	cout << "\t\t\t\t\t\t\tNhap ten phim: ";
 	getline(cin, name);
-	cout << "Nhap dao dien: ";
+	cout << "\t\t\t\t\t\t\tNhap dao dien: ";
 	getline(cin, director);
-	cout << "Nhap dien vien chinh: ";
+	cout << "\t\t\t\t\t\t\tNhap dien vien chinh: ";
 	getline(cin, actor);
-	cout << "Nhap noi san xuat: ";
+	cout << "\t\t\t\t\t\t\tNhap noi san xuat: ";
 	getline(cin, country);
+	cout << "\t\t\t\t\t\t\t\t\t\tCac the loai bao gom:";
+	int cnt = 0;
+	while (cnt < 20) {
+		cout << "\n\t\t\t\t\t\t\t" << left << setw(30) << *(this->getTypeList()->getTypeof() + cnt) << "|";
+		cout << "\t\t\t\t" << *(this->getTypeList()->getTypeof() + cnt + 1);
+		cnt += 2;
+	}
+	cout << "\n";
 	do {
-		cout << "Nhap the loai: ";
+		cout << "\t\t\t\t\t\t\tNhap the loai: ";
 		getline(cin, type);
 		for (int i = 0; i < 20; i++) {
 			if (type.compare(*(filmtmp.getTypeof() + i)) == 0) {
@@ -80,11 +96,11 @@ Film FilmManager::setFilmInfor() {
 			}
 		}
 		if (checkf == 0) {
-			cout << "The loai khong hop le moi nhap lai.";
+			cout << "\t\t\t\t\t\t\t\tThe loai khong hop le moi nhap lai.\n";
 			system("pause");
 		}
 	} while (checkf == 0);
-	cout << "Nhap do dai phim: ";
+	cout << "\t\t\t\t\t\t\tNhap do dai phim: ";
 	cin >> length;
 	Film film(id, name, director, actor, country, type, length);
 	return film;
@@ -92,63 +108,62 @@ Film FilmManager::setFilmInfor() {
 
 void FilmManager::update() {
 	string id;
-	cout << "Nhap id: ";
+	cout << "\t\t\t\t\t\t\tNhap id: ";
 	cin.ignore();
 	getline(cin, id);
 	if (findById(id) == nullptr) {
-		cout << "Khong tim thay!\n";
+		cout << "\n\t\t\t\t\t\t\tKhong tim thay id phu hop!\n";
 		system("pause");
 	}
 	else {
 		int opttmp = 0;
 		Film* film = findById(id);
 		do {
-			cout << "\t\tCap nhap phim" << endl;
-			cout << "1.Sua ten phim" << endl;
-			cout << "2.Sua dao dien" << endl;
-			cout << "3.Sua dien vien" << endl;
-			cout << "4.Sua noi san xuat" << endl;
-			cout << "5.Sua the loai" << endl;
-			cout << "6.Sua do dai phim" << endl;
-			cout << "0.Xac nhan" << endl;
-			cout << "Nhap lua chon: ";
+			cout << "\t\t\t\t\t\t\t1. Sua ten phim" << endl;
+			cout << "\t\t\t\t\t\t\t2. Sua dao dien" << endl;
+			cout << "\t\t\t\t\t\t\t3. Sua dien vien" << endl;
+			cout << "\t\t\t\t\t\t\t4. Sua noi san xuat" << endl;
+			cout << "\t\t\t\t\t\t\t5. Sua the loai" << endl;
+			cout << "\t\t\t\t\t\t\t6. Sua do dai phim" << endl;
+			cout << "\t\t\t\t\t\t\t0. Xac nhan va thoat" << endl;
+			cout << "\t\t\t\t\t\t\t\t>> Nhap lua chon: ";
 			cin >> opttmp;
 			string up;
 			int upn;
 			cin.ignore();
 			switch (opttmp) {
 			case(1): {
-				cout << "Nhap ten phim: ";
+				cout << "\t\t\t\t\t\t\tNhap ten phim: ";
 				getline(cin, up);
 				film->setName(up);
 				break;
 			}
 			case(2): {
-				cout << "Nhap dao dien: ";
+				cout << "\t\t\t\t\t\t\tNhap dao dien: ";
 				getline(cin, up);
 				film->setDirector(up);
 				break;
 			}
 			case(3): {
-				cout << "Nhap dien vien: ";
+				cout << "\t\t\t\t\t\t\tNhap dien vien: ";
 				getline(cin, up);
 				film->setActor(up);
 				break;
 			}
 			case(4): {
-				cout << "Nhap noi san xuat: ";
+				cout << "\t\t\t\t\t\t\tNhap noi san xuat: ";
 				getline(cin, up);
 				film->setCountry(up);
 				break;
 			}
 			case(5): {
-				cout << "Nhap the loai: ";
+				cout << "\t\t\t\t\t\t\tNhap the loai: ";
 				getline(cin, up);
 				film->setType(up);
 				break;
 			}
 			case(6): {
-				cout << "Nhap thoi gian: ";
+				cout << "\t\t\t\t\t\t\tNhap thoi gian: ";
 				cin >> upn;
 				film->setLength(upn);
 				break;
@@ -173,11 +188,16 @@ void FilmManager::writeFile(fstream& fileout) {
 	}
 }
 void FilmManager::write() {
+	cout << "\t";
 	for (int x = 0; x < 156; x++) cout << "-"; cout << endl;
+	cout << "\t";
 	cout << "|" << left << setw(13) << "    Ma phim" << "|" << left << setw(31) << "\t   Ten phim" << "|" << left << setw(20) << "   Dao dien" << "|" << left << setw(20) << "\tDien vien chinh" << "|" << left << setw(17) << "\tQuoc gia" << "|" << left << setw(20) << "\tThe loai" << "|" << left << setw(15) << "  Thoi gian" << "|" << endl;
+	cout << "\t";
 	for (int x = 0; x < 156; x++) cout << "-"; cout << endl;
 	for (int i = 0; i < length; i++) {
+		cout << "\t";
 		(typeList + i)->writeData();
 	}
+	cout << "\t";
 	for (int x = 0; x < 156; x++) cout << "-"; cout << endl;
 }
