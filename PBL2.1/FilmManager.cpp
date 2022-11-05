@@ -58,9 +58,10 @@ Film FilmManager::setFilmInfor() {
 		cin.ignore();
 		getline(cin, id);
 		if(this->findById(id) != nullptr) {
-			cout << "\t\t\t\t\t\t\tMa bi trung!. Lua chon" << endl;
-			cout << "\n\t\t\t\t\t1. Nhap lai";
-			cout << "\n\t\t\t2. Thoat\n";
+			cout << "\t\t\t\t\t\t\t\tMa bi trung!. Lua chon";
+			cout << "\n\t\t\t\t\t\t1. Nhap lai";
+			cout << "\t\t\t2. Thoat";
+			cout << "\n\t\t\t\t\t\t\t";
 			cin >> check;
 		}
 		else check = 3;
@@ -112,7 +113,7 @@ void FilmManager::update() {
 	cin.ignore();
 	getline(cin, id);
 	if (findById(id) == nullptr) {
-		cout << "\n\t\t\t\t\t\t\tKhong tim thay id phu hop!\n";
+		cout << "\t\t\t\t\t\t\tKhong tim thay id phu hop!\n";
 		system("pause");
 	}
 	else {

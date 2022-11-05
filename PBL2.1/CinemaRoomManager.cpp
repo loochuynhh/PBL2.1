@@ -5,13 +5,13 @@ CinemaRoom CinemaRoomManager::setCinemaRoomInfor() {
 	string id;
 	int check = 0;
 	do {
-		cout << "Nhap id: ";
+		cout << "\n\t\t\t\t\t\t\tNhap id: ";
 		cin.ignore(); 
 		getline(cin, id);
 		if(this->findById(id) != nullptr) {
-			cout << "Ma bi trung!. Lua chon" << endl;
-			cout << "\n\t\t1. Nhap lai";
-			cout << "\n\t\t2. Thoat\n";
+			cout << "\t\t\t\t\t\t\t\tMa bi trung!. Lua chon";
+			cout << "\n\t\t\t\t\t1. Nhap lai";
+			cout << "\t\t\t2. Thoat\n";
 			cin >> check;
 		}
 		else check = 3;
@@ -22,10 +22,10 @@ CinemaRoom CinemaRoomManager::setCinemaRoomInfor() {
 	}
 	check = 0;
 	int chairs;
-	cout << "Nhap so ghe: ";
+	cout << "\t\t\t\t\t\t\tNhap so ghe: ";
 	cin >> chairs;
 	string status;
-	cout << "Nhap tinh trang phong chieu: ";
+	cout << "\t\t\t\t\t\t\tNhap tinh trang phong chieu: ";
 	cin.ignore();
 	getline(cin, status);
 	cinemaRoom.setId(id);
@@ -36,41 +36,39 @@ CinemaRoom CinemaRoomManager::setCinemaRoomInfor() {
 
 void CinemaRoomManager::update() {
 	string id;
-	cout << "Nhap id: ";
+	cout << "\t\t\t\t\t\t\tNhap id: ";
 	cin.ignore();
 	getline(cin, id);
 	if (findById(id) == nullptr) {
-		cout << "Khong tim thay!\n";
+		cout << "\t\t\t\t\t\t\tKhong tim thay id phu hop!\n";
 		system("pause");
 	}
 	else {
 		int opttmp = 0;
 		CinemaRoom* room = findById(id);
 		do {
-			cout << "\tCap nhap phong chieu" << endl;
-			cout << "1.Sua so ghe" << endl;
-			cout << "2.Sua tinh trang" << endl;
-			cout << "0.Xac nhan" << endl;
-			cout << "Nhap lua chon: ";
+			cout << "\t\t\t\t\t\t\t1. Sua so ghe" << endl;
+			cout << "\t\t\t\t\t\t\t2. Sua tinh trang" << endl;
+			cout << "\t\t\t\t\t\t\t0. Xac nhan va thoat" << endl;
+			cout << "\t\t\t\t\t\t\t>> Nhap lua chon: ";
 			cin >> opttmp;
 			string up;
 			int upn;
 			switch (opttmp) {
 			case(1): {
-				cout << "Nhap so ghe: ";
+				cout << "\t\t\t\t\t\t\tNhap so ghe: ";
 				cin >> upn;
 				room->setChairs(upn);
 				break;
 			}
 			case(2): {
-				cout << "Nhap tinh trang: ";
+				cout << "\t\t\t\t\t\t\tNhap tinh trang: ";
 				cin.ignore();
 				getline(cin, up);
 				room->setStatus(up);
 				break;
 			}
 			}
-
 		} while (opttmp != 0);
 	}
 }
@@ -90,11 +88,16 @@ void CinemaRoomManager::writeFile(fstream& fileout) {
 	}
 }
 void CinemaRoomManager::write() {
+	cout << "\t\t\t\t\t\t";
 	for (int x = 0; x < 78; x++) cout << "-"; cout << endl;
+	cout << "\t\t\t\t\t\t";
 	cout << "|" << left << setw(6) << " " << left << setw(20) << "Ma phong chieu" << "|" << left << setw(10) << "\tSo ghe" << "|" << left << setw(30) << "\t        Chat luong" << "|" << endl;
+	cout << "\t\t\t\t\t\t";
 	for (int x = 0; x < 78; x++) cout << "-"; cout << endl;
 	for (int i = 0; i < length; i++) {
+		cout << "\t\t\t\t\t\t";
 		(typeList + i)->writeData();
 	}
+	cout << "\t\t\t\t\t\t";
 	for (int x = 0; x < 78; x++) cout << "-"; cout << endl;
 }

@@ -8,7 +8,7 @@ class TicketManager : public Manager<Ticket>
 {
 public:
 	int getRevenue();
-	void getRevenue(string);
+	int getRevenue(string);
 	int getRevenue(Time&, Time&);
 	void getRevenueY(int);
 	TicketManager(ScheduleManager&, StaffManager&);
