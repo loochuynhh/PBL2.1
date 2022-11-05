@@ -34,6 +34,7 @@ Schedule ScheduleManager::setScheduleInfor() {
 	}
 	check = 0;
 	do {
+		system("cls");
 		this->filmManager->write();
 		cout << "\t\t\t\t\t\t\tNhap ma phim: ";
 		getline(cin, filmId);
@@ -53,6 +54,7 @@ Schedule ScheduleManager::setScheduleInfor() {
 	}
 	check = 0;
 	do {
+		system("cls");
 		this->cinemaRoomManager->write();
 		cout << "\t\t\t\t\t\t\tNhap ma phong chieu: "; 
 		getline(cin, cinemaRoomId);
@@ -78,13 +80,13 @@ Schedule ScheduleManager::setScheduleInfor() {
 		schedule.setId("null");
 		return schedule;
 	}
+	system("cls");
 	getShow();
 	cout << "\t\t\t\t\t\t\tNhap ca so: ";
 	cin >> show;
 	while (show < 1 || show > 5)
 	{
 		cout << "\t\t\t\t\t\t\tSo ca khong hop le!" << endl;
-		getShow();
 		cout << "\t\t\t\t\t\t\tNhap ca so: ";
 		cin >> show;
 	}	
@@ -116,6 +118,15 @@ void ScheduleManager::update() {
 		int opttmp = 0;
 		Schedule* schedule = findById(id);
 		do {
+			system("cls");
+			cout << "\t\t\t\t\t";
+			for (int x = 0; x < 80; x++) cout << "-"; cout << endl;
+			cout << "\t\t\t\t\t";
+			cout << "|  Ma lich chieu  |   Ma phim   |  Ma phong chieu  |  Ca  |     Ngay chieu     |" << endl;
+			cout << "\t\t\t\t\t";
+			schedule->writeData();
+			cout << "\t\t\t\t\t";
+			for (int x = 0; x < 80; x++) cout << "-"; cout << endl;
 			cout << "\t\t\t\t\t\t\t1. Sua ma phim" << endl;
 			cout << "\t\t\t\t\t\t\t2. Sua ma phong chieu" << endl;
 			cout << "\t\t\t\t\t\t\t3. Sua ca chieu" << endl;
@@ -130,46 +141,49 @@ void ScheduleManager::update() {
 			case(1): {
 				int check = 0;
 				do {
-					if(check == 1) {
-						cout << "\t\t\t\t\t\t\tKhong tim thay phim!" << endl;
-					}
+					system("cls");
 					this->filmManager->write();
 					cout << "\t\t\t\t\t\t\tNhap ma phim: ";
 					getline(cin, up);
-					if(this->filmManager->findById(up) == nullptr) {
-						check = 1;
+					if (this->filmManager->findById(up) == nullptr) {
+						cout << "\t\t\t\t\t\t\t\tKhong tim thay phim!. Lua chon";
+						cout << "\n\t\t\t\t\t\t\t1. Nhap lai";
+						cout << "\t\t\t2. Quay lai";
+						cout << "\n\t\t\t\t\t\t\t";
+						cin >> check;
+						cin.ignore();
 					}
-					else {
-						check = 0;
-					}
-				} while(check != 0);	
-				schedule->setFilmId(up);
+					else check = 3;
+				} while (check == 1 || check == 0);	
+				if(check == 3) schedule->setFilmId(up);
 				break;
 			}
 			case(2): {
 				int check = 0;
 				do {
-					if(check == 1) {
-						cout << "\t\t\t\t\t\t\tKhong tim thay phong!" << endl;
-					}
-					else if(check == 2) {
-						cout << "\t\t\t\t\t\t\tPhong chieu dang co van de, vui long chon phong khac!" << endl;
-					}
+					system("cls");
 					this->cinemaRoomManager->write();
-					cout << "\t\t\t\t\t\t\tNhap ma phong: ";
+					cout << "\t\t\t\t\t\t\tNhap ma phong chieu: "; 
 					getline(cin, up);
-					if(this->cinemaRoomManager->findById(up) == nullptr) {
-						check = 1;
+					if (this->cinemaRoomManager->findById(up) == nullptr) {
+						cout << "\t\t\t\t\t\t\t\tKhong tim thay phong chieu!. Lua chon";
+						cout << "\n\t\t\t\t\t\t\t1. Nhap lai";
+						cout << "\t\t\t2. Quay lai";
+						cout << "\n\t\t\t\t\t\t\t";
+						cin >> check;
+						cin.ignore();
 					}
-					else if(this->cinemaRoomManager->findById(up)->getStatus() == "bad") {
-						check = 2;
+					else if (this->cinemaRoomManager->findById(up)->getStatus() == "bad") {
+						cout << "\t\t\t\t\t\t\t\tPhong chieu dang co van de!. Lua chon";
+						cout << "\n\t\t\t\t\t\t\t1. Nhap lai";
+						cout << "\t\t\t2. Thoat";
+						cout << "\n\t\t\t\t\t\t\t";
+						cin >> check;
+						cin.ignore();
 					}
-					else  {
-						check = 0;
-					}
-				} while(check != 0);
-				schedule->setCinemaRoomId(up);
-				this->cinemaRoomManager->write();
+					else check = 3;
+				} while (check == 1 || check == 0);
+				if(check == 3) schedule->setCinemaRoomId(up);
 				break;
 			}
 			case(3): {
@@ -207,6 +221,26 @@ void ScheduleManager::update() {
 				break;
 			}
 		} while (opttmp != 0);
+	}
+}
+
+void ScheduleManager::deleteByRoom(const string& id) {
+	int i = 0;
+	while(i < this->length) {
+		if((this->typeList + i)->getCinemaRoomId() == id) {
+			del((this->typeList + i)->getId());
+		}
+		else i++;
+	}
+}
+
+void ScheduleManager::deleteByFilm(const string& id) {
+	int i = 0;
+	while(i < this->length) {
+		if((this->typeList + i)->getFilmId() == id) {
+			del((this->typeList + i)->getId());
+		}
+		else i++;
 	}
 }
 

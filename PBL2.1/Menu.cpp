@@ -368,6 +368,7 @@ void Menu::stMenu() {
 						int idel; cin >> idel;
 						if (idel == 1) {
 							filmMng.del(id);
+							scdMng.deleteByFilm(id);
 							cout << "\t\t\t\t\t\t\tPhim co ma " << id << " da duoc xoa.\n";
 							system("pause");
 						}
@@ -519,11 +520,12 @@ void Menu::stMenu() {
 						SetConsoleTextAttribute(cl, 7);
 						cout << "\n\t\t\t\t\t\t\t\tBan co chac chan muon xoa.";
 						cout << "\n\t\t\t\t\t\t\t1. Xoa.";
-						cout << "\t\t\tt0. Thoat.";
+						cout << "\t\t\t0. Thoat.";
 						cout << "\n\t\t\t\t\t\t\t";
 						int idel; cin >> idel;
 						if(idel == 1){
 							cnmMng.del(id);
+							scdMng.deleteByRoom(id);
 							cout << "\t\t\t\t\t\t\tPhong chieu co ma " << id << " da duoc xoa.\n";
 							system("pause");
 						}

@@ -11,6 +11,8 @@ public:
 	void getShow();
 	Schedule setScheduleInfor();
 	void update();
+	void deleteByRoom(const string&);
+	void deleteByFilm(const string&);
 	void readFile(fstream&);
 	void writeFile(fstream&);
 	void write();

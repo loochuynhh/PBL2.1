@@ -47,6 +47,15 @@ void CinemaRoomManager::update() {
 		int opttmp = 0;
 		CinemaRoom* room = findById(id);
 		do {
+			system("cls");
+			cout << "\t\t\t\t\t\t";
+			for (int x = 0; x < 78; x++) cout << "-"; cout << endl;
+			cout << "\t\t\t\t\t\t";
+			cout << "|" << left << setw(6) << " " << left << setw(20) << "Ma phong chieu" << "|" << left << setw(10) << "\tSo ghe" << "|" << left << setw(30) << "\t        Chat luong" << "|" << endl;
+			cout << "\t\t\t\t\t\t";
+			room->writeData();
+			cout << "\t\t\t\t\t\t";
+			for (int x = 0; x < 78; x++) cout << "-"; cout << endl;
 			cout << "\t\t\t\t\t\t\t1. Sua so ghe" << endl;
 			cout << "\t\t\t\t\t\t\t2. Sua tinh trang" << endl;
 			cout << "\t\t\t\t\t\t\t0. Xac nhan va thoat" << endl;
