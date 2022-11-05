@@ -49,7 +49,7 @@ Film FilmManager::setFilmInfor() {
 	string director;
 	string actor;
 	string country;
-	string type;
+	int type;
 	int length;
 	int check = 0, checkf = 0;
 	Film filmtmp;
@@ -83,24 +83,19 @@ Film FilmManager::setFilmInfor() {
 	cout << "\t\t\t\t\t\t\t\t\t\tCac the loai bao gom:";
 	int cnt = 0;
 	while (cnt < 20) {
-		cout << "\n\t\t\t\t\t\t\t" << left << setw(30) << *(this->getTypeList()->getTypeof() + cnt) << "|";
-		cout << "\t\t\t\t" << *(this->getTypeList()->getTypeof() + cnt + 1);
+		cout << "\n\t\t\t\t\t\t\t" << left << setw(4) << cnt << ": " << left << setw(30) << *(this->getTypeList()->getAllType() + cnt) << "|";
+		cout << "\t\t\t\t" << left << setw(4) << cnt + 1 << ": " << *(this->getTypeList()->getAllType() + cnt + 1);
 		cnt += 2;
 	}
 	cout << "\n";
 	do {
-		cout << "\t\t\t\t\t\t\tNhap the loai: ";
-		getline(cin, type);
-		for (int i = 0; i < 20; i++) {
-			if (type.compare(*(filmtmp.getTypeof() + i)) == 0) {
-				checkf = 1;
-			}
-		}
-		if (checkf == 0) {
+		cout << "\t\t\t\t\t\t\tNhap ma the loai: ";
+		cin >> type;
+		if(type >= 0 && type < 20) check = 1;
+		if (check == 0) {
 			cout << "\t\t\t\t\t\t\t\tThe loai khong hop le moi nhap lai.\n";
-			system("pause");
 		}
-	} while (checkf == 0);
+	} while (check == 0);
 	cout << "\t\t\t\t\t\t\tNhap do dai phim: ";
 	cin >> length;
 	Film film(id, name, director, actor, country, type, length);
@@ -158,9 +153,24 @@ void FilmManager::update() {
 				break;
 			}
 			case(5): {
-				cout << "\t\t\t\t\t\t\tNhap the loai: ";
-				getline(cin, up);
-				film->setType(up);
+				int check = 0;
+				int cnt = 0;
+				while (cnt < 20) {
+					cout << "\n\t\t\t\t\t\t\t" << left << setw(4) << cnt << ": " << left << setw(30) << *(this->getTypeList()->getAllType() + cnt) << "|";
+					cout << "\t\t\t\t" << left << setw(4) << cnt + 1 << ": "  << *(this->getTypeList()->getAllType() + cnt + 1);
+					cnt += 2;
+				}
+				cout << "\n";
+				do {
+					cout << "\t\t\t\t\t\t\tNhap ma the loai: ";
+					cin >> upn;
+					if(upn >= 0 && upn < 20) check = 1;
+					if (check == 0) {
+						cout << "\t\t\t\t\t\t\t\tThe loai khong hop le moi nhap lai.\n";
+						system("pause");
+					}
+				} while (check == 0);
+				film->setType(upn);
 				break;
 			}
 			case(6): {
