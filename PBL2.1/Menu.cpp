@@ -230,11 +230,13 @@ void Menu::stMenu() {
 		cout << "\n\t\t\t\t\t\t\t\t";
 		cout << "|" << left << setw(40) << " " << "|";
 		Sleep(50);
-		cout << "\n\t\t\t\t\t\t\t\t|" << left << setw(40) << " 4. Quan li ve" << "|"; 
+		cout << "\n\t\t\t\t\t\t\t\t|" << left << setw(40) << " 4. Quan li hoa don" << "|"; 
 		cout << "\n\t\t\t\t\t\t\t\t";
 		cout << "|" << left << setw(40) << " " << "|";
 		Sleep(50);
 		cout << "\n\t\t\t\t\t\t\t\t|" << left << setw(40) << " 0. Thoat" << "|";
+		cout << "\n\t\t\t\t\t\t\t\t";
+		cout << "|" << left << setw(40) << " " << "|";
 		cout << "\n\t\t\t\t\t\t\t\t";
 		for (int i = 0; i < 42; i++) cout << "-";
 		Sleep(50);
@@ -390,15 +392,19 @@ void Menu::stMenu() {
 					filmMng.writeFile(fsfilm);
 					fsfilm.close();
 					cout << "\t\t\t\t\t\t\tThay doi da duoc luu vao file.\n";
-					int test;
-					for (int iscd = 0; iscd < scdMng.getLength(); iscd++) {
+					int test, iscd = 0;
+					while (iscd < scdMng.getLength()) {
 						test = 0;
 						for (int ifilm = 0; ifilm < filmMng.getLength(); ifilm++) {
 							if ((scdMng.getTypeList() + iscd)->getFilmId().compare((filmMng.getTypeList() + ifilm)->getId()) == 0) {
 								test = 1;
 						    }
 						}
-						if (test == 0) scdMng.del((scdMng.getTypeList() + iscd)->getId());
+						if (test == 0) { 
+							scdMng.del((scdMng.getTypeList() + iscd)->getId());
+							iscd--;
+						}
+						iscd++;
 					}
 					system("pause");
 				}
@@ -542,15 +548,19 @@ void Menu::stMenu() {
 					cnmMng.writeFile(fscr);
 					fscr.close();
 					cout << "\t\t\t\t\t\t\t\tThay doi da duoc luu vao file.\n";
-					int test;
-					for (int iscd = 0; iscd < scdMng.getLength(); iscd++) {
+					int test, iscd = 0;
+					while (iscd < scdMng.getLength()) {
 						test = 0;
 						for (int icnm = 0; icnm < cnmMng.getLength(); icnm++) {
 							if ((scdMng.getTypeList() + iscd)->getCinemaRoomId().compare((cnmMng.getTypeList() + icnm)->getId()) == 0) {
 								test = 1;
 							}
 						}
-						if(test == 0) scdMng.del((scdMng.getTypeList() + iscd)->getId());
+						if (test == 0) { 
+							scdMng.del((scdMng.getTypeList() + iscd)->getId()); 
+							iscd--;
+						}
+						iscd++;
 					}
 					system("pause");
 				}
@@ -701,14 +711,14 @@ void Menu::stMenu() {
 				for (int i = 0; i < 48; i++) cout << "-";
 				cout << "\n" << left << setw(70) << " " << "|";
 				Sleep(50);
-				cout << left << setw(14) << " " << "QUAN LI VE";
-				cout << setw(22) << " " << "|";
+				cout << left << setw(14) << " " << "QUAN LI HOA DON";
+				cout << setw(17) << " " << "|";
 				cout << "\n" << left << setw(70) << " ";
 				for (int i = 0; i < 48; i++) cout << "-";
 				Sleep(50);
-				cout << "\n\n\t\t\t\t\t\t\t1. Xuat ve";
+				cout << "\n\n\t\t\t\t\t\t\t1. Xuat hoa don";
 				Sleep(50);
-				cout << "\n\t\t\t\t\t\t\t2. Xem danh sach ve";
+				cout << "\n\t\t\t\t\t\t\t2. Xem danh sach hoa don";
 				Sleep(50);
 				cout << "\n\t\t\t\t\t\t\t3. Xuat doanh thu theo thoi gian";
 				Sleep(50);
@@ -716,7 +726,7 @@ void Menu::stMenu() {
 				Sleep(50);
 				cout << "\n\t\t\t\t\t\t\t5. Xuat tong doanh thu";
 				Sleep(50);
-				cout << "\n\t\t\t\t\t\t\t6. Xoa ve";
+				cout << "\n\t\t\t\t\t\t\t6. Xoa hoa don";
 				Sleep(50);
 				cout << "\n\t\t\t\t\t\t\t7. Xuat doanh thu theo nam tung nhan vien";
 				Sleep(50);
@@ -734,13 +744,13 @@ void Menu::stMenu() {
 					SetConsoleTextAttribute(cl, 4);
 					cinema();
 					SetConsoleTextAttribute(cl, 3);
-					cout << "\n\t\t\t\t\t\t\t\t\t\t***THEM VE MOI***\n\n";
+					cout << "\n\t\t\t\t\t\t\t\t\t\t***THEM HOA DON MOI***\n\n";
 					SetConsoleTextAttribute(cl, 7);
 					Ticket tmp = tkMng.setTicketInfor();
 					if (tmp.getId() == "null") {}
 					else {
 						tkMng.add(tmp);
-						cout << "\t\t\t\t\t\t\tDa ban 1 ve moi.\n";
+						cout << "\t\t\t\t\t\t\tDa ban 1 hoa don moi.\n";
 						system("pause");
 					}
 				}
@@ -749,7 +759,7 @@ void Menu::stMenu() {
 					SetConsoleTextAttribute(cl, 4);
 					cinema();
 					SetConsoleTextAttribute(cl, 3);
-					cout << "\n\t\t\t\t\t\t\t\t\t***DANH SACH VE DA BAN***\n\n";
+					cout << "\n\t\t\t\t\t\t\t\t\t***DANH SACH HOA DON DA BAN***\n\n";
 					SetConsoleTextAttribute(cl, 7);
 					tkMng.write();
 					system("pause");
@@ -815,10 +825,10 @@ void Menu::stMenu() {
 					SetConsoleTextAttribute(cl, 4);
 					cinema();
 					SetConsoleTextAttribute(cl, 3);
-					cout << "\n\t\t\t\t\t\t\t\t\t***XOA VE***\n\n";
+					cout << "\n\t\t\t\t\t\t\t\t\t***XOA HOA DON***\n\n";
 					SetConsoleTextAttribute(cl, 7);
 					string id;
-					cout << "\n\t\t\t\t\t\t\tNhap ma ve can xoa: ";
+					cout << "\n\t\t\t\t\t\t\tNhap ma hoa don can xoa: ";
 					cin.ignore();
 					getline(cin, id);
 					if (tkMng.findById(id) != nullptr) {
@@ -829,13 +839,13 @@ void Menu::stMenu() {
 						int idel; cin >> idel;
 						if (idel == 1) {
 							tkMng.del(id);
-							cout << "\t\t\t\t\t\t\tVe co ma " << id << " da duoc xoa.\n";
+							cout << "\t\t\t\t\t\t\tHoa don co ma " << id << " da duoc xoa.\n";
 							system("pause");
 						}
 						else {}
 					}
 					else {
-						cout << "\n\t\t\t\t\t\t\tKhong tim thay ve phu hop.\n";
+						cout << "\n\t\t\t\t\t\t\tKhong tim thay hoa phu hop.\n";
 						system("pause");
 					}
 				}
@@ -1050,7 +1060,6 @@ void Menu::drtMenu() {
 					system("pause");
 				}
 				else if (opt1 == 8) {
-					system("cls");
 					fsst.open("Staff.txt", ios::out | ios::trunc);
 					stMng.writeFile(fsst);
 					fsst.close();

@@ -24,6 +24,14 @@ int Ticket::getCost() const {
 	return this->cost;
 }
 
+int Ticket::getAmount() {
+	return this->amount;
+}
+
+int Ticket::getSoda_Corn() {
+	return this->soda_corn;
+}
+
 void Ticket::setId(const string& id) {
 	this->id = id;
 }
@@ -48,10 +56,18 @@ void Ticket::setCost(int cost) {
 	this->cost = cost;
 }
 
+void Ticket::setAmount(int amount) {
+	this->amount = amount;
+}
+
+void Ticket::setSoda_Corn(int soda_corn) {
+	this->soda_corn = soda_corn;
+}
+
 void Ticket::readDataFile(fstream& filein) {
 	filein.ignore(20, 10);
 	string id, scheduleid, customername, customerphone, staffid;
-	int cost;
+	int cost, amount, soda_corn;
 	getline(filein, id, ',');
 	this->setId(id);
 	filein.ignore(1);
@@ -69,6 +85,12 @@ void Ticket::readDataFile(fstream& filein) {
 	filein.ignore(1);
 	filein >> cost;
 	this->setCost(cost);
+	filein.ignore(1);
+	filein >> amount;
+	this->setAmount(amount);
+	filein.ignore(1);
+	filein >> soda_corn;
+	this->setSoda_Corn(soda_corn);
 }
 void Ticket::writeDataFile(fstream& fileout) {
 	fileout << this->getId() << ", ";
@@ -77,14 +99,18 @@ void Ticket::writeDataFile(fstream& fileout) {
 	fileout << this->getCustomerPhone() << ", ";
 	fileout << this->getStaffId() << ", ";
 	fileout << this->getCost() << ", ";
+	fileout << this->getAmount() << ", ";
+	fileout << this->getSoda_Corn() << ".";
 	fileout << "\n";
 }
 void Ticket::writeData() {
 	cout << "|";
-	cout << "  " << left << setw(9) << this->getId() << "|";
-	cout << "   " << left << setw(14) << this->getScheduleId() << "|";
-	cout << "   " << left << setw(11) << this->getStaffId() << "|";
+	cout << "    " << left << setw(10) << this->getId() << "|";
+	cout << "    " << left << setw(13) << this->getScheduleId() << "|";
+	cout << "    " << left << setw(10) << this->getStaffId() << "|";
 	cout << "   " << left << setw(15) << this->getCustomerPhone() << "|";
 	cout << "   " << left << setw(31) << this->getCustomerName() << "|";
-	cout << "  " << left << setw(6) << this->getCost() << "|\n";
+	cout << "  " << left << setw(6) << this->getCost() << "|";
+	cout << "   " << left << setw(4) << this->getAmount() << "|";
+	cout << "    " << left << setw(6) << this->getSoda_Corn() << "|\n";
 }

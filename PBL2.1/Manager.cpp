@@ -65,17 +65,6 @@ type* Manager<type>::getTypeList() {
 	return this->typeList;
 }
 
-template <class type>
-void Manager<type>::readFile(fstream& filein) {
-}
-
-template <class type>
-void Manager<type>::writeFile(fstream& fileout) {
-}
-
-template <class type>
-void Manager<type>::write() {
-}
 template class Manager<Ticket>;
 template class Manager<Schedule>;
 template class Manager<Film>;
