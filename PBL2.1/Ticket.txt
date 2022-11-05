@@ -1,101 +1,101 @@
 100
-tk0001, scd001, adasfas asd, 012350115, st001, 90, 
-tk0002, scd002, adasfas asd, 012350115, st003, 90, 
-tk0003, scd003, asfas asd, 012350115, st001, 90, 
-tk0004, scd005, adasfas asd, 012350115, st001, 120, 
-tk0005, scd006, adasasdgfas gasd, 012350115, st002, 90, 
-tk0006, scd004, adfas asd, 012350115, st001, 90, 
-tk0007, scd009, adasfas asd, 012350115, st003, 90, 
-tk0008, scd007, adasf as asd, 012350115, st002, 120, 
-tk0009, scd008, adasfass asd, 012350115, st001, 90, 
-tk0010, scd011, adasfas asd, 012350115, st001, 90, 
-tk0011, scd012, adaa sfs asd, 012350115, st002, 90, 
-tk0012, scd011, adasfas asd, 012350115, st004, 90, 
-tk0013, scd013, adasfas asd, 012350115, st001, 120, 
-tk0014, scd014, adasfas asd, 012350115, st004, 90, 
-tk0015, scd015, ad asfas asd, 012350115, st001, 90, 
-tk0016, scd017, adasfas asd, 012350115, st002, 120, 
-tk0017, scd019, adasfas asd, 012350115, st004, 90, 
-tk0018, scd018, adasfas asd, 012350115, st003, 90, 
-tk0019, scd015, adaas asas asd, 012350115, st001, 90, 
-tk0020, scd016, adasfas asd, 012350115, st003, 120, 
-tk0021, scd020, adasfas asd, 012350115, st001, 90, 
-tk0022, scd007, adasfas asd, 012350115, st003, 90, 
-tk0023, scd021, asfas asd, 012350115, st001, 90, 
-tk0024, scd018, adasfas asd, 012350115, st001, 120, 
-tk0025, scd022, adasasdgfas gasd, 012350115, st002, 90, 
-tk0026, scd021, adfas asd, 012350115, st001, 90, 
-tk0027, scd019, adasfas asd, 012350115, st003, 90, 
-tk0028, scd023, adasf as asd, 012350115, st002, 120, 
-tk0029, scd024, adasfass asd, 012350115, st001, 90, 
-tk0030, scd025, adasfas asd, 012350115, st001, 90, 
-tk0031, scd007, adaa sfs asd, 012350115, st002, 90, 
-tk0032, scd025, adasfas asd, 012350115, st004, 90, 
-tk0033, scd024, adasfas asd, 012350115, st001, 120, 
-tk0034, scd022, adasfas asd, 012350115, st004, 90, 
-tk0035, scd023, ad asfas asd, 012350115, st001, 90, 
-tk0036, scd020, adasfas asd, 012350115, st002, 120, 
-tk0037, scd018, adasfas asd, 012350115, st004, 90, 
-tk0038, scd019, adasfas asd, 012350115, st003, 90, 
-tk0039, scd015, adaas asas asd, 012350115, st001, 90, 
-tk0040, scd013, adasfas asd, 012350115, st003, 120, 
-tk0041, scd014, adasfas asd, 012350115, st001, 90, 
-tk0042, scd017, adasfas asd, 012350115, st003, 90, 
-tk0043, scd023, asfas asd, 012350115, st001, 90, 
-tk0044, scd024, adasfas asd, 012350115, st001, 120, 
-tk0045, scd019, adasasdgfas gasd, 012350115, st002, 90, 
-tk0046, scd020, adfas asd, 012350115, st001, 90, 
-tk0047, scd021, adasfas asd, 012350115, st003, 90, 
-tk0048, scd021, adasf as asd, 012350115, st002, 120, 
-tk0049, scd013, adasfass asd, 012350115, st001, 90, 
-tk0050, scd014, adasfas asd, 012350115, st001, 90, 
-tk0051, scd015, adaa sfs asd, 012350115, st002, 90, 
-tk0052, scd016, adasfas asd, 012350115, st004, 90, 
-tk0053, scd017, adasfas asd, 012350115, st001, 120, 
-tk0054, scd018, adasfas asd, 012350115, st004, 90, 
-tk0055, scd019, ad asfas asd, 012350115, st001, 90, 
-tk0056, scd020, adasfas asd, 012350115, st002, 120, 
-tk0057, scd021, adasfas asd, 012350115, st004, 90, 
-tk0058, scd022, adasfas asd, 012350115, st003, 90, 
-tk0059, scd023, adaas asas asd, 012350115, st001, 90, 
-tk0060, scd003, adasfas asd, 012350115, st003, 120, 
-tk0061, scd001, adasfas asd, 012350115, st001, 90, 
-tk0062, scd002, adasfas asd, 012350115, st003, 90, 
-tk0063, scd003, asfas asd, 012350115, st001, 90, 
-tk0064, scd005, adasfas asd, 012350115, st001, 120, 
-tk0065, scd006, adasasdgfas gasd, 012350115, st002, 90, 
-tk0066, scd004, adfas asd, 012350115, st001, 90, 
-tk0067, scd007, adasfas asd, 012350115, st003, 90, 
-tk0068, scd007, adasf as asd, 012350115, st002, 120, 
-tk0069, scd008, adasfass asd, 012350115, st001, 90, 
-tk0070, scd011, adasfas asd, 012350115, st001, 90, 
-tk0071, scd012, adaa sfs asd, 012350115, st002, 90, 
-tk0072, scd011, adasfas asd, 012350115, st004, 90, 
-tk0073, scd004, adasfas asd, 012350115, st001, 120, 
-tk0074, scd010, adasfas asd, 012350115, st004, 90, 
-tk0075, scd002, ad asfas asd, 012350115, st001, 90, 
-tk0076, scd007, adasfas asd, 012350115, st002, 120, 
-tk0077, scd001, adasfas asd, 012350115, st004, 90, 
-tk0078, scd009, adasfas asd, 012350115, st003, 90, 
-tk0079, scd012, adaas asas asd, 012350115, st001, 90, 
-tk0080, scd003, adasfas asd, 012350115, st003, 120, 
-tk0081, scd001, adasfas asd, 012350115, st001, 90, 
-tk0082, scd002, adasfas asd, 012350115, st003, 90, 
-tk0083, scd003, asfas asd, 012350115, st001, 90, 
-tk0084, scd005, adasfas asd, 012350115, st001, 120, 
-tk0085, scd006, adasasdgfas gasd, 012350115, st002, 90, 
-tk0086, scd004, adfas asd, 012350115, st001, 90, 
-tk0087, scd009, adasfas asd, 012350115, st003, 90, 
-tk0088, scd007, adasf as asd, 012350115, st002, 120, 
-tk0089, scd008, adasfass asd, 012350115, st001, 90, 
-tk0090, scd011, adasfas asd, 012350115, st001, 90, 
-tk0091, scd012, adaa sfs asd, 012350115, st002, 90, 
-tk0092, scd011, adasfas asd, 012350115, st004, 90, 
-tk0093, scd004, adasfas asd, 012350115, st001, 120, 
-tk0094, scd010, adasfas asd, 012350115, st004, 90, 
-tk0095, scd002, ad asfas asd, 012350115, st001, 90, 
-tk0096, scd007, adasfas asd, 012350115, st002, 120, 
-tk0097, scd001, adasfas asd, 012350115, st004, 90, 
-tk0098, scd009, adasfas asd, 012350115, st003, 90, 
-tk0099, scd012, adaas asas asd, 012350115, st001, 90, 
-tk0100, scd003, adasfas asd, 012350115, st003, 120, 
+tk0001, scd001, Nguyen Tuan Anh, 0123456700, st001, 90, 1, 50.
+tk0002, scd002, Pham Duy Bach, 0123456701, st003, 90, 1, 35.
+tk0003, scd003, Tran Quang Bao, 0123456703, st001, 90, 2, 35.
+tk0004, scd005, Truong Tan Cuong, 0123456704, st001, 120, 1, 35.
+tk0005, scd006, Vo Van Dat, 0123456705, st002, 90, 2, 60.
+tk0006, scd004, Le Ngoc Hanh, 0123456706, st001, 90, 3, 40.
+tk0007, scd009, Chau Chi Hieu, 0123456707, st003, 90, 1, 40.
+tk0008, scd007, Do Nhat Hoang, 0123456708, st002, 120, 2, 50.
+tk0009, scd008, Nguyen Le Viet Hoang, 0123456709, st001, 90, 1, 20. 
+tk0010, scd011, Tran Le Huy Hoang, 0123456710, st001, 90, 2, 10.
+tk0011, scd012, Vu Zuan Hoang, 0123456711, st002, 90, 2, 15.
+tk0012, scd011, Vo Minh Huy, 0123456712, st004, 90, 5, 40.
+tk0013, scd013, Truong Cao Khai, 0123456713, st001, 120, 2, 30. 
+tk0014, scd014, Pham Quang Khoa, 0123456714, st004, 90, 2, 50.
+tk0015, scd015, Nguyen Duc Ngoc Lam, 0123456715, st001, 90, 2, 20.
+tk0016, scd017, Nguyen Dinh Loc, 0123456716, st002, 120, 3, 30.
+tk0017, scd019, Nguyen Tan Loc, 0123456717, st004, 90, 4, 35.
+tk0018, scd018, Nguyen Thanh Minh, 0123456718, st003, 90, 2, 45.
+tk0019, scd015, Huynh Le Phuoc Nguyen, 0123456719, st001, 90, 2, 48.
+tk0020, scd016, Nguyen Anh Nguyen, 0123456720, st003, 120, 4, 18.
+tk0021, scd020, Bui Nhan, 0123456721, st001, 90, 1, 38.
+tk0022, scd007, Nguyen Minh Nhat, 0123456722, st003, 90, 3, 46.
+tk0023, scd021, Tran Minh Nhat, 0123456723, st001, 90, 3, 52.
+tk0024, scd018, Le Trung Tan Phat, 0123456724, st001, 120, 5, 32.
+tk0025, scd022, Pham Minh Quan, 0123456725, st002, 90, 2, 36.
+tk0026, scd021, Vo Anh Quan, 0123456726, st001, 90, 1, 26.
+tk0027, scd019, Nguyen Hong Son, 0123456727, st003, 90, 1, 52.
+tk0028, scd023, Tran Viet Son, 0123456728, st002, 120, 1, 46.
+tk0029, scd024, Pham Minh Tam, 0123456729, st001, 90, 3, 32.
+tk0030, scd025, Vu Tien Thanh, 0123456730, st001, 90, 2, 35.
+tk0031, scd007, Huynh Duy Tin, 0123456731, st002, 90, 2, 60.
+tk0032, scd025, Pham Cong Trung, 0123456732, st004, 90, 6, 120.
+tk0033, scd024, Nguyen Phi Thuong, 0123456733, st001, 120, 3, 40.
+tk0034, scd022, Hoang Le Anh Tuan, 0123456734, st004, 90, 2, 50.
+tk0035, scd023, Doan Ngoc Truong, 0123456735, st001, 90, 1, 26.
+tk0036, scd020, Doan Van Viet, 0123456736, st002, 120, 3, 42.
+tk0037, scd018, Ho Quoc Viet, 0123456737, st004, 90, 4, 80.
+tk0038, scd019, Le Phan Phu Viet, 0123456738, st003, 90, 5, 96. 
+tk0039, scd015, Thai Duy Viet, 0123456739, st001, 90, 1, 30.
+tk0040, scd013, Ha Ngoc Hung, 0123456740, st003, 120, 2, 40.
+tk0041, scd014, Duong Bich Hoa An, 0123456741, st001, 90, 2, 0. 
+tk0042, scd017, Hoang Le An, 0123456742, st003, 90, 2, 25.
+tk0043, scd023, Vo Dac Bao An, 0123456743, st001, 90, 1, 40.
+tk0044, scd024, Nguyen Nguyen Anh, 0123456744, st001, 120, 1, 25. 
+tk0045, scd019, Vo Van Tuan Anh, 0123456745, st002, 90, 3, 62.
+tk0046, scd020, Nguyen Tuan Anh, 0123456746, st001, 90, 4, 45.
+tk0047, scd021, Phung Thi Anh, 0123456747, st003, 90, 2, 25.
+tk0048, scd021, Tran Gia Bao, 0123456748, st002, 120, 2, 34.
+tk0049, scd013, Nguyen Doan Bao Chau, 0123456749, st001, 90, 4, 56.
+tk0050, scd014, Nguyen Quoc Cuong, 0123456750, st001, 90, 2, 50.
+tk0051, scd015, Bui Ngoc Dan, 0123456751, st002, 90, 3, 0.
+tk0052, scd016, Tran Van Dat, 0123456752, st004, 90, 2, 25.
+tk0053, scd017, Nguyen Trung Dong, 0123456753, st001, 120, 2, 38. 
+tk0054, scd018, Van Thi Bach Duong, 0123456754, st004, 90, 1, 16.
+tk0055, scd019, Phan Tran Nhat Ha, 0123456755, st001, 90, 2, 28.
+tk0056, scd020, Ho Si Hoang, 0123456756, st002, 120, 1, 35.
+tk0057, scd021, Phan Ba Hoang, 0123456757, st004, 90, 2, 38.
+tk0058, scd022, Phan Quoc Hung, 0123456758, st003, 90, 3, 56.
+tk0059, scd023, Tran Ngoc Nhat Hung, 0123456759, st001, 90, 5, 68. 
+tk0060, scd003, Nguyen Duc Huy, 0123456760, st003, 120, 2, 0.
+tk0061, scd001, Le Anh Kha, 0123456761, st001, 90, 1, 10.
+tk0062, scd002, Nguyen Thi Le, 0123456762, st003, 90, 6, 35.
+tk0063, scd003, Le Quoc Manh, 0123456763, st001, 90, 3, 38.
+tk0064, scd005, Le Nhat Minh, 0123456764, st001, 120, 3, 52.
+tk0065, scd006, Phan Thanh Nam, 0123456765, st002, 90, 2, 38.
+tk0066, scd004, Nguyen Hong Ngan, 0123456766, st001, 90, 2, 26.
+tk0067, scd007, Nguyen Duc Nghia, 0123456767, st003, 90, 2, 45.
+tk0068, scd007, Tran Van Nguyen, 0123456768, st002, 120, 6, 97.
+tk0069, scd008, Ngo Hoang Nhan, 0123456769, st001, 90, 2, 35.
+tk0070, scd011, Le Thi Hong Nhung, 0123456770, st001, 90, 1, 17.
+tk0071, scd012, Nguyen Thanh Phong, 0123456771, st002, 90, 3, 37.
+tk0072, scd011, Phan Cong Phuc, 0123456772, st004, 90, 2, 44.
+tk0073, scd004, Nguyen Minh Quang, 0123456773, st001, 120, 7, 95. 
+tk0074, scd010, Hoang Van Quy, 0123456774, st004, 90, 2, 36.
+tk0075, scd002, Tran Le Nhu Quynh, 0123456775, st001, 90, 3, 24.
+tk0076, scd007, Vu Hong Son, 0123456776, st002, 120, 2, 33.
+tk0077, scd001, Tran Duc Tan, 0123456777, st004, 90, 1, 0.
+tk0078, scd009, Tran Dinh Thang, 0123456778, st003, 90, 2, 16.
+tk0079, scd012, Nguyen Vy Thao, 0123456779, st001, 90, 1, 30.
+tk0080, scd003, Ngo Hung Thinh, 0123456780, st003, 120, 2, 38.
+tk0081, scd001, Tran Duy Thuc, 0123456781, st001, 90, 3, 53.
+tk0082, scd002, Nguyen Thanh Trang, 0123456782, st003, 90, 4, 38.
+tk0083, scd003, Bui Huu Trong, 0123456783, st001, 90, 2, 45.
+tk0084, scd005, Nguyen Huu Trung, 0123456784, st001, 120, 1, 20.
+tk0085, scd006, Huynh Tu, 0123456785, st002, 90, 3, 0.
+tk0086, scd004, Nguyen Tuan, 0123456786, st001, 90, 2, 12.
+tk0087, scd009, Nguyen Duc Van, 0123456787, st003, 90, 2, 34.
+tk0088, scd007, Vo Duc Viet, 0123456788, st002, 120, 2, 22.
+tk0089, scd008, Ha Gia Bao, 0123456789, st001, 90, 3, 56.
+tk0090, scd011, Le Tran Minh Chau, 0123456790, st001, 90, 2, 24.
+tk0091, scd012, Le Van Chien, 0123456791, st002, 90, 1, 15.
+tk0092, scd011, Nguyen Viet Cuong, 0123456792, st004, 90, 2, 32.
+tk0093, scd004, Le Cong Dat, 0123456793, st001, 120, 1, 17.
+tk0094, scd010, Ho Anh Dung, 0123456794, st004, 90, 4, 66.
+tk0095, scd002, Hoang Khuong Huy, 0123456795, st001, 90, 2, 48.
+tk0096, scd007, Le Van Hoang, 0123456796, st002, 120, 1, 20.
+tk0097, scd001, Nguyen Thanh Hung, 0123456797, st004, 90, 4, 50.
+tk0098, scd009, Doan Phuoc Gia Huy, 0123456798, st003, 90, 2, 42.
+tk0099, scd012, Nguyen Ngoc Huy, 0123456799, st001, 90, 3, 32.
+tk0100, scd003, Le Thien Khoa, 0123456800, st003, 120, 5, 67.

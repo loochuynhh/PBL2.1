@@ -13,6 +13,8 @@ Ticket TicketManager::setTicketInfor() {
 	string customerPhone;
 	string staffId;
 	int cost;
+	int amount;
+	int soda_corn;
 	int check = 0;
 	do {
 		cin.ignore();
@@ -76,19 +78,25 @@ Ticket TicketManager::setTicketInfor() {
 	}
 	cout << "\t\t\t\t\t\t\tNhap gia ve: ";
 	cin >> cost;
+	cout << "\t\t\t\t\t\t\tNhap so ve: ";
+	cin >> amount;
+	cout << "\t\t\t\t\t\t\tNhap gia bap nuoc: ";
+	cin >> soda_corn;
 	ticket.setId(id);
 	ticket.setScheduleId(scheduleId);
 	ticket.setCustomerName(customerName);
 	ticket.setCustomerPhone(customerPhone);
 	ticket.setStaffId(staffId);
 	ticket.setCost(cost);
+	ticket.setAmount(amount);
+	ticket.setSoda_Corn(soda_corn);
 	return ticket;
 }
 
 int TicketManager::getRevenue() {
 	int revenue = 0;
 	for (int i = 0; i < this->length; i++) {
-		revenue += (this->typeList + i)->getCost();
+		revenue += (this->typeList + i)->getCost()*(this->typeList + i)->getAmount() + (this->typeList + i)->getSoda_Corn();
 	}
 	return revenue;
 }
@@ -98,7 +106,7 @@ int TicketManager::getRevenue(Time& t1, Time& t2) {
 	for (int i = 0; i < this->length; i++) {
 		Time t = (this->scheduleList)->findById((this->typeList + i)->getScheduleId())->getTime();
 		if (t >= t1 && t <= t2 ) {
-			revenue += (this->typeList + i)->getCost();
+			revenue += (this->typeList + i)->getCost() * (this->typeList + i)->getAmount() + (this->typeList + i)->getSoda_Corn();
 		}
 	}
 	return revenue;
@@ -107,7 +115,7 @@ int TicketManager::getRevenue(Time& t1, Time& t2) {
 int TicketManager::getRevenue(string staffId) {
 	int revenue = 0;
 	for (int i = 0; i < this->length; i++) {
-		if ((this->typeList + i)->getStaffId() == staffId) revenue += (this->typeList + i)->getCost();
+		if ((this->typeList + i)->getStaffId() == staffId) revenue += (this->typeList + i)->getCost() * (this->typeList + i)->getAmount() + (this->typeList + i)->getSoda_Corn();
 	}
 	return revenue;
 }
@@ -120,7 +128,7 @@ void TicketManager::getRevenueY(int year) {
 	for (int i = 0; i < this->staffManager->getLength(); i++) {
 		for (int j = 0; j < this->length; j++) {
 			if (this->scheduleList->findById((this->typeList + j)->getScheduleId())->getTime().getYear() == year && ((this->staffManager->getTypeList() + i)->getId()).compare((this->typeList + j)->getStaffId()) == 0) {
-				revenue[i][this->scheduleList->findById((this->typeList + j)->getScheduleId())->getTime().getMonth() - 1] += (this->typeList + j)->getCost();
+				revenue[i][this->scheduleList->findById((this->typeList + j)->getScheduleId())->getTime().getMonth() - 1] += (this->typeList + i)->getCost() * (this->typeList + i)->getAmount() + (this->typeList + i)->getSoda_Corn();
 			}
 		}
 	}
@@ -157,16 +165,16 @@ void TicketManager::writeFile(fstream& fileout) {
 	}
 }
 void TicketManager::write() {
-	cout << "\t\t\t\t";
-	for (int x = 0; x < 109; x++) cout << "-"; cout << endl;
-	cout << "\t\t\t\t";
-	cout << "|   Ma ve   |  Ma lich chieu  | Ma nhan vien |  SDT khach hang  |          Ten khach hang          | Gia ve |" << endl;
-	cout << "\t\t\t\t";
-	for (int x = 0; x < 109; x++) cout << "-"; cout << endl;
+	cout << "\t\t\t";
+	for (int x = 0; x < 131; x++) cout << "-"; cout << endl;
+	cout << "\t\t\t";
+	cout << "|  Ma hoa don  |  Ma lich chieu  | Ma nhan vien |  SDT khach hang  |          Ten khach hang          | Gia ve | So ve | Bap nuoc |" << endl;
+	cout << "\t\t\t";
+	for (int x = 0; x < 131; x++) cout << "-"; cout << endl;
 	for (int i = 0; i < length; i++) {
-		cout << "\t\t\t\t";
+		cout << "\t\t\t";
 		(typeList + i)->writeData();
 	}
-	cout << "\t\t\t\t";
-	for (int x = 0; x < 109; x++) cout << "-"; cout << endl;
+	cout << "\t\t\t";
+	for (int x = 0; x < 131; x++) cout << "-"; cout << endl;
 }

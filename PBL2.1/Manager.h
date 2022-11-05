@@ -25,9 +25,9 @@ public:
 	Manager();
 	~Manager();
 	type* getTypeList();
-	virtual void readFile(fstream&);
-	virtual void writeFile(fstream&);
-	virtual void write();
+	virtual void readFile(fstream&) = 0;
+	virtual void writeFile(fstream&) = 0;
+	virtual void write() = 0;
 protected:
 	type* typeList;
 	int length;
