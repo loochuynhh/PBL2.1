@@ -268,21 +268,21 @@ void StaffManager::writeSalaryY(int year) {
 				cout << "|   " << left << setw(9) << (this->getTypeList() + i)->getId();
 				cout << "|    Thuong    |";
 				for (int j = 0; j < 12; j++) {
-					cout << left << setw(10) << salaryTable[i][j][1] << "|";
+					cout << " " << left << setw(9) << salaryTable[i][j][1] << "|";
 				}
 			}
 			else if (cnt == 0) {
 				cout << "\t";
 				cout << "|            |    Co ban    |";
 				for (int j = 0; j < 12; j++) {
-					cout << left << setw(10) << salaryTable[i][j][0] << "|";
+					cout << " " << left << setw(9) << salaryTable[i][j][0] << "|";
 				}
 			}
 			else {
 				cout << "\t";
 				cout << "|            |  Tong cong   |";
 				for (int j = 0; j < 12; j++) {
-					cout << left << setw(10) << salaryTable[i][j][0] + salaryTable[i][j][1] << "|";
+					cout << " " << left << setw(9) << salaryTable[i][j][0] + salaryTable[i][j][1] << "|";
 				}
 			}
 			cout << endl;

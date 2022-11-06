@@ -92,7 +92,7 @@ void Menu::logo() {
 	}
 	system("cls");
 	SetConsoleTextAttribute(cl, 4);
-	for (short i = 20; i > 1; i--) {
+	for (short i = 30; i > 1; i--) {
 		SetConsoleCursorPosition(GetStdHandle(STD_OUTPUT_HANDLE), {0, i});
 		cout << endl;
 		cout << "\t\t\t\t\t\t\t ______    ________  ___   __    ______   ___ __ __   ________      " << endl;
