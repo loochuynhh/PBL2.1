@@ -1,4 +1,5 @@
 #include "CinemaRoomManager.h"
+#include <Windows.h>
 
 CinemaRoom CinemaRoomManager::setCinemaRoomInfor() {
 	CinemaRoom cinemaRoom;
@@ -34,7 +35,8 @@ CinemaRoom CinemaRoomManager::setCinemaRoomInfor() {
 	return cinemaRoom;
 }
 
-void CinemaRoomManager::update() {
+string CinemaRoomManager::update() {
+	HANDLE cl = GetStdHandle(STD_OUTPUT_HANDLE);
 	string id;
 	cout << "\t\t\t\t\t\t\tNhap id: ";
 	cin.ignore();
@@ -42,6 +44,7 @@ void CinemaRoomManager::update() {
 	if (findById(id) == nullptr) {
 		cout << "\t\t\t\t\t\t\tKhong tim thay id phu hop!\n";
 		system("pause");
+		return "";
 	}
 	else {
 		int opttmp = 0;
@@ -74,12 +77,26 @@ void CinemaRoomManager::update() {
 				cout << "\t\t\t\t\t\t\tNhap tinh trang: ";
 				cin.ignore();
 				getline(cin, up);
-				room->setStatus(up);
+				if(up == "bad") {
+					SetConsoleTextAttribute(cl, 4);
+					cout << "\n\t\t\t\t\t\tLUU Y:    SAU KHI XAC NHAN THAY DOI PHONG CHIEU CO TINH TRANG KHONG TOT SE DUOC XOA TRONG LICH CHIEU\n";
+					SetConsoleTextAttribute(cl, 7);
+					cout << "\n\t\t\t\t\t\t\t\tBan co chac chan muon thay doi.";
+					cout << "\n\t\t\t\t\t\t\t1. Xoa.";
+					cout << "\t\t\t0. Thoat.";
+					cout << "\n\t\t\t\t\t\t\t";
+					int idel; cin >> idel;
+						if(idel == 1){
+							room->setStatus(up);
+						}
+				}	
+				else room->setStatus(up);			
 				break;
 			}
 			}
 		} while (opttmp != 0);
 	}
+	return id;
 }
 void CinemaRoomManager::readFile(fstream& filein) {
 	filein >> length;

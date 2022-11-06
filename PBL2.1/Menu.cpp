@@ -543,7 +543,10 @@ void Menu::stMenu() {
 					SetConsoleTextAttribute(cl, 3);
 					cout << "\n\t\t\t\t\t\t\t\t\t\t***CAP NHAT PHONG CHIEU***\n\n";
 					SetConsoleTextAttribute(cl, 7);
-					cnmMng.update();
+					string id = cnmMng.update();
+					if(id != "" && cnmMng.findById(id)->getStatus() == "bad") {
+						scdMng.deleteByRoom(id);
+					}
 				}
 				else if (tmp == 6) {
 					fscr.open("CinemaRoom.txt", ios::out | ios:: trunc);

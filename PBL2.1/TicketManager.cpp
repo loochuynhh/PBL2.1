@@ -9,7 +9,7 @@ Ticket TicketManager::setTicketInfor() {
 	Ticket ticket;
 	string id;
 	string scheduleId;
-	string customerName;
+	string customerName = "";
 	string customerPhone;
 	string staffId;
 	int cost;
@@ -36,6 +36,7 @@ Ticket TicketManager::setTicketInfor() {
 	}
 	check = 0;
 	do {
+		system("cls");
 		this->scheduleList->write();
 		cout << "\t\t\t\t\t\t\tNhap ma lich chieu: ";
 		getline(cin, scheduleId);
@@ -53,12 +54,24 @@ Ticket TicketManager::setTicketInfor() {
 		ticket.setId("null");
 		return ticket;
 	}
-	cout << "\t\t\t\t\t\t\tNhap ten khach hang: ";
-	getline(cin, customerName);
 	cout << "\t\t\t\t\t\t\tNhap so dien thoai khach hang: ";
 	getline(cin, customerPhone);
 	check = 0;
+	for(int i = 0; i < this->length; i++) {
+		if((this->typeList + i)->getCustomerPhone() == customerPhone) {
+			customerName = (this->typeList + i)->getCustomerName();
+			cout << "\t\t\t\t\t\t\tTen khach hang la: " << customerName << endl;
+			system("pause");
+			break;
+		}
+	}
+	if(customerName == "") {
+		cout << "\t\t\t\t\t\t\tNhap ten khach hang: ";
+		getline(cin, customerName);
+	}
+	check = 0;
 	do {
+		system("cls");
 		this->staffManager->write();
 		cout << "\t\t\t\t\t\t\tNhap ma nhan vien: ";
 		getline(cin, staffId);
