@@ -543,10 +543,7 @@ void Menu::stMenu() {
 					SetConsoleTextAttribute(cl, 3);
 					cout << "\n\t\t\t\t\t\t\t\t\t\t***CAP NHAT PHONG CHIEU***\n\n";
 					SetConsoleTextAttribute(cl, 7);
-					string id = cnmMng.update();
-					if(id != "" && cnmMng.findById(id)->getStatus() == "bad") {
-						scdMng.deleteByRoom(id);
-					}
+					cnmMng.update();
 				}
 				else if (tmp == 6) {
 					fscr.open("CinemaRoom.txt", ios::out | ios:: trunc);
@@ -556,10 +553,8 @@ void Menu::stMenu() {
 					int test, iscd = 0;
 					while (iscd < scdMng.getLength()) {
 						test = 0;
-						for (int icnm = 0; icnm < cnmMng.getLength(); icnm++) {
-							if ((scdMng.getTypeList() + iscd)->getCinemaRoomId().compare((cnmMng.getTypeList() + icnm)->getId()) == 0) {
-								test = 1;
-							}
+						if (cnmMng.findById((scdMng.getTypeList() + iscd)->getCinemaRoomId()) != nullptr && cnmMng.findById((scdMng.getTypeList() + iscd)->getCinemaRoomId())->getStatus() != "bad") {
+							test = 1;
 						}
 						if (test == 0) { 
 							scdMng.del((scdMng.getTypeList() + iscd)->getId()); 

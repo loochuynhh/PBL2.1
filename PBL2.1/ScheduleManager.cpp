@@ -35,8 +35,9 @@ Schedule ScheduleManager::setScheduleInfor() {
 	check = 0;
 	do {
 		system("cls");
+		cout << "\n";
 		this->filmManager->write();
-		cout << "\t\t\t\t\t\t\tNhap ma phim: ";
+		cout << "\n\t\t\t\t\t\t\tNhap ma phim: ";
 		getline(cin, filmId);
 		if (this->filmManager->findById(filmId) == nullptr) {
 			cout << "\t\t\t\t\t\t\t\tKhong tim thay phim!. Lua chon";
@@ -55,8 +56,9 @@ Schedule ScheduleManager::setScheduleInfor() {
 	check = 0;
 	do {
 		system("cls");
+		cout << "\n";
 		this->cinemaRoomManager->write();
-		cout << "\t\t\t\t\t\t\tNhap ma phong chieu: "; 
+		cout << "\n\t\t\t\t\t\t\tNhap ma phong chieu: "; 
 		getline(cin, cinemaRoomId);
 		if (this->cinemaRoomManager->findById(cinemaRoomId) == nullptr) {
 			cout << "\t\t\t\t\t\t\t\tKhong tim thay phong chieu!. Lua chon";
@@ -81,6 +83,7 @@ Schedule ScheduleManager::setScheduleInfor() {
 		return schedule;
 	}
 	system("cls");
+	cout << "\n";
 	getShow();
 	cout << "\t\t\t\t\t\t\tNhap ca so: ";
 	cin >> show;
@@ -124,10 +127,12 @@ void ScheduleManager::update() {
 			cout << "\t\t\t\t\t";
 			cout << "|  Ma lich chieu  |   Ma phim   |  Ma phong chieu  |  Ca  |     Ngay chieu     |" << endl;
 			cout << "\t\t\t\t\t";
+			for (int x = 0; x < 80; x++) cout << "-"; cout << endl;
+			cout << "\t\t\t\t\t";
 			schedule->writeData();
 			cout << "\t\t\t\t\t";
 			for (int x = 0; x < 80; x++) cout << "-"; cout << endl;
-			cout << "\t\t\t\t\t\t\t1. Sua ma phim" << endl;
+			cout << "\n\t\t\t\t\t\t\t1. Sua ma phim" << endl;
 			cout << "\t\t\t\t\t\t\t2. Sua ma phong chieu" << endl;
 			cout << "\t\t\t\t\t\t\t3. Sua ca chieu" << endl;
 			cout << "\t\t\t\t\t\t\t4. Sua thoi gian" << endl;
@@ -142,8 +147,9 @@ void ScheduleManager::update() {
 				int check = 0;
 				do {
 					system("cls");
+					cout << "\n";
 					this->filmManager->write();
-					cout << "\t\t\t\t\t\t\tNhap ma phim: ";
+					cout << "\n\t\t\t\t\t\t\tNhap ma phim: ";
 					getline(cin, up);
 					if (this->filmManager->findById(up) == nullptr) {
 						cout << "\t\t\t\t\t\t\t\tKhong tim thay phim!. Lua chon";
@@ -162,8 +168,9 @@ void ScheduleManager::update() {
 				int check = 0;
 				do {
 					system("cls");
+					cout << "\n";
 					this->cinemaRoomManager->write();
-					cout << "\t\t\t\t\t\t\tNhap ma phong chieu: "; 
+					cout << "\n\t\t\t\t\t\t\tNhap ma phong chieu: "; 
 					getline(cin, up);
 					if (this->cinemaRoomManager->findById(up) == nullptr) {
 						cout << "\t\t\t\t\t\t\t\tKhong tim thay phong chieu!. Lua chon";
