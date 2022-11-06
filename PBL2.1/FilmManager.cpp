@@ -116,11 +116,18 @@ void FilmManager::update() {
 		Film* film = findById(id);
 		do {
 			system("cls");
+			cout << "\n";
+			cout << "\t";
 			for (int x = 0; x < 156; x++) cout << "-"; cout << endl;
+			cout << "\t";
 			cout << "|" << left << setw(13) << "    Ma phim" << "|" << left << setw(31) << "\t   Ten phim" << "|" << left << setw(20) << "   Dao dien" << "|" << left << setw(20) << "\tDien vien chinh" << "|" << left << setw(17) << "\tQuoc gia" << "|" << left << setw(20) << "\tThe loai" << "|" << left << setw(15) << "  Thoi gian" << "|" << endl;
-			film->writeData();
+			cout << "\t";
 			for (int x = 0; x < 156; x++) cout << "-"; cout << endl;
-			cout << "\t\t\t\t\t\t\t1. Sua ten phim" << endl;
+			cout << "\t";
+			film->writeData();
+			cout << "\t";
+			for (int x = 0; x < 156; x++) cout << "-"; cout << endl;
+			cout << "\n\t\t\t\t\t\t\t1. Sua ten phim" << endl;
 			cout << "\t\t\t\t\t\t\t2. Sua dao dien" << endl;
 			cout << "\t\t\t\t\t\t\t3. Sua dien vien" << endl;
 			cout << "\t\t\t\t\t\t\t4. Sua noi san xuat" << endl;

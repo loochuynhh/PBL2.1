@@ -51,15 +51,17 @@ string CinemaRoomManager::update() {
 		CinemaRoom* room = findById(id);
 		do {
 			system("cls");
-			cout << "\t\t\t\t\t\t";
+			cout << "\n\t\t\t\t\t\t";
 			for (int x = 0; x < 78; x++) cout << "-"; cout << endl;
 			cout << "\t\t\t\t\t\t";
 			cout << "|" << left << setw(6) << " " << left << setw(20) << "Ma phong chieu" << "|" << left << setw(10) << "\tSo ghe" << "|" << left << setw(30) << "\t        Chat luong" << "|" << endl;
 			cout << "\t\t\t\t\t\t";
+			for (int x = 0; x < 78; x++) cout << "-"; cout << endl;
+			cout << "\t\t\t\t\t\t";
 			room->writeData();
 			cout << "\t\t\t\t\t\t";
 			for (int x = 0; x < 78; x++) cout << "-"; cout << endl;
-			cout << "\t\t\t\t\t\t\t1. Sua so ghe" << endl;
+			cout << "\n\t\t\t\t\t\t\t1. Sua so ghe" << endl;
 			cout << "\t\t\t\t\t\t\t2. Sua tinh trang" << endl;
 			cout << "\t\t\t\t\t\t\t0. Xac nhan va thoat" << endl;
 			cout << "\t\t\t\t\t\t\t>> Nhap lua chon: ";
@@ -79,10 +81,10 @@ string CinemaRoomManager::update() {
 				getline(cin, up);
 				if(up == "bad") {
 					SetConsoleTextAttribute(cl, 4);
-					cout << "\n\t\t\t\t\t\tLUU Y:    SAU KHI XAC NHAN THAY DOI PHONG CHIEU CO TINH TRANG KHONG TOT SE DUOC XOA TRONG LICH CHIEU\n";
+					cout << "\n\t\t\t\t\t\tLUU Y:    SAU KHI XAC NHAN THAY DOI PHONG CHIEU CAP NHAT TINH TRANG KHONG TOT SE DUOC XOA TRONG LICH CHIEU\n";
 					SetConsoleTextAttribute(cl, 7);
-					cout << "\n\t\t\t\t\t\t\t\tBan co chac chan muon thay doi.";
-					cout << "\n\t\t\t\t\t\t\t1. Xoa.";
+					cout << "\n\t\t\t\t\t\t\t\tBan co chac chan muon cap nhat.";
+					cout << "\n\t\t\t\t\t\t\t1. Cap nhat.";
 					cout << "\t\t\t0. Thoat.";
 					cout << "\n\t\t\t\t\t\t\t";
 					int idel; cin >> idel;

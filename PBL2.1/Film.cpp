@@ -1,6 +1,8 @@
 #include "Film.h"
 
 Film::Film() {
+	this->length = 0;
+	this->type = 0;
 }
 
 Film::Film(string& id, string& name, string& director, string& actor, string& country, int type, int length) {

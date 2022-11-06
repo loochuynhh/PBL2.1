@@ -37,8 +37,9 @@ Ticket TicketManager::setTicketInfor() {
 	check = 0;
 	do {
 		system("cls");
+		cout << "\n";
 		this->scheduleList->write();
-		cout << "\t\t\t\t\t\t\tNhap ma lich chieu: ";
+		cout << "\n\t\t\t\t\t\t\tNhap ma lich chieu: ";
 		getline(cin, scheduleId);
 		if (this->scheduleList->findById(scheduleId) == nullptr) {
 			cout << "\t\t\t\t\t\t\t\tKhong tim thay lich chieu phu hop!. Lua chon";
@@ -72,8 +73,9 @@ Ticket TicketManager::setTicketInfor() {
 	check = 0;
 	do {
 		system("cls");
+		cout << "\n";
 		this->staffManager->write();
-		cout << "\t\t\t\t\t\t\tNhap ma nhan vien: ";
+		cout << "\n\t\t\t\t\t\t\tNhap ma nhan vien: ";
 		getline(cin, staffId);
 		if (this->staffManager->findById(staffId) == nullptr) {
 			cout << "\t\t\t\t\t\t\t\tKhong tim thay nhan vien!. Lua chon";
