@@ -114,4 +114,3 @@ bool Time::operator<=(const Time& time2) {
 		return false;
 	}
 }
-

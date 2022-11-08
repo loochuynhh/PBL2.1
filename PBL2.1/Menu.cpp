@@ -189,13 +189,35 @@ void Menu::login() {
 			}
 		}
 		if (cnt == 0) {
-			cout << "\n\n\n\t\t\t\t\t\t\t\t\tTAI KHOAN KHONG HOP LE.";
-			cout << "\n\n\t\t\t\t\t\t\t\t1. Dang Nhap Lai.";
-			cout << "\t\t  2. Thoat";
-			cout << "\n\t\t\t\t\t\t\t\t\t\t";
-			int x; cin >> x;
-			if (x == 2) break;
-			cin.ignore();
+			int x;
+			do {
+				system("cls");
+				SetConsoleTextAttribute(cl, 4);
+				cinema();
+				SetConsoleTextAttribute(cl, 7);
+				cout << endl;
+				cout << left << setw(70) << " ";
+				for (int i = 0; i < 35; i++) cout << "-";
+				cout << "\n" << left << setw(70) << " " << "|";
+				cout << left << setw(12) << " " << "DANG NHAP";
+				cout << setw(12) << " " << "|";
+				cout << "\n" << left << setw(70) << " ";
+				for (int i = 0; i < 35; i++) cout << "-";
+				cout << endl;
+				cout << "\n\t\t\t\t\t\t\t\t" << left << setw(16) << "TEN DANG NHAP" << ":   ";
+				cout << "\n\t\t\t\t\t\t\t\t----------------------------------------------" << endl;
+				cout << "\t\t\t\t\t\t\t\t" << left << setw(16) << "MAT KHAU" << ":   ";
+				cout << "\n\n\t\t\t\t\t\t\t\t\tTAI KHOAN KHONG HOP LE.";
+				cout << "\n\n\t\t\t\t\t\t\t\t1. Dang nhap Lai.";
+				cout << "\t\t  2. Thoat";
+				cout << "\n\t\t\t\t\t\t\t\t";
+				x = getInt();
+				if (x == 2) return;
+				else if (x != 1) {
+					cout << "\t\t\t\t\t\t\t\t\tLua chon khong hop le!\n";
+					system("pause");
+				}
+			} while (x != 1);
 		}
 		system("cls");
 	} while (cnt == 0);
@@ -256,7 +278,7 @@ void Menu::stMenu() {
 		for (int i = 0; i < 42; i++) cout << "-";
 		Sleep(50);
 		cout << "\n\n\t\t\t\t\t\t\t\t\t**Nhap lua chon: ";
-		cin >> opt;
+		opt = getInt();
 		switch (opt) {
 		case (1): {
 			int tmp = 0;
@@ -294,7 +316,7 @@ void Menu::stMenu() {
 				for (int i = 0; i < 55; i++) cout << "*";
 				Sleep(50);
 				cout << "\n\t\t\t\t\t\t\t>> Nhap lua chon: ";
-				cin >> tmp;
+				tmp = getInt();
 				if (tmp == 1) {
 					system("cls");
 					SetConsoleTextAttribute(cl, 4);
@@ -327,7 +349,6 @@ void Menu::stMenu() {
 					SetConsoleTextAttribute(cl, 7);
 					string name;
 					cout << "\t\t\t\t\t\t\tNhap ten phim: ";
-					cin.ignore();
 					getline(cin, name);
 					filmMng.findByName(name);
 					system("pause");
@@ -341,7 +362,6 @@ void Menu::stMenu() {
 					SetConsoleTextAttribute(cl, 7);
 					string id;
 					cout << "\t\t\t\t\t\t\tNhap ma phim: ";
-					cin.ignore();
 					getline(cin, id);
 					if (filmMng.findById(id) == nullptr) {
 						cout << "\n\t\t\t\t\t\t\tKhong tim thay phim phu hop.\n";
@@ -370,7 +390,6 @@ void Menu::stMenu() {
 					SetConsoleTextAttribute(cl, 7);
 					string id;
 					cout << "\t\t\t\t\t\t\tNhap ma phim can xoa: ";
-					cin.ignore();
 					getline(cin, id);
 					if (filmMng.findById(id) != nullptr) {
 						SetConsoleTextAttribute(cl, 4);
@@ -380,14 +399,18 @@ void Menu::stMenu() {
 						cout << "\n\t\t\t\t\t\t\t1. Xoa.";
 						cout << "\t\t\t0. Thoat.";
 						cout << "\n\t\t\t\t\t\t\t";
-						int idel; cin >> idel;
+						int idel; idel = getInt();
 						if (idel == 1) {
 							filmMng.del(id);
 							scdMng.deleteByFilm(id);
 							cout << "\t\t\t\t\t\t\tPhim co ma " << id << " da duoc xoa.\n";
 							system("pause");
 						}
-						else {}
+						else if(idel == 2){}
+						else { 
+							cout << "\t\t\t\t\t\t\tLua chon khong hop le!\n";
+							system("pause");
+						}
 					}
 					else {
 						cout << "\n\t\t\t\t\t\t\tKhong tim thay phim phu hop.\n";
@@ -465,7 +488,7 @@ void Menu::stMenu() {
 				for (int i = 0; i < 55; i++) cout << "*";
 				Sleep(50);
 				cout << "\n\t\t\t\t\t\t\t>> Nhap lua chon: ";
-				cin >> tmp;
+				tmp = getInt();
 				if (tmp == 1) {
 					system("cls");
 					SetConsoleTextAttribute(cl, 4);
@@ -498,7 +521,6 @@ void Menu::stMenu() {
 					SetConsoleTextAttribute(cl, 7);
 					string id;
 					cout << "\t\t\t\t\t\t\tNhap ma phong chieu: ";
-					cin.ignore();
 					getline(cin, id);
 					if (cnmMng.findById(id) == nullptr) {
 						cout << "\n\t\t\t\t\t\t\tKhong tim thay phong chieu phu hop.\n";
@@ -527,7 +549,6 @@ void Menu::stMenu() {
 					SetConsoleTextAttribute(cl, 7);
 					string id;
 					cout << "\t\t\t\t\t\t\tNhap ma phong chieu can xoa: ";
-					cin.ignore();
 					getline(cin, id);
 					if (cnmMng.findById(id) != nullptr) {
 						SetConsoleTextAttribute(cl, 4);
@@ -537,11 +558,15 @@ void Menu::stMenu() {
 						cout << "\n\t\t\t\t\t\t\t1. Xoa.";
 						cout << "\t\t\t0. Thoat.";
 						cout << "\n\t\t\t\t\t\t\t";
-						int idel; cin >> idel;
+						int idel; idel = getInt();
 						if(idel == 1){
 							cnmMng.del(id);
 							scdMng.deleteByRoom(id);
 							cout << "\t\t\t\t\t\t\tPhong chieu co ma " << id << " da duoc xoa.\n";
+							system("pause");
+						}
+						else if(idel != 0) {
+							cout << "\t\t\t\t\t\t\tLua chon khong hop le!\n";
 							system("pause");
 						}
 						else {}
@@ -580,7 +605,7 @@ void Menu::stMenu() {
 					system("pause");
 				}
 				else if (tmp != 0) {
-					cout << "\n\t\t\t\t\t\t\tLua chon khong hop le. Moi chon lai.\n";
+					cout << "\t\t\t\t\t\t\tLua chon khong hop le. Moi chon lai.\n";
 					system("pause");
 				}
 			} while (tmp != 0);
@@ -620,7 +645,7 @@ void Menu::stMenu() {
 				for (int i = 0; i < 55; i++) cout << "*";
 				Sleep(50);
 				cout << "\n\t\t\t\t\t\t\t>> Nhap lua chon: ";
-				cin >> tmp;
+				tmp = getInt();
 				if (tmp == 1) {
 					system("cls");
 					SetConsoleTextAttribute(cl, 4);
@@ -649,7 +674,6 @@ void Menu::stMenu() {
 				else if (tmp == 3) {
 					string id;
 					cout << "\t\t\t\t\t\t\tNhap ma lich chieu: ";
-					cin.ignore();
 					getline(cin, id);
 					if (scdMng.findById(id) == nullptr) {
 						cout << "\n\t\t\t\t\t\t\tKhong tim thay lich chieu phu hop.\n";
@@ -672,20 +696,23 @@ void Menu::stMenu() {
 				else if (tmp == 4) {
 					string id;
 					cout << "\t\t\t\t\t\t\tNhap ma lich chieu can xoa: ";
-					cin.ignore();
 					getline(cin, id);
 					if (scdMng.findById(id) != nullptr) {
 						cout << "\t\t\t\t\t\t\t\tBan co chac chan muon xoa.";
 						cout << "\n\t\t\t\t\t\t\t1. Xoa.";
 						cout << "\t\t\t0. Thoat.";
 						cout << "\n\t\t\t\t\t\t\t";
-						int idel; cin >> idel;
+						int idel; idel = getInt();
 						if (idel == 1) {
 							scdMng.del(id);
 							cout << "\t\t\t\t\t\t\tLich chieu co ma " << id << " da duoc xoa.\n";
 							system("pause");
 						}
-						else{}
+						else if(idel != 1) {
+							cout << "\t\t\t\t\t\t\tLua chon khong hop le!\n";
+							system("pause");
+						}
+						else {}
 					}
 					else {
 						cout << "\n\t\t\t\t\t\t\tKhong tim thay lich chieu phu hop.\n";
@@ -709,7 +736,7 @@ void Menu::stMenu() {
 					system("pause");
 				}
 				else if (tmp != 0) {
-					cout << "\n\t\t\t\t\t\t\tLua chon khong phu hop. Moi chon lai.\n";
+					cout << "\t\t\t\t\t\t\tLua chon khong phu hop. Moi chon lai.\n";
 					system("pause");
 				}
 			} while (tmp != 0);
@@ -753,7 +780,7 @@ void Menu::stMenu() {
 				for (int i = 0; i < 55; i++) cout << "*";
 				Sleep(50);
 				cout << "\n\t\t\t\t\t\t\t>> Nhap lua chon: ";
-				cin >> tmp;
+				tmp = getInt();
 				if (tmp == 1) {
 					system("cls");
 					SetConsoleTextAttribute(cl, 4);
@@ -783,19 +810,55 @@ void Menu::stMenu() {
 					int date;
 					int month;
 					int year;
-					cout << "\t\t\t\t\t\t\tNhap ngay bat dau: ";
-					cin >> date;
-					cout << "\t\t\t\t\t\t\tNhap thang bat dau: ";
-					cin >> month;
-					cout << "\t\t\t\t\t\t\tNhap nam bat dau: ";
-					cin >> year;
+					do {
+						try {
+							cout << "\t\t\t\t\t\t\tNhap ngay bat dau: ";
+							date = getInt();
+							cout << "\t\t\t\t\t\t\tNhap thang bat dau: ";
+							month = getInt();
+							cout << "\t\t\t\t\t\t\tNhap nam bat dau: ";
+							year = getInt();
+							checktime(date, month, year);
+							break;
+						}
+						catch (int) {
+							cout << "\t\t\t\t\t\t\tNgay thang khong phu hop!. Moi nhap lai.\n";
+						}
+						catch (long) {
+							cout << "\t\t\t\t\t\t\tThang khong hop le! Moi nhap lai.\n";
+						}
+						catch (unsigned int) {
+							cout << "\t\t\t\t\t\t\tNgay khong duoc am! Moi nhap lai.\n";
+						}
+						catch (string) {
+							cout << "\t\t\t\t\t\t\tNam khong hop le! Moi nhap lai.\n";
+						}
+					} while (true);
 					Time t1(date, month, year);
-					cout << "\t\t\t\t\t\t\tNhap ngay ket thuc: ";
-					cin >> date;
-					cout << "\t\t\t\t\t\t\tNhap thang ket thuc: ";
-					cin >> month;
-					cout << "\t\t\t\t\t\t\tNhap nam ket thuc: ";
-					cin >> year;
+					do {
+						try {
+							cout << "\t\t\t\t\t\t\tNhap ngay ket thuc: ";
+							date = getInt();
+							cout << "\t\t\t\t\t\t\tNhap thang ket thuc: ";
+							month = getInt();
+							cout << "\t\t\t\t\t\t\tNhap nam ket thuc: ";
+							year = getInt();
+							checktime(date, month, year);
+							break;
+						}
+						catch (int) {
+							cout << "\t\t\t\t\t\t\tNgay thang khong phu hop!. Moi nhap lai.\n";
+						}
+						catch (long) {
+							cout << "\t\t\t\t\t\t\tThang khong hop le! Moi nhap lai.\n";
+						}
+						catch (unsigned int) {
+							cout << "\t\t\t\t\t\t\tNgay khong duoc am! Moi nhap lai.\n";
+						}
+						catch (string) {
+							cout << "\t\t\t\t\t\t\tNam khong hop le! Moi nhap lai.\n";
+						}
+					} while (true);
 					Time t2(date, month, year);
 					cout << "\n\n\t\t\t\t\t\t\t>> DOANH THU TRONG THOI GIAN TREN LA: ";
 					SetConsoleTextAttribute(cl, 10);
@@ -808,14 +871,19 @@ void Menu::stMenu() {
 					string id;
 					do {
 						cout << "\t\t\t\t\t\t\tNhap ma nhan vien: ";
-						cin.ignore();
 						getline(cin, id);
 						if (stMng.findById(id) == nullptr) {
-							cout << "\t\t\t\t\t\t\t\tKhong tim thay nhan vien phu hop!. Lua chon";
-							cout << "\n\t\t\t\t\t\t\t1. Nhap lai";
-							cout << "\t\t\t2. Thoat";
-							cout << "\n\t\t\t\t\t\t\t";
-							cin >> opt4;
+							do {
+								cout << "\t\t\t\t\t\t\t\tKhong tim thay nhan vien phu hop!. Lua chon";
+								cout << "\n\t\t\t\t\t\t\t1. Nhap lai";
+								cout << "\t\t\t2. Thoat";
+								cout << "\n\t\t\t\t\t\t\t";
+								opt4 = getInt();
+								if (opt4 != 1 && opt4 != 2) {
+									cout << "\t\t\t\t\t\t\tLua chon khong hop le! Moi chon lai.\n";
+									system("pause");
+								}
+							} while (opt4 != 1 && opt4 != 2);
 						}
 						else opt4 = 3;
 					} while (opt4 == 1 || opt4 == 0);
@@ -844,17 +912,20 @@ void Menu::stMenu() {
 					SetConsoleTextAttribute(cl, 7);
 					string id;
 					cout << "\n\t\t\t\t\t\t\tNhap ma hoa don can xoa: ";
-					cin.ignore();
 					getline(cin, id);
 					if (tkMng.findById(id) != nullptr) {
 						cout << "\t\t\t\t\t\t\t\tBan co chac chan muon xoa.";
 						cout << "\n\t\t\t\t\t\t\t1. Xoa.";
 						cout << "\t\t\t0. Thoat.";
 						cout << "\n\t\t\t\t\t\t\t";
-						int idel; cin >> idel;
+						int idel; idel = getInt();
 						if (idel == 1) {
 							tkMng.del(id);
 							cout << "\t\t\t\t\t\t\tHoa don co ma " << id << " da duoc xoa.\n";
+							system("pause");
+						}
+						else if (idel != 0) {
+							cout << "\t\t\t\t\t\t\tLua chon khong hop le!\n";
 							system("pause");
 						}
 						else {}
@@ -872,8 +943,26 @@ void Menu::stMenu() {
 					cout << "\n\t\t\t\t\t\t\t\t\t***DOANH THU CHI TIET THEO NAM***\n\n";
 					SetConsoleTextAttribute(cl, 7);
 					int year;
-					cout << "\n\t\t\t\t\t\t\tNhap nam can thong ke doanh thu: ";
-					cin >> year;
+					do {
+						try {
+							cout << "\t\t\t\t\t\t\tNhap nam can thong ke doanh thu: ";
+							year = getInt();
+							checktime(1, 1, year);
+							break;
+						}
+						catch (int) {
+							cout << "\t\t\t\t\t\t\tNgay thang khong phu hop!. Moi nhap lai.\n";
+						}
+						catch (long) {
+							cout << "\t\t\t\t\t\t\tThang khong hop le! Moi nhap lai.\n";
+						}
+						catch (unsigned int) {
+							cout << "\t\t\t\t\t\t\tNgay khong duoc am! Moi nhap lai.\n";
+						}
+						catch (string) {
+							cout << "\t\t\t\t\t\t\tNam khong hop le! Moi nhap lai.\n";
+						}
+					} while (true);
 					SetConsoleTextAttribute(cl, 10);
 					cout << "\n\n\t\t\t\t\t\t\t\t<<<DOANH THU CHI TIET NAM " << year << " LA>>>\n";
 					SetConsoleTextAttribute(cl, 7);
@@ -896,7 +985,8 @@ void Menu::stMenu() {
 		}
 		case (0): {	break; }
 		default: {
-			cout << "\n\t\t\t\t\t\t\tLua chon khong hop le.\n";
+			cout << "\t\t\t\t\t\t\tLua chon khong hop le.\n";
+			system("pause");
 			break;
 		}
 		}
@@ -945,7 +1035,7 @@ void Menu::drtMenu() {
 		for (int i = 0; i < 42; i++) cout << "-";
 		Sleep(50);
 		cout << "\n\n\t\t\t\t\t\t\t\t\t**Nhap lua chon: ";
-		cin >> opt;
+		opt = getInt();
 		switch (opt) {
 		case (1): {
 			int opt1 = 0;
@@ -975,7 +1065,7 @@ void Menu::drtMenu() {
 				cout << "\n\n\t\t\t\t\t\t\t\t";
 				for (int i = 0; i < 55; i++) cout << "*"; Sleep(50);
 				cout << "\n\t\t\t\t\t\t\t>> Nhap lua chon: ";
-				cin >> opt1;
+				opt1 = getInt();
 				if (opt1 == 1) {
 					system("cls");
 					SetConsoleTextAttribute(cl, 4);
@@ -1019,17 +1109,20 @@ void Menu::drtMenu() {
 					SetConsoleTextAttribute(cl, 7);
 					string id;
 					cout << "\t\t\t\t\t\t\tNhap ma nhan vien can xoa: ";
-					cin.ignore();
 					getline(cin, id);
 					if (stMng.findById(id) != nullptr) {
 						cout << "\t\t\t\t\t\t\t\tBan co chac chan muon xoa.";
 						cout << "\n\t\t\t\t\t\t\t1. Xoa.";
 						cout << "\t\t\t0. Thoat.";
 						cout << "\n\t\t\t\t\t\t\t";
-						int idel; cin >> idel;
+						int idel; idel = getInt();
 						if (idel == 1) {
 							stMng.del(id);
 							cout << "\t\t\t\t\t\t\tNhan vien co ma " << id << " da duoc xoa.\n";
+							system("pause");
+						}
+						else if (idel != 0) {
+							cout << "\t\t\t\t\t\t\tLua chon khong hop le!\n";
 							system("pause");
 						}
 						else {}
@@ -1057,7 +1150,7 @@ void Menu::drtMenu() {
 					SetConsoleTextAttribute(cl, 7);
 					int year;
 					cout << "\t\t\t\t\t\t\tNhap nam muon xem luong: ";
-					cin >> year;
+					year = getInt();
 					SetConsoleTextAttribute(cl, 10);
 					cout << "\t\t\t\t\t\t\t\t\t<<<TIEN LUONG DA TRA TRONG NAM " << year << " LA>>> " << endl;
 					SetConsoleTextAttribute(cl, 7);
@@ -1084,7 +1177,10 @@ void Menu::drtMenu() {
 					cout << "\t\t\t\t\t\t\tThay doi da duoc luu vao file.\n";
 					system("pause");
 				}
-				else if (opt1 != 0) cout << "\n\t\t\t\t\t\t\tLua chon khong hop le. Moi nhap lai.\n";
+				else if (opt1 != 0) { 
+					cout << "\n\t\t\t\t\t\t\tLua chon khong hop le. Moi nhap lai.\n"; 
+					system("pause");
+				}
 			} while (opt1 != 0);
 			break;
 		}
@@ -1110,7 +1206,7 @@ void Menu::drtMenu() {
 				cout << "\n\n\t\t\t\t\t\t\t\t";
 				for (int i = 0; i < 55; i++) cout << "*"; Sleep(50);
 				cout << "\n\t\t\t\t\t\t\t>> Nhap lua chon: ";
-				cin >> opt2;
+				opt2 = getInt();
 				if (opt2 == 1) { 
 					system("cls");
 					SetConsoleTextAttribute(cl, 4);
@@ -1148,13 +1244,16 @@ void Menu::drtMenu() {
 					cout << "\t\t\t\t\t\t\tThay doi da duoc luu vao file.\n";
 					system("pause");
 				}
-				else if (opt != 0) cout << "\t\t\t\t\t\t\tLua chon khong hop le.\n";
+				else if (opt2 != 0) {
+					cout << "\t\t\t\t\t\t\tLua chon khong hop le.\n";
+					system("pause");
+				}
 			} while (opt2 != 0);
 			break;
 		}
 		case (0): { break; }
 		default: {
-			cout << "\n\t\t\t\t\t\t\tLua chon khong hop le.\n";
+			cout << "\t\t\t\t\t\t\tLua chon khong hop le.\n";
 			break; 
 		}
 		}

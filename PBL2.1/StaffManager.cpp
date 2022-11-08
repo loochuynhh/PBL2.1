@@ -48,14 +48,19 @@ Staff StaffManager::setStaff() {
 	int check = 0;
 	do {
 		cout << "\n\t\t\t\t\t\t\tNhap ID nhan vien: ";
-		cin.ignore();
 		getline(cin, id);
 		if(this->findById(id) != nullptr) {
-			cout << "\t\t\t\t\t\t\t\tMa bi trung!. Lua chon";
-			cout << "\n\t\t\t\t\t\t1. Nhap lai";
-			cout << "\t\t\t2. Thoat";
-			cout << "\n\t\t\t\t\t\t\t";
-			cin >> check;
+			do {
+				cout << "\t\t\t\t\t\t\t\tMa bi trung!. Lua chon";
+				cout << "\n\t\t\t\t\t\t\t1. Nhap lai";
+				cout << "\t\t\t2. Thoat";
+				cout << "\n\t\t\t\t\t\t\t";
+				check = getInt();
+				if (check != 1 && check != 2) {
+					cout << "\t\t\t\t\t\t\tLua chon khong hop le! Moi chon lai.\n";
+					system("pause");
+				}
+			} while (check != 1 && check != 2);
 		}
 		else check = 3;
 	} while(check == 1 || check == 0);
@@ -72,36 +77,74 @@ Staff StaffManager::setStaff() {
 	getline(cin, account);
 	cout << "\t\t\t\t\t\t\tNhap mat khau nhan vien: ";
 	getline(cin, password);
-	cout << "\t\t\t\t\t\t\tNhap so dien thoai nhan vien: ";
-	getline(cin, phone);
+	do {
+		try {
+			cout << "\t\t\t\t\t\t\tNhap so dien thoai nhan vien: ";
+			phone = getphone();
+			break;
+		}
+		catch (int) {
+			cout << "\t\t\t\t\t\t\tSo dien thoai khong chua ki tu! Moi nhap lai.\n";
+		}
+		catch (long) {
+			cout << "\t\t\t\t\t\t\tSo dien thoai gom 10 hoac 11 so! Moi nhap lai.\n";
+		}
+	} while (true);
 	infor.setPhone(phone);
 	cout << "\t\t\t\t\t\t\tNhap mail nhan vien: ";
 	getline(cin, mail);
 	infor.setMail(mail);
 	cout << "\t\t\t\t\t\t\tNhap tuoi nhan vien: ";
-	cin >> age;
+	age = getInt();
 	infor.setAge(age);
-	staff.setInforSt(infor);
-	cout << "\t\t\t\t\t\t\tNhap ngay sinh nhan vien: ";
-	cin >> date;
-	cout << "\t\t\t\t\t\t\tNhap thang sinh nhan vien: ";
-	cin >> month;
-	cout << "\t\t\t\t\t\t\tNhap nam sinh nhan vien: ";
-	cin >> year;
+	do {
+		try {
+			cout << "\t\t\t\t\t\t\tNhap ngay sinh nhan vien: ";
+			date = getInt();
+			cout << "\t\t\t\t\t\t\tNhap thang sinh nhan vien: ";
+			month = getInt();
+			cout << "\t\t\t\t\t\t\tNhap nam sinh nhan vien: ";
+			year = getInt();
+			checktime(date, month, year);
+			break;
+		}
+		catch (int) {
+			cout << "\t\t\t\t\t\t\tNgay thang khong phu hop!. Moi nhap lai.\n";
+		}
+		catch (long) {
+			cout << "\t\t\t\t\t\t\tThang khong hop le! Moi nhap lai.\n";
+		}
+		catch (unsigned int) {
+			cout << "\t\t\t\t\t\t\tNgay khong duoc am! Moi nhap lai.\n";
+		}
+		catch (string) {
+			cout << "\t\t\t\t\t\t\tNam khong hop le! Moi nhap lai.\n";
+		}
+	} while (true);
 	Time t(date, month, year);
 	staff.setTimeSt(t);
 	cout << "\t\t\t\t\t\t\tNhap ten nhan than: ";
-	cin.ignore();
 	getline(cin, namerl);
 	inforrl.setNamerl(namerl);
-	cout << "\t\t\t\t\t\t\tNhap so dien thoai nhan than: ";
-	getline(cin, phonerl);
+	do {
+		try {
+			cout << "\t\t\t\t\t\t\tNhap so dien thoai nhan than: ";
+			phonerl = getphone();
+			break;
+		}
+		catch (int) {
+			cout << "\t\t\t\t\t\t\tSo dien thoai khong chua ki tu! Moi nhap lai.\n";
+		}
+		catch (long) {
+			cout << "\t\t\t\t\t\t\tSo dien thoai gom 10 hoac 11 so! Moi nhap lai.\n";
+		}
+	} while (true);
 	inforrl.setPhone(phonerl);
 	cout << "\t\t\t\t\t\t\tNhap mail nhan than: ";
 	getline(cin, mailrl);
 	inforrl.setMail(mailrl);
 	cout << "\t\t\t\t\t\t\tNhap tuoi nhan than: ";
-	cin >> agerl; 
+	agerl = getInt();
 	inforrl.setAge(agerl);
 	staff.setRelative(inforrl);
 	staff.setId(id); staff.setName(name); staff.setAccount(account); staff.setJob(job); staff.setPassword(password);
@@ -110,7 +153,6 @@ Staff StaffManager::setStaff() {
 void StaffManager::update(){
 	string id;
 	cout << "\t\t\t\t\t\t\tNhap id: ";
-	cin.ignore();
 	getline(cin, id);
 	if (findById(id) == nullptr) {
 		cout << "\t\t\t\t\t\t\tKhong tim thay id phu hop!\n";
@@ -134,10 +176,9 @@ void StaffManager::update(){
 			cout << "\t\t\t\t\t\t\t12. Sua mail nhan than" << endl;
 			cout << "\t\t\t\t\t\t\t0. Xac nhan va thoat" << endl;
 			cout << "\t\t\t\t\t\t\t\t>> Nhap lua chon: ";
-			cin >> opttmp;
+			opttmp = getInt();
 			string up;
 			int upn;
-			cin.ignore();
 			switch (opttmp) {
 			case(1): {
 				cout << "\t\t\t\t\t\t\tNhap ten nhan vien: ";
@@ -164,21 +205,54 @@ void StaffManager::update(){
 				break;
 			}
 			case(5): {
-				cout << "\t\t\t\t\t\t\tNhap ngay thang nam sinh: ";
 				int date, month, year;
-				cin >> date >> month >> year;
+				do {
+					try {
+						cout << "\t\t\t\t\t\t\tNhap ngay sinh: ";
+						date = getInt();
+						cout << "\t\t\t\t\t\t\tNhap thang sinh: ";
+						month = getInt();
+						cout << "\t\t\t\t\t\t\tNhap nam sinh: ";
+						year = getInt();
+						checktime(date, month, year);
+						break;
+					}
+					catch (int) {
+						cout << "\t\t\t\t\t\t\tNgay thang khong phu hop!. Moi nhap lai.\n";
+					}
+					catch (long) {
+						cout << "\t\t\t\t\t\t\tThang khong hop le! Moi nhap lai.\n";
+					}
+					catch (unsigned int) {
+						cout << "\t\t\t\t\t\t\tNgay khong duoc am! Moi nhap lai.\n";
+					}
+					catch (string) {
+						cout << "\t\t\t\t\t\t\tNam khong hop le! Moi nhap lai.\n";
+					}
+				} while (true);
 				staff->getTimeSt().setDate(date);  staff->getTimeSt().setMonth(month); staff->getTimeSt().setYear(year);
 				break;
 			}
 			case(6): {
 				cout << "\t\t\t\t\t\t\tNhap tuoi nhan vien: ";
-				cin >> upn;
+				upn = getInt();
 				staff->getInforSt().setAge(upn);
 				break;
 			}
 			case(7): {
-				cout << "\t\t\t\t\t\t\tNhap so dien thoai nhan vien: ";
-				getline(cin, up);
+				do {
+					try {
+						cout << "\t\t\t\t\t\t\tNhap so dien thoai nhan vien: ";
+						up = getphone();
+						break;
+					}
+					catch (int) {
+						cout << "\t\t\t\t\t\t\tSo dien thoai khong chua ki tu! Moi nhap lai.\n";
+					}
+					catch (long) {
+						cout << "\t\t\t\t\t\t\tSo dien thoai gom 10 hoac 11 so! Moi nhap lai.\n";
+					}
+				} while (true);
 				staff->getInforSt().setPhone(up);
 				break;
 			}
@@ -196,13 +270,24 @@ void StaffManager::update(){
 			}
 			case(10): {
 				cout << "\t\t\t\t\t\t\tNhap tuoi nhan than: ";
-				cin >> upn;
+				upn = getInt();
 				staff->getRelative().setAge(upn);
 				break;
 			}
 			case(11): {
-				cout << "\t\t\t\t\t\t\tNhap so dien thoai nhan than: ";
-				getline(cin, up);
+				do {
+					try {
+						cout << "\t\t\t\t\t\t\tNhap so dien thoai nhan than: ";
+						up = getphone();
+						break;
+					}
+					catch (int) {
+						cout << "\t\t\t\t\t\t\tSo dien thoai khong chua ki tu! Moi nhap lai.\n";
+					}
+					catch (long) {
+						cout << "\t\t\t\t\t\t\tSo dien thoai gom 10 hoac 11 so! Moi nhap lai.\n";
+					}
+				} while (true);
 				staff->getRelative().setPhone(up);
 				break;
 			}
@@ -297,34 +382,39 @@ void StaffManager::addSalary() {
 	int check = 1;
 	do {
 		cout << "\n\t\t\t\t\t\t\tNhap ma nhan vien muon them luong: ";
-		cin.ignore();
 		getline(cin, id);
 		if (this->findById(id) != nullptr) {
 			check = 2;
 			int date, month, year, salarybase, bonus;
 			cout << "\t\t\t\t\t\t\tNhap ngay tra luong: ";
-			cin >> date;
+			date = getInt();
 			cout << "\t\t\t\t\t\t\tNhap thang tra luong: ";
-			cin >> month;
+			month = getInt();
 			cout << "\t\t\t\t\t\t\tNhap nam tra luong: ";
-			cin >> year;
+			year = getInt();
 			Time timeslr(date, month, year);
 			tmp.setTimeslr(timeslr);
 			cout << "\t\t\t\t\t\t\tNhap luong co ban: ";
-			cin >> salarybase;
+			salarybase = getInt();
 			tmp.setSalaryBase(salarybase);
 			cout << "\t\t\t\t\t\t\tNhap luong thuong them: ";
-			cin >> bonus;
+			bonus = getInt();
 			tmp.setBonus(bonus);
 			this->typeList->addslr(tmp);
 			cout << "\t\t\t\t\t\t\tLuong da duoc them cho nhan vien!.\n";
 		}
 		else {
-			cout << "\t\t\t\t\t\t\tMa nhan vien khong hop le. Lua chon:";
-			cout << "\n\t\t\t\t\t1. Nhap lai.";
-			cout << "\t\t\t2. Thoat.";
-			cout << "\n\t\t\t\t\t";
-			cin >> check;
+			do {
+				cout << "\t\t\t\t\t\t\t\tMa nhan vien khong hop le!. Lua chon";
+				cout << "\n\t\t\t\t\t\t\t1. Nhap lai";
+				cout << "\t\t\t2. Thoat";
+				cout << "\n\t\t\t\t\t\t\t";
+				check = getInt();
+				if (check != 1 && check != 2) {
+					cout << "\t\t\t\t\t\t\tLua chon khong hop le! Moi chon lai.\n";
+					system("pause");
+				}
+			} while (check != 1 && check != 2);
 		}
 	} while (check == 1);
 }

@@ -33,3 +33,6 @@ protected:
 	int length;
 };
 
+int getInt();
+string getphone();
+int checktime(int, int, int);

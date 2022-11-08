@@ -7,13 +7,19 @@ CinemaRoom CinemaRoomManager::setCinemaRoomInfor() {
 	int check = 0;
 	do {
 		cout << "\n\t\t\t\t\t\t\tNhap id: ";
-		cin.ignore(); 
 		getline(cin, id);
 		if(this->findById(id) != nullptr) {
-			cout << "\t\t\t\t\t\t\t\tMa bi trung!. Lua chon";
-			cout << "\n\t\t\t\t\t1. Nhap lai";
-			cout << "\t\t\t2. Thoat\n";
-			cin >> check;
+			do {
+				cout << "\t\t\t\t\t\t\t\tMa bi trung!. Lua chon";
+				cout << "\n\t\t\t\t\t\t\t1. Nhap lai";
+				cout << "\t\t\t2. Thoat";
+				cout << "\n\t\t\t\t\t\t\t";
+				check = getInt();
+				if (check != 1 && check != 2) {
+					cout << "\t\t\t\t\t\t\tLua chon khong hop le! Moi chon lai.\n";
+					system("pause");
+				}
+			} while (check != 1 && check != 2);
 		}
 		else check = 3;
 	} while(check == 1 || check == 0);
@@ -24,10 +30,9 @@ CinemaRoom CinemaRoomManager::setCinemaRoomInfor() {
 	check = 0;
 	int chairs;
 	cout << "\t\t\t\t\t\t\tNhap so ghe: ";
-	cin >> chairs;
+	chairs = getInt();
 	string status;
 	cout << "\t\t\t\t\t\t\tNhap tinh trang phong chieu: ";
-	cin.ignore();
 	getline(cin, status);
 	cinemaRoom.setId(id);
 	cinemaRoom.setChairs(chairs);
@@ -39,7 +44,6 @@ string CinemaRoomManager::update() {
 	HANDLE cl = GetStdHandle(STD_OUTPUT_HANDLE);
 	string id;
 	cout << "\t\t\t\t\t\t\tNhap id: ";
-	cin.ignore();
 	getline(cin, id);
 	if (findById(id) == nullptr) {
 		cout << "\t\t\t\t\t\t\tKhong tim thay id phu hop!\n";
@@ -65,19 +69,18 @@ string CinemaRoomManager::update() {
 			cout << "\t\t\t\t\t\t\t2. Sua tinh trang" << endl;
 			cout << "\t\t\t\t\t\t\t0. Xac nhan va thoat" << endl;
 			cout << "\t\t\t\t\t\t\t>> Nhap lua chon: ";
-			cin >> opttmp;
+			opttmp = getInt();
 			string up;
 			int upn;
 			switch (opttmp) {
 			case(1): {
 				cout << "\t\t\t\t\t\t\tNhap so ghe: ";
-				cin >> upn;
+				upn = getInt();
 				room->setChairs(upn);
 				break;
 			}
 			case(2): {
 				cout << "\t\t\t\t\t\t\tNhap tinh trang: ";
-				cin.ignore();
 				getline(cin, up);
 				if(up == "bad") {
 					SetConsoleTextAttribute(cl, 4);
@@ -87,10 +90,15 @@ string CinemaRoomManager::update() {
 					cout << "\n\t\t\t\t\t\t\t1. Cap nhat.";
 					cout << "\t\t\t0. Thoat.";
 					cout << "\n\t\t\t\t\t\t\t";
-					int idel; cin >> idel;
-						if(idel == 1){
-							room->setStatus(up);
-						}
+					int idel; idel = getInt();
+					if(idel == 1){
+						room->setStatus(up);
+					}
+					else if (idel == 0) {}
+					else {
+						cout << "\t\t\t\t\t\t\tLua chon khong hop le!\n";
+						system("pause");
+					}
 				}	
 				else room->setStatus(up);			
 				break;

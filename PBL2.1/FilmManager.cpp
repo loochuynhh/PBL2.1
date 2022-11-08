@@ -51,18 +51,23 @@ Film FilmManager::setFilmInfor() {
 	string country;
 	int type;
 	int length;
-	int check = 0, checkf = 0;
+	int check = 0;
 	Film filmtmp;
 	do {
 		cout << "\n\t\t\t\t\t\t\tNhap id: ";
-		cin.ignore();
 		getline(cin, id);
 		if(this->findById(id) != nullptr) {
-			cout << "\t\t\t\t\t\t\t\tMa bi trung!. Lua chon";
-			cout << "\n\t\t\t\t\t\t1. Nhap lai";
-			cout << "\t\t\t2. Thoat";
-			cout << "\n\t\t\t\t\t\t\t";
-			cin >> check;
+			do {
+				cout << "\t\t\t\t\t\t\t\tMa bi trung!. Lua chon";
+				cout << "\n\t\t\t\t\t\t\t1. Nhap lai";
+				cout << "\t\t\t2. Thoat";
+				cout << "\n\t\t\t\t\t\t\t";
+				check = getInt();
+				if (check != 1 && check != 2) {
+					cout << "\t\t\t\t\t\t\tLua chon khong hop le! Moi chon lai.\n";
+					system("pause");
+				}
+			} while (check != 1 && check != 2);
 		}
 		else check = 3;
 	} while(check == 1 || check == 0);
@@ -90,14 +95,14 @@ Film FilmManager::setFilmInfor() {
 	cout << "\n";
 	do {
 		cout << "\t\t\t\t\t\t\tNhap ma the loai: ";
-		cin >> type;
+		type = getInt();
 		if(type >= 0 && type < 20) check = 1;
 		if (check == 0) {
 			cout << "\t\t\t\t\t\t\t\tThe loai khong hop le moi nhap lai.\n";
 		}
 	} while (check == 0);
 	cout << "\t\t\t\t\t\t\tNhap do dai phim: ";
-	cin >> length;
+	length = getInt();
 	Film film(id, name, director, actor, country, type, length);
 	return film;
 }
@@ -105,7 +110,6 @@ Film FilmManager::setFilmInfor() {
 void FilmManager::update() {
 	string id;
 	cout << "\t\t\t\t\t\t\tNhap id: ";
-	cin.ignore();
 	getline(cin, id);
 	if (findById(id) == nullptr) {
 		cout << "\t\t\t\t\t\t\tKhong tim thay id phu hop!\n";
@@ -135,10 +139,9 @@ void FilmManager::update() {
 			cout << "\t\t\t\t\t\t\t6. Sua do dai phim" << endl;
 			cout << "\t\t\t\t\t\t\t0. Xac nhan va thoat" << endl;
 			cout << "\t\t\t\t\t\t\t\t>> Nhap lua chon: ";
-			cin >> opttmp;
+			opttmp = getInt();
 			string up;
 			int upn;
-			cin.ignore();
 			switch (opttmp) {
 			case(1): {
 				cout << "\t\t\t\t\t\t\tNhap ten phim: ";
@@ -176,7 +179,7 @@ void FilmManager::update() {
 				cout << "\n";
 				do {
 					cout << "\t\t\t\t\t\t\tNhap ma the loai: ";
-					cin >> upn;
+					upn = getInt();
 					if(upn >= 0 && upn < 20) check = 1;
 					if (check == 0) {
 						cout << "\t\t\t\t\t\t\t\tThe loai khong hop le moi nhap lai.\n";
@@ -188,10 +191,13 @@ void FilmManager::update() {
 			}
 			case(6): {
 				cout << "\t\t\t\t\t\t\tNhap thoi gian: ";
-				cin >> upn;
+				upn = getInt();
 				film->setLength(upn);
 				break;
 			}
+			default:
+				cout << "\t\t\t\t\t\t\tLua chon khong hop le! Moi chon lai.\n";
+				system("pause");
 			}
 		} while (opttmp != 0);
 	}

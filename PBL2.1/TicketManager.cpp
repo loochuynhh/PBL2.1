@@ -17,16 +17,20 @@ Ticket TicketManager::setTicketInfor() {
 	int soda_corn;
 	int check = 0;
 	do {
-		cin.ignore();
 		cout << "\n\t\t\t\t\t\t\tNhap id: ";
-		cin.ignore();
 		getline(cin, id);
 		if(this->findById(id) != nullptr) {
-			cout << "\t\t\t\t\t\t\t\tMa bi trung!. Lua chon";
-			cout << "\n\t\t\t\t\t\t1. Nhap lai";
-			cout << "\t\t\t2. Thoat";
-			cout << "\n\t\t\t\t\t\t\t";
-			cin >> check;
+			do {
+				cout << "\t\t\t\t\t\t\t\tMa bi trung!. Lua chon";
+				cout << "\n\t\t\t\t\t\t\t1. Nhap lai";
+				cout << "\t\t\t2. Thoat";
+				cout << "\n\t\t\t\t\t\t\t";
+				check = getInt();
+				if (check != 1 && check != 2) {
+					cout << "\t\t\t\t\t\t\tLua chon khong hop le! Moi chon lai.\n";
+					system("pause");
+				}
+			} while (check != 1 && check != 2);
 		}
 		else check = 3;
 	} while(check == 1 || check == 0);
@@ -42,12 +46,17 @@ Ticket TicketManager::setTicketInfor() {
 		cout << "\n\t\t\t\t\t\t\tNhap ma lich chieu: ";
 		getline(cin, scheduleId);
 		if (this->scheduleList->findById(scheduleId) == nullptr) {
-			cout << "\t\t\t\t\t\t\t\tKhong tim thay lich chieu phu hop!. Lua chon";
-			cout << "\n\t\t\t\t\t\t\t1. Nhap lai";
-			cout << "\t\t\t2. Thoat";
-			cout << "\n\t\t\t\t\t\t\t";
-			cin >> check;
-			cin.ignore();
+			do {
+				cout << "\t\t\t\t\t\t\t\tKhong tim thay lich chieu!. Lua chon";
+				cout << "\n\t\t\t\t\t\t\t1. Nhap lai";
+				cout << "\t\t\t2. Thoat";
+				cout << "\n\t\t\t\t\t\t\t";
+				check = getInt();
+				if (check != 1 && check != 2) {
+					cout << "\t\t\t\t\t\t\tLua chon khong hop le! Moi chon lai.\n";
+					system("pause");
+				}
+			} while (check != 1 && check != 2);
 		}
 		else check = 3;
 	} while (check == 1 || check == 0);
@@ -55,8 +64,19 @@ Ticket TicketManager::setTicketInfor() {
 		ticket.setId("null");
 		return ticket;
 	}
-	cout << "\t\t\t\t\t\t\tNhap so dien thoai khach hang: ";
-	getline(cin, customerPhone);
+	do {
+		try {
+			cout << "\t\t\t\t\t\t\tNhap so dien thoai khach hang: ";
+			customerPhone = getphone();
+			break;
+		}
+		catch (int) {
+			cout << "\t\t\t\t\t\t\tSo dien thoai khong chua ki tu! Moi nhap lai.\n";
+		}
+		catch (long) {
+			cout << "\t\t\t\t\t\t\tSo dien thoai gom 10 hoac 11 so! Moi nhap lai.\n";
+		}
+	} while (true);
 	check = 0;
 	for(int i = 0; i < this->length; i++) {
 		if((this->typeList + i)->getCustomerPhone() == customerPhone) {
@@ -78,12 +98,17 @@ Ticket TicketManager::setTicketInfor() {
 		cout << "\n\t\t\t\t\t\t\tNhap ma nhan vien: ";
 		getline(cin, staffId);
 		if (this->staffManager->findById(staffId) == nullptr) {
-			cout << "\t\t\t\t\t\t\t\tKhong tim thay nhan vien!. Lua chon";
-			cout << "\n\t\t\t\t\t\t\t1. Nhap lai";
-			cout << "\t\t\t2. Thoat";
-			cout << "\n\t\t\t\t\t\t\t";
-			cin >> check;
-			cin.ignore();
+			do {
+				cout << "\t\t\t\t\t\t\t\tKhong tim thay nhan vien!. Lua chon";
+				cout << "\n\t\t\t\t\t\t\t1. Nhap lai";
+				cout << "\t\t\t2. Thoat";
+				cout << "\n\t\t\t\t\t\t\t";
+				check = getInt();
+				if (check != 1 && check != 2) {
+					cout << "\t\t\t\t\t\t\tLua chon khong hop le! Moi chon lai.\n";
+					system("pause");
+				}
+			} while (check != 1 && check != 2);
 		}
 		else check = 3;	
 	} while (check == 1 || check == 0);
@@ -92,11 +117,11 @@ Ticket TicketManager::setTicketInfor() {
 		return ticket;
 	}
 	cout << "\t\t\t\t\t\t\tNhap gia ve: ";
-	cin >> cost;
+	cost = getInt();
 	cout << "\t\t\t\t\t\t\tNhap so ve: ";
-	cin >> amount;
+	amount = getInt();
 	cout << "\t\t\t\t\t\t\tNhap gia bap nuoc: ";
-	cin >> soda_corn;
+	soda_corn = getInt();
 	ticket.setId(id);
 	ticket.setScheduleId(scheduleId);
 	ticket.setCustomerName(customerName);

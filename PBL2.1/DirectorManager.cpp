@@ -32,7 +32,6 @@ void DirectorManager::write() {
 void DirectorManager::updateAc() {
 	string id;
 	cout << "\n\t\t\t\t\t\t\tNhap id: ";
-	cin.ignore();
 	getline(cin, id);
 	if (findById(id) == nullptr) {
 		cout << "\t\t\t\t\t\t\tKhong tim thay id phu hop!\n";
@@ -49,7 +48,6 @@ void DirectorManager::updateAc() {
 void DirectorManager::updatePq() {
 	string id;
 	cout << "\n\t\t\t\t\t\t\tNhap id: ";
-	cin.ignore();
 	getline(cin, id);
 	if (findById(id) == nullptr) {
 		cout << "\t\t\t\t\t\t\tKhong tim thay!\n";

@@ -17,14 +17,19 @@ Schedule ScheduleManager::setScheduleInfor() {
 	int check = 0;
 	do {
 		cout << "\n\t\t\t\t\t\t\tNhap id: ";
-		cin.ignore();
 		getline(cin, id);
 		if(this->findById(id) != nullptr) {
-			cout << "\t\t\t\t\t\t\t\tMa bi trung!. Lua chon";
-			cout << "\n\t\t\t\t\t\t1. Nhap lai";
-			cout << "\t\t\t2. Thoat";
-			cout << "\n\t\t\t\t\t\t\t";
-			cin >> check;
+			do {
+				cout << "\t\t\t\t\t\t\t\tMa bi trung!. Lua chon";
+				cout << "\n\t\t\t\t\t\t\t1. Nhap lai";
+				cout << "\t\t\t2. Thoat";
+				cout << "\n\t\t\t\t\t\t\t";
+				check = getInt();
+				if (check != 1 && check != 2) {
+					cout << "\t\t\t\t\t\t\tLua chon khong hop le! Moi chon lai.\n";
+					system("pause");
+				}
+			} while (check != 1 && check != 2);
 		}
 		else check = 3;
 	} while(check == 1 || check == 0);
@@ -40,12 +45,17 @@ Schedule ScheduleManager::setScheduleInfor() {
 		cout << "\n\t\t\t\t\t\t\tNhap ma phim: ";
 		getline(cin, filmId);
 		if (this->filmManager->findById(filmId) == nullptr) {
-			cout << "\t\t\t\t\t\t\t\tKhong tim thay phim!. Lua chon";
-			cout << "\n\t\t\t\t\t\t\t1. Nhap lai";
-			cout << "\t\t\t2. Thoat";
-			cout << "\n\t\t\t\t\t\t\t";
-			cin >> check;
-			cin.ignore();
+			do {
+				cout << "\t\t\t\t\t\t\t\tKhong tim thay phim!. Lua chon";
+				cout << "\n\t\t\t\t\t\t\t1. Nhap lai";
+				cout << "\t\t\t2. Thoat";
+				cout << "\n\t\t\t\t\t\t\t";
+				check = getInt();
+				if (check != 1 && check != 2) {
+					cout << "\t\t\t\t\t\t\tLua chon khong hop le! Moi chon lai.\n";
+					system("pause");
+				}
+			} while (check != 1 && check != 2);
 		}
 		else check = 3;
 	} while (check == 1 || check == 0);	
@@ -61,20 +71,30 @@ Schedule ScheduleManager::setScheduleInfor() {
 		cout << "\n\t\t\t\t\t\t\tNhap ma phong chieu: "; 
 		getline(cin, cinemaRoomId);
 		if (this->cinemaRoomManager->findById(cinemaRoomId) == nullptr) {
-			cout << "\t\t\t\t\t\t\t\tKhong tim thay phong chieu!. Lua chon";
-			cout << "\n\t\t\t\t\t\t\t1. Nhap lai";
-			cout << "\t\t\t2. Thoat";
-			cout << "\n\t\t\t\t\t\t\t";
-			cin >> check;
-			cin.ignore();
+			do {
+				cout << "\t\t\t\t\t\t\t\tKhong tim thay phong chieu!. Lua chon";
+				cout << "\n\t\t\t\t\t\t\t1. Nhap lai";
+				cout << "\t\t\t2. Thoat";
+				cout << "\n\t\t\t\t\t\t\t";
+				check = getInt();
+				if (check != 1 && check != 2) {
+					cout << "\t\t\t\t\t\t\tLua chon khong hop le! Moi chon lai.\n";
+					system("pause");
+				}
+			} while (check != 1 && check != 2);
 		}
 		else if (this->cinemaRoomManager->findById(cinemaRoomId)->getStatus() == "bad") {
-			cout << "\t\t\t\t\t\t\t\tPhong chieu dang co van de!. Lua chon";
-			cout << "\n\t\t\t\t\t\t\t1. Nhap lai";
-			cout << "\t\t\t2. Thoat";
-			cout << "\n\t\t\t\t\t\t\t";
-			cin >> check;
-			cin.ignore();
+			do {
+				cout << "\t\t\t\t\t\t\t\tPhong chieu dang co van de!. Lua chon";
+				cout << "\n\t\t\t\t\t\t\t1. Nhap lai";
+				cout << "\t\t\t2. Thoat";
+				cout << "\n\t\t\t\t\t\t\t";
+				check = getInt();
+				if (check != 1 && check != 2) {
+					cout << "\t\t\t\t\t\t\tLua chon khong hop le! Moi chon lai.\n";
+					system("pause");
+				}
+			} while (check != 1 && check != 2);
 		}
 		else check = 3;
 	} while (check == 1 || check == 0);
@@ -86,19 +106,37 @@ Schedule ScheduleManager::setScheduleInfor() {
 	cout << "\n";
 	getShow();
 	cout << "\t\t\t\t\t\t\tNhap ca so: ";
-	cin >> show;
+	show = getInt();
 	while (show < 1 || show > 5)
 	{
 		cout << "\t\t\t\t\t\t\tSo ca khong hop le!" << endl;
 		cout << "\t\t\t\t\t\t\tNhap ca so: ";
-		cin >> show;
-	}	
-	cout << "\t\t\t\t\t\t\tNhap ngay chieu: ";
-	cin >> date;
-	cout << "\t\t\t\t\t\t\tNhap thang chieu: ";
-	cin >> month;
-	cout << "\t\t\t\t\t\t\tNhap nam chieu: ";
-	cin >> year;
+		show = getInt();
+	}
+	do {
+		try {
+			cout << "\t\t\t\t\t\t\tNhap ngay chieu: ";
+			date = getInt();
+			cout << "\t\t\t\t\t\t\tNhap thang chieu: ";
+			month = getInt();
+			cout << "\t\t\t\t\t\t\tNhap nam chieu: ";
+			year = getInt();
+			checktime(date, month, year);
+			break;
+		}
+		catch (int) {
+			cout << "\t\t\t\t\t\t\tNgay thang khong phu hop!. Moi nhap lai.\n";
+		}
+		catch (long) {
+			cout << "\t\t\t\t\t\t\tThang khong hop le! Moi nhap lai.\n";
+		}
+		catch (unsigned int) {
+			cout << "\t\t\t\t\t\t\tNgay khong duoc am! Moi nhap lai.\n";
+		}
+		catch (string) {
+			cout << "\t\t\t\t\t\t\tNam khong hop le! Moi nhap lai.\n";
+		}
+	} while (true);
 	Time t(date, month, year);
 	schedule.setId(id);
 	schedule.setFilmId(filmId);
@@ -111,7 +149,6 @@ Schedule ScheduleManager::setScheduleInfor() {
 void ScheduleManager::update() {
 	string id;
 	cout << "\t\t\t\t\t\t\tNhap id: ";
-	cin.ignore();
 	getline(cin, id);
 	if (findById(id) == nullptr) {
 		cout << "\t\t\t\t\t\t\tKhong tim thay id phu hop!\n";
@@ -138,10 +175,9 @@ void ScheduleManager::update() {
 			cout << "\t\t\t\t\t\t\t4. Sua thoi gian" << endl;
 			cout << "\t\t\t\t\t\t\t0. Xac nhan va thoat" << endl;
 			cout << "\t\t\t\t\t\t\t>> Nhap lua chon: ";
-			cin >> opttmp;
+			opttmp = getInt();
 			string up;
 			int upn;
-			cin.ignore();
 			switch (opttmp) {
 			case(1): {
 				int check = 0;
@@ -152,12 +188,17 @@ void ScheduleManager::update() {
 					cout << "\n\t\t\t\t\t\t\tNhap ma phim: ";
 					getline(cin, up);
 					if (this->filmManager->findById(up) == nullptr) {
-						cout << "\t\t\t\t\t\t\t\tKhong tim thay phim!. Lua chon";
-						cout << "\n\t\t\t\t\t\t\t1. Nhap lai";
-						cout << "\t\t\t2. Quay lai";
-						cout << "\n\t\t\t\t\t\t\t";
-						cin >> check;
-						cin.ignore();
+						do {
+							cout << "\t\t\t\t\t\t\t\tKhong tim thay phim!. Lua chon";
+							cout << "\n\t\t\t\t\t\t\t1. Nhap lai";
+							cout << "\t\t\t2. Quay lai";
+							cout << "\n\t\t\t\t\t\t\t";
+							check = getInt();
+							if (check != 1 && check != 2) {
+								cout << "\t\t\t\t\t\t\tLua chon khong hop le! Moi chon lai.\n";
+								system("pause");
+							}
+						} while (check != 1 && check != 2);
 					}
 					else check = 3;
 				} while (check == 1 || check == 0);	
@@ -173,20 +214,30 @@ void ScheduleManager::update() {
 					cout << "\n\t\t\t\t\t\t\tNhap ma phong chieu: "; 
 					getline(cin, up);
 					if (this->cinemaRoomManager->findById(up) == nullptr) {
-						cout << "\t\t\t\t\t\t\t\tKhong tim thay phong chieu!. Lua chon";
-						cout << "\n\t\t\t\t\t\t\t1. Nhap lai";
-						cout << "\t\t\t2. Quay lai";
-						cout << "\n\t\t\t\t\t\t\t";
-						cin >> check;
-						cin.ignore();
+						do {
+							cout << "\t\t\t\t\t\t\t\tKhong tim thay phong chieu!. Lua chon";
+							cout << "\n\t\t\t\t\t\t\t1. Nhap lai";
+							cout << "\t\t\t2. Quay lai";
+							cout << "\n\t\t\t\t\t\t\t";
+							check = getInt();
+							if (check != 1 && check != 2) {
+								cout << "\t\t\t\t\t\t\tLua chon khong hop le! Moi chon lai.\n";
+								system("pause");
+							}
+						} while (check != 1 && check != 2);
 					}
 					else if (this->cinemaRoomManager->findById(up)->getStatus() == "bad") {
-						cout << "\t\t\t\t\t\t\t\tPhong chieu dang co van de!. Lua chon";
-						cout << "\n\t\t\t\t\t\t\t1. Nhap lai";
-						cout << "\t\t\t2. Thoat";
-						cout << "\n\t\t\t\t\t\t\t";
-						cin >> check;
-						cin.ignore();
+						do {
+							cout << "\t\t\t\t\t\t\t\tPhong chieu dang co van de!. Lua chon";
+							cout << "\n\t\t\t\t\t\t\t1. Nhap lai";
+							cout << "\t\t\t2. Thoat";
+							cout << "\n\t\t\t\t\t\t\t";
+							check = getInt();
+							if (check != 1 && check != 2) {
+								cout << "\t\t\t\t\t\t\tLua chon khong hop le! Moi chon lai.\n";
+								system("pause");
+							}
+						} while (check != 1 && check != 2);
 					}
 					else check = 3;
 				} while (check == 1 || check == 0);
@@ -196,13 +247,13 @@ void ScheduleManager::update() {
 			case(3): {
 				cout << "\t\t\t\t\t\t\tNhap ca chieu: " << endl;
 				getShow();
-				cin >> upn;
+				upn = getInt();
 				while (upn < 1 || upn > 5)
 				{
 					cout << "\t\t\t\t\t\t\tSo ca khong hop le!" << endl;
 					getShow();
 					cout << "\t\t\t\t\t\t\tNhap lai ca chieu: " << endl;
-					cin >> upn;
+					upn = getInt();
 				}	
 				schedule->setShow(upn);
 				break;
@@ -211,12 +262,30 @@ void ScheduleManager::update() {
 				int date;
 				int month;
 				int year;
-				cout << "\t\t\t\t\t\t\tNhap ngay: ";
-				cin >> date;
-				cout << "\t\t\t\t\t\t\tNhap thang: ";
-				cin >> month;
-				cout << "\t\t\t\t\t\t\tNhap nam: ";
-				cin >> year;
+				do {
+					try {
+						cout << "\t\t\t\t\t\t\tNhap ngay chieu: ";
+						date = getInt();
+						cout << "\t\t\t\t\t\t\tNhap thang chieu: ";
+						month = getInt();
+						cout << "\t\t\t\t\t\t\tNhap nam chieu: ";
+						year = getInt();
+						checktime(date, month, year);
+						break;
+					}
+					catch (int) {
+						cout << "\t\t\t\t\t\t\tNgay thang khong phu hop!. Moi nhap lai.\n";
+					}
+					catch (long) {
+						cout << "\t\t\t\t\t\t\tThang khong hop le! Moi nhap lai.\n";
+					}
+					catch (unsigned int) {
+						cout << "\t\t\t\t\t\t\tNgay khong duoc am! Moi nhap lai.\n";
+					}
+					catch (string) {
+						cout << "\t\t\t\t\t\t\tNam khong hop le! Moi nhap lai.\n";
+					}
+				} while (true);
 				Time t;
 				t.setDate(date);
 				t.setMonth(month);
